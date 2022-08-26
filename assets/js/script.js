@@ -1,23 +1,54 @@
+/* Linking to the DOM */
 const question = document.getElementById("idiom");
 const choices = document.getElementsByClassName("option")
 const progressText = document.getElementById("progressText");
 const scoreText = document.getElementById("score");
 const progressBarFull = document.getElementById("progressBarFull");
 
-
+/* Setting base values for mutable variables */
 let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions =[];
 
+/* Setting fixed value variables */
+const POINT_VALUE = 1;
+const TOTAL_QUESTIONS = 12;
 
-const POINT_VALUE = 1
-const TOTAL_QUESTIONS = 12
+/* Creating a function to start the game */
+function startGame() {
+    /* setting the counters to start at 0 and accessing question list */
+    questionCounter = 0;
+    score = 0;
+    availableQuestions = [...questionList]
+    /* call the getNewQuestion function */
+    getNewQuestion()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Example Qs */
-let questions = [
+let questionList = [
     {
         id : 1,
         idiom : "Der Koch war verliebt",
