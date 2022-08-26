@@ -11,12 +11,29 @@
     <main>
         <div class="main-container">
             <div id="q-container" class="hidden">
+                <div id="top-bar">
+                    <div id="top-bar-item"></div>
+                    <p id="progressText" class="top-bar-text">
+                        Question number
+                    </p>
+                    <div id="progressBar">
+                        <div id="progressBarFull"></div>
+                    </div>
+                    <div id="top-bar-item">
+                        <p class="top-bar-text">
+                            Score
+                        </p>
+                        <p class="top-bar-main-text" id="score">
+                            0
+                        </p>
+                    </div>
+                </div>                
                 <div id="idiom">Idiom</div>
                 <div id="option-buttons" class="button-media-qs">
-                    <button class="button">Option 1</button>
-                    <button class="button">Option 2</button>
-                    <button class="button">Option 3</button>
-                    <button class="button">Option 4</button>
+                    <button class="button option">Option 1</button>
+                    <button class="button option">Option 2</button>
+                    <button class="button option">Option 3</button>
+                    <button class="button option">Option 4</button>
                 </div>
             </div>
             <div class="start-next">
@@ -30,6 +47,11 @@
 
 
 
+    
+
+    <!-- font awesome script-->
+    <script src="https://kit.fontawesome.com/4a9fb983cf.js" crossorigin="anonymous"></script>
+    <!-- Javascript -->
     <script src="assets/js/script.js"></script>
 </body>
 </html>
