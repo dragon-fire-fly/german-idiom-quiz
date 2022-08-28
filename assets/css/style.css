@@ -5,5 +5,70 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+/* styling for main container on page */
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/*  styling for question container, score etc */
+#q-container {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    justify-content: center;
+}
+
+/*  styling for top bar (score, progress bar, etc) */
+#top-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row: 1fr 1fr 1fr;
+}
+
+.top-bar-text {
+    grid-column: 1;
+    text-align: center;
+    font-size: 2rem; 
+}
+
+.top-bar-main-text {
+    text-align: center;
+}
+#progressText {
+    font-size: 150%;
+    grid-column: 1, 2;
+    grid-row: 1,2;
+
+}
+#progressBar {
+    width: 30%;
+    height: 2rem;
+    border: 0.2rem solid blueviolet;
+    margin-top: 2rem;
+    border-radius: 50px;
+    overflow: hidden;
+    text-align: left;
+}
+
+#progressBarFull {
+    height: 100%;
+    background: blueviolet;
+    width: 0%;
+}
+
+/* styling for option A-D containers */
+
+
+/*  media queries */
