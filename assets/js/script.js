@@ -1,10 +1,10 @@
 /* Linking to the DOM */
-const question = document.getElementById("idiom");
-const options = document.getElementsByClassName("option-text")
-const progressText = document.getElementById("progressText");
-const scoreText = document.getElementById("score");
-const progressBarFull = document.getElementById("progressBarFull");
-const nextButton = document.getElementById("next-button")
+const question = document.querySelector('#question');
+const options = Array.from(document.querySelectorAll('.option-text'));
+const progressText = document.querySelector('#progressText');
+const scoreText = document.querySelector('#score');
+const progressBarFull = document.querySelector('#progressBarFull');
+const nextButton = document.querySelector('#next-button');
 console.log("linked")
 
 /* Setting base values for mutable variables */
@@ -19,49 +19,49 @@ const POINT_VALUE = 1;
 const TOTAL_QUESTIONS = 12;
 
 /* Example Qs */
-let questionList = [
+let questions = [
     {
         id : 1,
-        idiom : "Der Koch war verliebt",
+        question : "Der Koch war verliebt",
         literal_translation : "The cook was in love",
-        meaning1 : "To get an extra portion",
-        meaning2 : "The meal is too salty",
-        meaning3 : "To find a hair in your meal",
-        meaning4 : "The meal is already cold",
-        correct_meaning : "The meal is too salty",
+        option1 : "To get an extra portion",
+        option2 : "The meal is too salty",
+        option3 : "To find a hair in your meal",
+        option4 : "The meal is already cold",
+        answer : 2,
         english_equivalent: ""
     },
     {
         id : 2,
-        idiom : "Am Essen war die Küchenfee dran",
+        question : "Am Essen war die Küchenfee dran",
         literal_translation : "It was the Kitchen Fairy's turn to cook",
-        meaning1 : "To get a take-away",
-        meaning2 : "",
-        meaning3 : "",
-        meaning4 : "The food was burnt",
-        correct_meaning : "The food was burnt",
+        option1 : "To get a take-away",
+        option2 : "",
+        option3 : "",
+        option4 : "The food was burnt",
+        answer : 4,
         english_equivalent: "",
     },
     {
         id : 3,
-        idiom : "Nicht die hellster Glühbirne (im Shrank)",
+        question : "Nicht die hellster Glühbirne (im Shrank)",
         literal_translation : "Not the brightest lightbulb (in the cupboard)",
-        meaning1 : "Someone who is overly critical of others",
-        meaning2 : "Someone who is not considered very attractive",
-        meaning3 : "Someone who is not very welcoming to others",
-        meaning4 : "Someone who is not considered very smart",
-        correct_meaning : "Someone who is not considered very smart",
+        option1 : "Someone who is overly critical of others",
+        option2 : "Someone who is not considered very attractive",
+        option3 : "Someone who is not very welcoming to others",
+        option4 : "Someone who is not considered very smart",
+        answer: 4,
         english_equivalent : "Not the sharpest tool in the shed",
     },
     {
         id : 4,
-        idiom : "Das ist nur ein Katzensprung ",
+        question : "Das ist nur ein Katzensprung ",
         literal_translation : "That is only a cat's leap",
-        meaning1 : "It is right around the corner",
-        meaning2 : "",
-        meaning3 : "",
-        meaning4 : "",
-        correct_meaning : "It is right around the corner",
+        option1 : "It is right around the corner",
+        option2 : "",
+        option3 : "",
+        option4 : "",
+        answer : 1,
         english_equivalent : "Only a stone's throw",
     }
 ]
@@ -71,7 +71,7 @@ function startGame() {
     /* setting the counters to start at 0 and accessing question list */
     questionCounter = 0;
     score = 0;
-    availableQuestions = [...questionList];
+    availableQuestions = [...questions];
     /* call the getNewQuestion function */
     getNewQuestion();
 }
@@ -80,7 +80,7 @@ function getNewQuestion() {
     /* if there are no remaining Qs available or we have reached the total number of Qs, end game */
     if (availableQuestions.length===0 || questionCounter > TOTAL_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
-        return window.location.assign('/end.html');
+        return window.location.assign('end.html');
     }
     /* +1 to the question counter */
     questionCounter++
@@ -121,7 +121,7 @@ options.forEach(option => {
         /* compare user answer to correct answer and apply class of 'correct' or 'incorrect'*/
         let classToApply = selectedAnswer == currentQuestion.answer ? 'correct': 'incorrect'
 
-        /* if the user answer is correct, increase score by 1 point */
+        /* if the user answer is correct, call increase score function */
         if (classToApply === 'correct') {
             increaseScore(POINT_VALUE)
         }
@@ -136,3 +136,12 @@ options.forEach(option => {
 
     })
 })
+
+/* increase score by 1 point if correct */
+function increaseScore(num) {
+    score +=num
+    scoreText.innerText = score
+}
+
+/* call the startGame function */
+startGame()
