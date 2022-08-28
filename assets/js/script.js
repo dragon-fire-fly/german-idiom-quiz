@@ -4,6 +4,7 @@ const options = document.getElementsByClassName("option-text")
 const progressText = document.getElementById("progressText");
 const scoreText = document.getElementById("score");
 const progressBarFull = document.getElementById("progressBarFull");
+const nextButton = document.getElementById("next-button")
 console.log("linked")
 
 /* Setting base values for mutable variables */
@@ -106,3 +107,32 @@ function getNewQuestion() {
 
     acceptingAnswers = true
 }
+
+options.forEach(option => {
+    /* add event listener to detect user click on an option */
+    option.addEventListener('click', event => {
+        if(!acceptingAnswers) return
+
+        /* stop accepting answers so user cannot click another answer */
+        acceptingAnswers = false
+        const selectedOption = event.target
+        /* retrieve the number (1-4) for the chosen answer */
+        const selectedAnswer = selectedOption.dataset['number']
+        /* compare user answer to correct answer and apply class of 'correct' or 'incorrect'*/
+        let classToApply = selectedAnswer == currentQuestion.answer ? 'correct': 'incorrect'
+
+        /* if the user answer is correct, increase score by 1 point */
+        if (classToApply === 'correct') {
+            increaseScore(POINT_VALUE)
+        }
+        /* apply appropriate class to the selected answer (red or green colour) */
+        selectedOption.parentElement.classList.add(classToApply)
+
+        /* when next button clicked, reset class of user answer and obtain new question */
+        nextButton.addEventListener('click', event => {
+            selectedChoice.parentElement.classList.remove(classToApply)
+            getNewQuestion()
+        })
+
+    })
+})
