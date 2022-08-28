@@ -1,9 +1,10 @@
 /* Linking to the DOM */
 const question = document.getElementById("idiom");
-const options = document.getElementsByClassName("option")
+const options = document.getElementsByClassName("option-text")
 const progressText = document.getElementById("progressText");
 const scoreText = document.getElementById("score");
 const progressBarFull = document.getElementById("progressBarFull");
+console.log("linked")
 
 /* Setting base values for mutable variables */
 let currentQuestion = {};
@@ -15,69 +16,6 @@ let availableQuestions =[];
 /* Setting fixed value variables */
 const POINT_VALUE = 1;
 const TOTAL_QUESTIONS = 12;
-
-/* Creating a function to start the game */
-function startGame() {
-    /* setting the counters to start at 0 and accessing question list */
-    questionCounter = 0;
-    score = 0;
-    availableQuestions = [...questionList]
-    /* call the getNewQuestion function */
-    getNewQuestion()
-}
-
-function getNewQuestion() {
-    /* if there are no remaining Qs available or we have reached the total number of Qs, end game */
-    if (availableQuestions.length===0 || questionCounter > TOTAL_QUESTIONS) {
-        localStorage.setItem('mostRecentScore', score)
-        return window.location.assign('/end.html')
-    }
-    /* +1 to the question counter */
-    questionCounter++
-    /* display question number x of y */
-    progressText.innerText = `Question ${questionCounter} of ${TOTAL_QUESTIONS}`
-    /* display progress bar as percentage out of total Qs */
-    progressBarFull.style.width = `${(questionCounter/TOTAL_QUESTIONS) * 100}%`
-
-    /* choose a random index for the next question */
-    /* extra note: multiplies the available number of Qs by a number between 0 and 1, then rounds down */
-    const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
-    /* finds the question from the list of questions using index number */
-    currentQuestion = availableQuestions[questionsIndex]
-    /* displays the text for the new question */
-    question.innerText = currentQuestion.question
-
-    options.forEach(option => {
-        /* which option is being clicked? */
-        const number = option.dataset['number']
-        option.innerText = currentQuestion['option' + number]
-    })
-
-    availableQuestions.splice(questionsIndex, 1)
-
-    acceptingAnswers = true
-}
-
-options
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Example Qs */
 let questionList = [
@@ -126,3 +64,45 @@ let questionList = [
         english_equivalent : "Only a stone's throw",
     }
 ]
+
+/* Creating a function to start the game */
+function startGame() {
+    /* setting the counters to start at 0 and accessing question list */
+    questionCounter = 0;
+    score = 0;
+    availableQuestions = [...questionList];
+    /* call the getNewQuestion function */
+    getNewQuestion();
+}
+
+function getNewQuestion() {
+    /* if there are no remaining Qs available or we have reached the total number of Qs, end game */
+    if (availableQuestions.length===0 || questionCounter > TOTAL_QUESTIONS) {
+        localStorage.setItem('mostRecentScore', score);
+        return window.location.assign('/end.html');
+    }
+    /* +1 to the question counter */
+    questionCounter++
+    /* display question number x of y */
+    progressText.innerText = `Question ${questionCounter} of ${TOTAL_QUESTIONS}`
+    /* display progress bar as percentage out of total Qs */
+    progressBarFull.style.width = `${(questionCounter/TOTAL_QUESTIONS) * 100}%`
+
+    /* choose a random index for the next question */
+    /* extra note: multiplies the available number of Qs by a number between 0 and 1, then rounds down */
+    const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
+    /* finds the question from the list of questions using index number */
+    currentQuestion = availableQuestions[questionsIndex]
+    /* displays the text for the new question */
+    question.innerText = currentQuestion.question
+
+    options.forEach(option => {
+        /* display options for the question asked */
+        const number = option.dataset['number']
+        option.innerText = currentQuestion['option' + number]
+    })
+
+    availableQuestions.splice(questionsIndex, 1)
+
+    acceptingAnswers = true
+}
