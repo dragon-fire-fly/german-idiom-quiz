@@ -126,11 +126,11 @@ options.forEach(option => {
             increaseScore(POINT_VALUE)
         }
         /* apply appropriate class to the selected answer (red or green colour) */
-        selectedOption.parentElement.classList.add(classToApply)
+        selectedOption.classList.add(classToApply)
 
         /* when next button clicked, reset class of user answer and obtain new question */
         nextButton.addEventListener('click', event => {
-            selectedChoice.parentElement.classList.remove(classToApply)
+            selectedOption.classList.remove(classToApply)
             getNewQuestion()
         })
 
