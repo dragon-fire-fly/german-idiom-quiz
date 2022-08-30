@@ -11,6 +11,8 @@ console.log("linked")
 let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
+let randomisedQuestions
+let quizQuestions
 let questionCounter = 0;
 let availableQuestions =[];
 
@@ -63,7 +65,17 @@ let questions = [
         option4 : "",
         answer : 1,
         english_equivalent : "Only a stone's throw",
-    }
+    },
+    {
+        id : 5,
+        question : "Jemanden die Schokoladeseite",
+        literal_translation : "To show someone's chocolate side",
+        option1 : "",
+        option2 : "",
+        option3 : "",
+        option4 : "",
+        answer : 1,
+    },
 ]
 
 /* Creating a function to start the game */
@@ -72,14 +84,60 @@ function startGame() {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
+    questionList = []
+    quizQuestions = []
+
+    /* call function to shuffle the question list */
+    randomisedQuestions = shuffle(availableQuestions)
+    /* call function to select 12 random quiz questions */
+    quizQuestions = selectQuizQuestions(randomisedQuestions)
     /* call the getNewQuestion function */
-    getNewQuestion();
+ /*    getNewQuestion(); */
+    console.log(quizQuestions)
 }
+
+/* function randomise(questions) {
+    for (let i=0; i < questions.length; i++) {
+        questionList += questions[i].question;
+    }
+    for (let i=0; i < 5; i++){
+        let index = Math.floor(Math.random() * questions.length);
+        quizQuestions += questionList(index)
+        console.log(quizQuestions)
+    }
+}
+
+    const questionsIndex = Math.floor(Math.random() * availableQuestions.length) */
+
+/* shuffle function takes the original question list and randomises the entries */
+function shuffle(questionList) {
+    let currentIndex = questionList.length,  randomIndex;
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        // And swap it with the current element.
+        [questionList[currentIndex], questionList[randomIndex]] = [
+            questionList[randomIndex], questionList[currentIndex]];
+    }
+    return questionList;
+}
+
+/* adds the first 12 randomised quesions to a list called "quizQuestions*/
+function selectQuizQuestions(randomisedQs){
+    for (let i=0; i<12; i++){
+        quizQuestions.push(randomisedQs[i])
+    }
+    return quizQuestions
+}
+
 
 function getNewQuestion() {
     /* if there are no remaining Qs available or we have reached the total number of Qs, end game */
     if (availableQuestions.length===0 || questionCounter > TOTAL_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
+        
         return window.location.assign('end.html');
     }
     /* +1 to the question counter */
@@ -106,6 +164,10 @@ function getNewQuestion() {
     availableQuestions.splice(questionsIndex, 1)
 
     acceptingAnswers = true
+    /* if there is exactly one question remaining in list, change next button to end */
+    if (availableQuestions.length===1 || questionCounter >= TOTAL_QUESTIONS) {
+        nextButton.innerText = "End";
+    }
 }
 
 options.forEach(option => {
