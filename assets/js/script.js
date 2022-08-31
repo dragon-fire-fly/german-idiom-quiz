@@ -12,13 +12,13 @@ let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
 let randomisedQuestions
-let quizQuestions
+let quizQuestions = []
 let questionCounter = 0;
 let availableQuestions =[];
 
 /* Setting fixed value variables */
 const POINT_VALUE = 1;
-const TOTAL_QUESTIONS = 12;
+const TOTAL_QUESTIONS = 4;
 
 /* Example Qs */
 let questions = [
@@ -30,7 +30,7 @@ let questions = [
         option2 : "The meal is too salty",
         option3 : "To find a hair in your meal",
         option4 : "The meal is already cold",
-        answer : 2,
+        answer : "The meal is too salty",
         english_equivalent: ""
     },
     {
@@ -41,7 +41,7 @@ let questions = [
         option2 : "",
         option3 : "",
         option4 : "The food was burnt",
-        answer : 4,
+        answer : "The food was burnt",
         english_equivalent: "",
     },
     {
@@ -52,7 +52,7 @@ let questions = [
         option2 : "Someone who is not considered very attractive",
         option3 : "Someone who is not very welcoming to others",
         option4 : "Someone who is not considered very smart",
-        answer: 4,
+        answer: "Someone who is not considered very smart",
         english_equivalent : "Not the sharpest tool in the shed",
     },
     {
@@ -63,51 +63,37 @@ let questions = [
         option2 : "",
         option3 : "",
         option4 : "",
-        answer : 1,
+        answer : "It is right around the corner",
         english_equivalent : "Only a stone's throw",
     },
     {
         id : 5,
-        question : "Jemanden die Schokoladeseite",
-        literal_translation : "To show someone's chocolate side",
-        option1 : "",
-        option2 : "",
-        option3 : "",
-        option4 : "",
-        answer : 1,
+        idiom : "Einen Korb geben",
+        literal_translation : "To give someone a basket",
+        meaning1 : "To give someone a compliment",
+        meaning2 : "To be rude to someone",
+        meaning3 : "To be a good listener",
+        meaning4 : "To decline an invitation",
+        answer : "To decline an invitation",
     },
 ]
 
-/* Creating a function to start the game */
+/* create a function to start the game */
 function startGame() {
     /* setting the counters to start at 0 and accessing question list */
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
     questionList = []
-    quizQuestions = []
 
     /* call function to shuffle the question list */
     randomisedQuestions = shuffle(availableQuestions)
     /* call function to select 12 random quiz questions */
     quizQuestions = selectQuizQuestions(randomisedQuestions)
     /* call the getNewQuestion function */
- /*    getNewQuestion(); */
+    getNewQuestion(); 
     console.log(quizQuestions)
 }
-
-/* function randomise(questions) {
-    for (let i=0; i < questions.length; i++) {
-        questionList += questions[i].question;
-    }
-    for (let i=0; i < 5; i++){
-        let index = Math.floor(Math.random() * questions.length);
-        quizQuestions += questionList(index)
-        console.log(quizQuestions)
-    }
-}
-
-    const questionsIndex = Math.floor(Math.random() * availableQuestions.length) */
 
 /* shuffle function takes the original question list and randomises the entries */
 function shuffle(questionList) {
@@ -147,11 +133,10 @@ function getNewQuestion() {
     /* display progress bar as percentage out of total Qs */
     progressBarFull.style.width = `${(questionCounter/TOTAL_QUESTIONS) * 100}%`
 
-    /* choose a random index for the next question */
-    /* extra note: multiplies the available number of Qs by a number between 0 and 1, then rounds down */
-    const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
+
     /* finds the question from the list of questions using index number */
-    currentQuestion = availableQuestions[questionsIndex]
+    currentQuestion = quizQuestions[questionCounter]
+
     /* displays the text for the new question */
     question.innerText = currentQuestion.question
 
@@ -161,13 +146,13 @@ function getNewQuestion() {
         option.innerText = currentQuestion['option' + number]
     })
 
-    availableQuestions.splice(questionsIndex, 1)
+    quizQuestions.splice(questionCounter, 1)
 
     acceptingAnswers = true
     /* if there is exactly one question remaining in list, change next button to end */
-    if (availableQuestions.length===1 || questionCounter >= TOTAL_QUESTIONS) {
+/*     if (availableQuestions.length===1 || questionCounter >= TOTAL_QUESTIONS) {
         nextButton.innerText = "End";
-    }
+    } */
 }
 
 options.forEach(option => {
