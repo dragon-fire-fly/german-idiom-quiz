@@ -68,13 +68,33 @@ let questions = [
     },
     {
         id : 5,
-        idiom : "Einen Korb geben",
+        question : "Einen Korb geben",
         literal_translation : "To give someone a basket",
-        meaning1 : "To give someone a compliment",
-        meaning2 : "To be rude to someone",
-        meaning3 : "To be a good listener",
-        meaning4 : "To decline an invitation",
+        option1 : "To give someone a compliment",
+        option2 : "To be rude to someone",
+        option3 : "To be a good listener",
+        option4 : "To decline an invitation",
         answer : "To decline an invitation",
+    },
+    {
+        id : 6,
+        question : "Eine Extrawurst verlangen",
+        literal_translation : "To ask for an extra sausage",
+        option1 : "To request an extra portion",
+        option2 : "To fish for compliments",
+        option3 : "To ask for special treatment",
+        option4 : "To be the butt of a joke",
+        answer : "To ask for special treatment",
+    },
+    {
+        id : 7,
+        question : "Tomaten auf den Augen haben",
+        literal_translation : "To have tomatoes on one's eyes",
+        option1 : "To look on the bright side of something",
+        option2 : "To be oblivious to what’s going around you",
+        option3 : "To be extremely angry",
+        option4 : "To be embarrassed",
+        answer : "To be oblivious to what’s going around you",
     },
 ]
 
@@ -135,7 +155,7 @@ function getNewQuestion() {
 
 
     /* finds the question from the list of questions using index number */
-    currentQuestion = quizQuestions[questionCounter]
+    currentQuestion = quizQuestions[questionCounter-1]
 
     /* displays the text for the new question */
     question.innerText = currentQuestion.question
@@ -146,7 +166,8 @@ function getNewQuestion() {
         option.innerText = currentQuestion['option' + number]
     })
 
-    quizQuestions.splice(questionCounter, 1)
+/*     let askedQs = quizQuestions.splice(questionCounter, 1);
+    console.log(askedQs) */
 
     acceptingAnswers = true
     /* if there is exactly one question remaining in list, change next button to end */
@@ -157,16 +178,18 @@ function getNewQuestion() {
 
 options.forEach(option => {
     /* add event listener to detect user click on an option */
-    option.addEventListener('click', event => {
+    option.addEventListener('click', e => {
         if(!acceptingAnswers) return
-
         /* stop accepting answers so user cannot click another answer */
         acceptingAnswers = false
-        const selectedOption = event.target
+        const selectedOption = e.target
+        console.log(selectedOption)
         /* retrieve the number (1-4) for the chosen answer */
-        const selectedAnswer = selectedOption.dataset['number']
+        const selectedAnswer = selectedOption.id
+        console.log(selectedAnswer)
         /* compare user answer to correct answer and apply class of 'correct' or 'incorrect'*/
-        let classToApply = selectedAnswer == currentQuestion.answer ? 'correct': 'incorrect'
+        let classToApply = selectedOption.innerText == currentQuestion.answer ? 'correct': 'incorrect'
+        console.log(classToApply)
 
         /* if the user answer is correct, call increase score function */
         if (classToApply === 'correct') {
