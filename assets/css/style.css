@@ -85,6 +85,10 @@
     background-color: red;
 }
 
+/* hidden class */
+.hidden {
+    display: none;
+}
 
 /* styling for start and next buttons */
 .button {

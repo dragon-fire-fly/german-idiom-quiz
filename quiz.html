@@ -31,7 +31,11 @@
                         </h1>
                     </div>
                 </div>                
-                <h2 id="question">Idiom</h2>
+                <div class="q-container">
+                    <h2 id="question">Idiom</h2>
+                    <div id="translate-button"><i class="fa-sharp fa-solid fa-plus"></i></div>
+                    <div id="translation" class="hidden">literal translation</div>
+                </div>
                 <!-- each option has a data number corresponding to each of the 4 possible options in the Q list -->
                 <div class="option-container">
                     <button class="option-text answer-btn" id="option1" data-number="1">Option 1</button>
@@ -41,7 +45,7 @@
                 </div>
                 <div class="start-next">
                 <!-- <button id="start-button" class="button">Start Quiz</button> -->
-                <button id="next-button" class="button hidden">Next</button>
+                <button id="next-button" class="button">Next</button>
                 </div>
             </div>
         </div>

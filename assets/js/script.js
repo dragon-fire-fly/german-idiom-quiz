@@ -5,6 +5,8 @@ const progressText = document.querySelector('#progressText');
 const scoreText = document.querySelector('#score');
 const progressBarFull = document.querySelector('#progressBarFull');
 const nextButton = document.querySelector('#next-button');
+const translation = document.querySelector('#translation')
+const translateButton = document.querySelector('#translate-button')
 console.log("linked")
 
 /* Setting base values for mutable variables */
@@ -160,8 +162,14 @@ function getNewQuestion() {
     /* displays the text for the new question */
     question.innerText = currentQuestion.question
 
+    /* displays the literal translation and event listener to display it */
+    translateButton.addEventListener('click', e => {
+        translation.classList.remove('hidden')
+    })
+    translation.innerText = currentQuestion.literal_translation;
+
+    /* display options for the question asked */
     options.forEach(option => {
-        /* display options for the question asked */
         const number = option.dataset['number']
         option.innerText = currentQuestion['option' + number]
     })
@@ -171,9 +179,9 @@ function getNewQuestion() {
 
     acceptingAnswers = true
     /* if there is exactly one question remaining in list, change next button to end */
-/*     if (availableQuestions.length===1 || questionCounter >= TOTAL_QUESTIONS) {
+    if (availableQuestions.length===1 || questionCounter >= TOTAL_QUESTIONS) {
         nextButton.innerText = "End";
-    } */
+    } 
 }
 
 options.forEach(option => {
@@ -199,11 +207,11 @@ options.forEach(option => {
         selectedOption.classList.add(classToApply)
 
         /* when next button clicked, reset class of user answer and obtain new question */
-        nextButton.addEventListener('click', event => {
-            selectedOption.classList.remove(classToApply)
-            getNewQuestion()
+        nextButton.addEventListener('click', e => {
+            selectedOption.classList.remove(classToApply);
+            translation.classList.add('hidden');
+            getNewQuestion();
         })
-
     })
 })
 
