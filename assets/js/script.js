@@ -5,16 +5,16 @@ const progressText = document.querySelector('#progressText');
 const scoreText = document.querySelector('#score');
 const progressBarFull = document.querySelector('#progressBarFull');
 const nextButton = document.querySelector('#next-button');
-const translation = document.querySelector('#translation')
-const translateButton = document.querySelector('#translate-button')
-console.log("linked")
+const translation = document.querySelector('#translation');
+const translateButton = document.querySelector('#translate-button');
+console.log("linked");
 
 /* Setting base values for mutable variables */
 let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
-let randomisedQuestions
-let quizQuestions = []
+let randomisedQuestions;
+let quizQuestions = [];
 let questionCounter = 0;
 let availableQuestions =[];
 
@@ -37,14 +37,13 @@ let questions = [
     },
     {
         id : 2,
-        question : "Am Essen war die Küchenfee dran",
-        literal_translation : "It was the Kitchen Fairy's turn to cook",
-        option1 : "To get a take-away",
-        option2 : "",
-        option3 : "",
-        option4 : "The food was burnt",
-        answer : "The food was burnt",
-        english_equivalent: "",
+        question : "Die Kirche im Dorf lassen",
+        literal_translation : "To leave the church in the village",
+        option1 : "To ask someone to get over something",
+        option2 : "To feel adventurous",
+        option3 : "To not get carried away",
+        option4 : "To tease someone for having a lot of lugguage",
+        answer : "To not get carried away",
     },
     {
         id : 3,
@@ -59,14 +58,13 @@ let questions = [
     },
     {
         id : 4,
-        question : "Das ist nur ein Katzensprung ",
-        literal_translation : "That is only a cat's leap",
-        option1 : "It is right around the corner",
-        option2 : "",
-        option3 : "",
-        option4 : "",
-        answer : "It is right around the corner",
-        english_equivalent : "Only a stone's throw",
+        question : "Schwein haben",
+        literal_translation : "To have a pig",
+        option1 : "To be in a bad mood",
+        option2 : "To have a stroke of luck",
+        option3 : "To have a feast",
+        option4 : "To have a hangover",
+        answer : "To have a stroke of luck",
     },
     {
         id : 5,
@@ -98,7 +96,18 @@ let questions = [
         option4 : "To be embarrassed",
         answer : "To be oblivious to what’s going around you",
     },
-]
+    {
+        id : 8,
+        question : "Da haben wir den Salat",
+        literal_translation : "There we have the salad",
+        option1 : "There's the final product",
+        option2 : "To think something is boring",
+        option3 : "To be in a real mess",
+        option4 : "To put all the pieces together",
+        answer : "To be in a real mess",
+        english_equivalent : "The fat's in the fire"
+    },
+];
 
 /* create a function to start the game */
 function startGame() {
@@ -106,15 +115,15 @@ function startGame() {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
-    questionList = []
+    /* questionList = [] */
 
     /* call function to shuffle the question list */
-    randomisedQuestions = shuffle(availableQuestions)
+    randomisedQuestions = shuffle(availableQuestions);
     /* call function to select 12 random quiz questions */
-    quizQuestions = selectQuizQuestions(randomisedQuestions)
+    quizQuestions = selectQuizQuestions(randomisedQuestions);
     /* call the getNewQuestion function */
     getNewQuestion(); 
-    console.log(quizQuestions)
+    console.log(quizQuestions);
 }
 
 /* shuffle function takes the original question list and randomises the entries */
@@ -122,7 +131,7 @@ function shuffle(questionList) {
     let currentIndex = questionList.length,  randomIndex;
     // While there remain elements to shuffle.
     while (currentIndex != 0) {
-        // Pick a remaining element.
+        // Pick a random element.
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
         // And swap it with the current element.
@@ -135,11 +144,10 @@ function shuffle(questionList) {
 /* adds the first 12 randomised quesions to a list called "quizQuestions*/
 function selectQuizQuestions(randomisedQs){
     for (let i=0; i<12; i++){
-        quizQuestions.push(randomisedQs[i])
+        quizQuestions.push(randomisedQs[i]);
     }
-    return quizQuestions
+    return quizQuestions;
 }
-
 
 function getNewQuestion() {
     /* if there are no remaining Qs available or we have reached the total number of Qs, end game */
@@ -149,35 +157,32 @@ function getNewQuestion() {
         return window.location.assign('end.html');
     }
     /* +1 to the question counter */
-    questionCounter++
+    questionCounter++;
     /* display question number x of y */
-    progressText.innerText = `Question ${questionCounter} of ${TOTAL_QUESTIONS}`
+    progressText.innerText = `Question ${questionCounter} of ${TOTAL_QUESTIONS}`;
     /* display progress bar as percentage out of total Qs */
-    progressBarFull.style.width = `${(questionCounter/TOTAL_QUESTIONS) * 100}%`
+    progressBarFull.style.width = `${(questionCounter/TOTAL_QUESTIONS) * 100}%`;
 
 
     /* finds the question from the list of questions using index number */
-    currentQuestion = quizQuestions[questionCounter-1]
+    currentQuestion = quizQuestions[questionCounter-1];
 
     /* displays the text for the new question */
-    question.innerText = currentQuestion.question
+    question.innerText = currentQuestion.question;
 
     /* displays the literal translation and event listener to display it */
     translateButton.addEventListener('click', e => {
-        translation.classList.remove('hidden')
-    })
+        translation.classList.remove('hidden');
+    });
     translation.innerText = currentQuestion.literal_translation;
 
     /* display options for the question asked */
     options.forEach(option => {
-        const number = option.dataset['number']
-        option.innerText = currentQuestion['option' + number]
-    })
+        const number = option.dataset['number'];
+        option.innerText = currentQuestion['option' + number];
+    });
 
-/*     let askedQs = quizQuestions.splice(questionCounter, 1);
-    console.log(askedQs) */
-
-    acceptingAnswers = true
+    acceptingAnswers = true;
     /* if there is exactly one question remaining in list, change next button to end */
     if (availableQuestions.length===1 || questionCounter >= TOTAL_QUESTIONS) {
         nextButton.innerText = "End";
@@ -187,39 +192,39 @@ function getNewQuestion() {
 options.forEach(option => {
     /* add event listener to detect user click on an option */
     option.addEventListener('click', e => {
-        if(!acceptingAnswers) return
+        if(!acceptingAnswers) return;
         /* stop accepting answers so user cannot click another answer */
-        acceptingAnswers = false
-        const selectedOption = e.target
-        console.log(selectedOption)
+        acceptingAnswers = false;
+        const selectedOption = e.target;
+        console.log(selectedOption);
         /* retrieve the number (1-4) for the chosen answer */
-        const selectedAnswer = selectedOption.id
-        console.log(selectedAnswer)
+        const selectedAnswer = selectedOption.id;
+        console.log(selectedAnswer);
         /* compare user answer to correct answer and apply class of 'correct' or 'incorrect'*/
-        let classToApply = selectedOption.innerText == currentQuestion.answer ? 'correct': 'incorrect'
-        console.log(classToApply)
+        let classToApply = selectedOption.innerText == currentQuestion.answer ? 'correct': 'incorrect';
+        console.log(classToApply);
 
         /* if the user answer is correct, call increase score function */
         if (classToApply === 'correct') {
-            increaseScore(POINT_VALUE)
+            increaseScore(POINT_VALUE);
         }
         /* apply appropriate class to the selected answer (red or green colour) */
-        selectedOption.classList.add(classToApply)
+        selectedOption.classList.add(classToApply);
 
         /* when next button clicked, reset class of user answer and obtain new question */
         nextButton.addEventListener('click', e => {
             selectedOption.classList.remove(classToApply);
             translation.classList.add('hidden');
             getNewQuestion();
-        })
-    })
-})
+        });
+    });
+});
 
 /* increase score by 1 point if correct */
 function increaseScore(num) {
-    score +=num
-    scoreText.innerText = score
-}
+    score +=num;
+    scoreText.innerText = score;
+};
 
 /* call the startGame function */
-startGame()
+startGame();
