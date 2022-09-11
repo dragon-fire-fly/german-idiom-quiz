@@ -7,6 +7,7 @@ const progressBarFull = document.querySelector('#progressBarFull');
 const nextButton = document.querySelector('#next-button');
 const translation = document.querySelector('#translation');
 const translateButton = document.querySelector('#translate-button');
+const summaryTable = document.querySelector('#summary-table')
 console.log("linked");
 
 /* Setting base values for mutable variables */
@@ -153,9 +154,11 @@ function getNewQuestion() {
     /* if there are no remaining Qs available or we have reached the total number of Qs, end game */
     if (availableQuestions.length===0 || questionCounter > TOTAL_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
-        
-        return window.location.assign('end.html');
-    }
+        nextButton.addEventListener('click', e => {
+            // hide quiz
+            endgame()
+        });
+    };
     /* +1 to the question counter */
     questionCounter++;
     /* display question number x of y */
@@ -228,3 +231,22 @@ function increaseScore(num) {
 
 /* call the startGame function */
 startGame();
+
+/* script for creating table of asked questions */
+/* insert html table rows for each question */
+function insertTable(askedQuestions) {
+    let summaryTableHTML = '';
+    for (let question of askedQuestions){
+        summaryTableHTML += `<tr><td>${question.question}</td><td>${question.literal_translation}</td><td>${question.answer}</td></tr>`;
+        console.log("table linked");
+        console.log(summaryTableHTML);
+        summaryTable.innerHTML = summaryTableHTML;
+    }
+}
+/* unhide table on user request */
+function endgame(){
+    // hide quiz
+    // show end of quiz
+    // event listener for review button - show table only when clicked
+    insertTable(quizQuestions);
+}
