@@ -1,4 +1,5 @@
 /* Linking to the DOM */
+const questionContainer = document.querySelector('#q-container');
 const question = document.querySelector('#question');
 const options = Array.from(document.querySelectorAll('.option-text'));
 const progressText = document.querySelector('#progressText');
@@ -7,7 +8,10 @@ const progressBarFull = document.querySelector('#progressBarFull');
 const nextButton = document.querySelector('#next-button');
 const translation = document.querySelector('#translation');
 const translateButton = document.querySelector('#translate-button');
-const summaryTable = document.querySelector('#summary-table')
+const quizEnd = document.querySelector('#quiz-end');
+const reviewButton = document.querySelector('#review-btn')
+const table = document.querySelector('#table')
+const summaryTable = document.querySelector('#summary-table');
 console.log("linked");
 
 /* Setting base values for mutable variables */
@@ -245,8 +249,12 @@ function insertTable(askedQuestions) {
 }
 /* unhide table on user request */
 function endgame(){
-    // hide quiz
-    // show end of quiz
+    questionContainer.classList.add('hidden');
+    quizEnd.classList.remove('hidden');
+    reviewButton.addEventListener('click', e=> {
+        table.classList.remove('hidden')
+    })
+
     // event listener for review button - show table only when clicked
     insertTable(quizQuestions);
 }
