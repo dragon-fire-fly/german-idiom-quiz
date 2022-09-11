@@ -99,5 +99,24 @@
     font-size: 120%;
 }
 
+/* styling for the end of quiz page */
+#quiz-end {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row: 2;
+    width: 100%;
+    justify-content: center;
+}
+
+/* styling for the summary table */
+#question-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid;
+    padding: 10px;
+}
 
 /*  media queries */

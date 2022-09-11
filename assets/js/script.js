@@ -120,7 +120,6 @@ function startGame() {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
-    /* questionList = [] */
 
     /* call function to shuffle the question list */
     randomisedQuestions = shuffle(availableQuestions);
@@ -191,7 +190,7 @@ function getNewQuestion() {
 
     acceptingAnswers = true;
     /* if there is exactly one question remaining in list, change next button to end */
-    if (availableQuestions.length===1 || questionCounter >= TOTAL_QUESTIONS) {
+    if (questionCounter > TOTAL_QUESTIONS) {
         nextButton.innerText = "End";
     } 
 }
@@ -254,8 +253,6 @@ function insertTable(askedQuestions) {
     let summaryTableHTML = '';
     for (let question of askedQuestions){
         summaryTableHTML += `<tr><td>${question.question}</td><td>${question.literal_translation}</td><td>${question.answer}</td></tr>`;
-        console.log("table linked");
-        console.log(summaryTableHTML);
         summaryTable.innerHTML = summaryTableHTML;
     }
 }
