@@ -218,9 +218,21 @@ options.forEach(option => {
         /* apply appropriate class to the selected answer (red or green colour) */
         selectedOption.classList.add(classToApply);
 
-        /* when next button clicked, reset class of user answer and obtain new question */
+        /* if the user answers incorrectly, also display the correct answer in green */
+        if (classToApply === 'incorrect') {
+            for (let i=0; i < 4; i++) {
+                if (options[i].innerText === currentQuestion.answer){
+                    options[i].classList.add('correct')
+                }
+            }
+        }
+
+        /* when next button clicked, reset class of user answer, hide translation and obtain new question */
         nextButton.addEventListener('click', e => {
-            selectedOption.classList.remove(classToApply);
+            for (let i=0; i < 4; i++) {
+                options[i].classList.remove('correct')
+                options[i].classList.remove('incorrect')
+            }
             translation.classList.add('hidden');
             getNewQuestion();
         });
