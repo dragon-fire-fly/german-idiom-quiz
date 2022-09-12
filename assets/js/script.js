@@ -215,6 +215,7 @@ options.forEach(option => {
         /* if the user answer is correct, call increase score function */
         if (classToApply === 'correct') {
             increaseScore(POINT_VALUE);
+            selectedOption.innerText += " ✔️"
             currentQuestion.correct = "Yes";
             console.log(currentQuestion.correct)
         }
@@ -223,9 +224,11 @@ options.forEach(option => {
 
         /* if the user answers incorrectly, also display the correct answer in green */
         if (classToApply === 'incorrect') {
+            selectedOption.innerText += " ❌"
             for (let i=0; i < 4; i++) {
                 if (options[i].innerText === currentQuestion.correct_meaning){
                     options[i].classList.add('correct')
+                    options[i].innerText += " ✔️"
                 }
             }
         }      
