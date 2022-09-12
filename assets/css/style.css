@@ -119,4 +119,12 @@ td, th {
     padding: 10px;
 }
 
+.true {
+    background-color: green;
+}
+
+.false {
+    background-color: red;
+}
+
 /*  media queries */

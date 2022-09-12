@@ -13,7 +13,7 @@ const questions = [
         meaning4 : "The meal is already cold",
         correct_meaning : "The meal is too salty",
         english_equivalent: "",
-        correct: "No",
+        correct: false,
     },
     {
         id : 2,
@@ -25,7 +25,7 @@ const questions = [
         meaning4 : "The food was burnt",
         correct_meaning : "The food was burnt",
         english_equivalent: "",
-        correct: "No",
+        correct: false,
     },
     {
         id : 3,
@@ -37,7 +37,7 @@ const questions = [
         meaning4 : "Someone who is not considered very smart",
         correct_meaning : "Someone who is not considered very smart",
         english_equivalent : "Not the sharpest tool in the shed",
-        correct: "No",
+        correct: false,
     },
     {
         id : 4,
@@ -49,7 +49,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "It is right around the corner",
         english_equivalent : "Only a stone's throw",
-        correct: "No",
+        correct: false,
     },
     {
         id : 5,
@@ -60,7 +60,7 @@ const questions = [
         meaning3 : "",
         meaning4 : "",
         correct_meaning : "To show your sweet side",
-        correct: "No",
+        correct: false,
     },
     {
         id : 6,
@@ -72,7 +72,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "To be not 'all there'",
         english_equivalent : "",
-        correct: "No",
+        correct: false,
     },
     {
         id : 7,
@@ -84,7 +84,7 @@ const questions = [
         meaning4 : "You can be very certain about that",
         correct_meaning : "You can be very certain about that",
         english_equivalent : "You can bet your life on it",
-        correct: "No",
+        correct: false,
     },
     {
         id : 8,
@@ -95,7 +95,7 @@ const questions = [
         meaning3 : "To ask for special treatment",
         meaning4 : "To be the butt of a joke",
         correct_meaning : "To ask for special treatment",
-        correct: "No",
+        correct: false,
     },
     {
         id : 9,
@@ -106,7 +106,7 @@ const questions = [
         meaning3 : "",
         meaning4 : "",
         correct_meaning : "It will be a great party",
-        correct: "No",
+        correct: false,
     },
     {
         id : 10,
@@ -117,7 +117,7 @@ const questions = [
         meaning3 : "To be extremely angry",
         meaning4 : "To be embarrassed",
         correct_meaning : "To be oblivious to what’s going around you",
-        correct: "No",
+        correct: false,
     },
     {
         id : 11,
@@ -129,7 +129,7 @@ const questions = [
         meaning4 : "I don't understand what's going on",
         correct_meaning : "I don't understand what's going on",
         english_equivalent : "It's all Greek to me",
-        correct: "No",
+        correct: false,
     },
     {
         id : 12,
@@ -140,8 +140,8 @@ const questions = [
         meaning3 : "",
         meaning4 : "",
         correct_meaning : "To add your opinion",
-        english_equivalent : "To add their two cents",
-        correct: "No",
+        english_equivalent : "To add your two cents",
+        correct: false,
     },
     {
         id : 13,
@@ -152,7 +152,7 @@ const questions = [
         meaning3 : "",
         meaning4 : "",
         correct_meaning : "To keep your fingers crossed for someone",
-        correct: "No",
+        correct: false,
     },
     {
         id : 14,
@@ -163,7 +163,7 @@ const questions = [
         meaning3 : "",
         meaning4 : "",
         correct_meaning : "To know it like the back of one’s hand",
-        correct: "No",
+        correct: false,
     },
     {
         id : 15,
@@ -175,7 +175,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "Don't count on it",
         english_equivalent : "Don’t count your chicks before they hatch",
-        correct: "No",
+        correct: false,
     },
     {
         id : 16,
@@ -186,7 +186,7 @@ const questions = [
         meaning3 : "To not get carried away",
         meaning4 : "To tease someone for having a lot of lugguage",
         correct_meaning : "To not get carried away",
-        correct: "No",
+        correct: false,
     },
     {
         id : 17,
@@ -197,7 +197,7 @@ const questions = [
         meaning3 : "To have a feast",
         meaning4 : "To have a hangover",
         correct_meaning : "To have a stroke of luck",
-        correct: "No",
+        correct: false,
     },
     {
         id : 18,
@@ -209,7 +209,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "To not believe what someone is saying",
         english_equivalent: "I wasn’t born yesterday",
-        correct: "No",
+        correct: false,
     },
     {
         id : 19,
@@ -221,7 +221,7 @@ const questions = [
         meaning4 : "To put all the pieces together",
         correct_meaning : "To be in a real mess",
         english_equivalent : "The fat's in the fire",
-        correct: "No",
+        correct: false,
     },
     {
         id : 20,
@@ -232,7 +232,7 @@ const questions = [
         meaning3 : "",
         meaning4 : "",
         correct_meaning : "To be crazy",
-        correct: "No",
+        correct: false,
     },
     {
         id : 21,
@@ -244,7 +244,7 @@ const questions = [
         meaning4 : "To explain something",
         correct_meaning : "To not get to the point",
         english_equivalent : "To beat around the bush",
-        correct: "No",
+        correct: false,
     },
     {
         id : 22,
@@ -255,7 +255,7 @@ const questions = [
         meaning3 : "",
         meaning4 : "",
         correct_meaning : "To put pressure on someone",
-        correct: "No",
+        correct: false,
     },
     {
         id : 23,
@@ -266,7 +266,7 @@ const questions = [
         meaning3 : "To be exhausted",
         meaning4 : "To be almost ready to leave",
         correct_meaning : "To be exhausted",
-        correct: "No",
+        correct: false,
     },
     {
         id : 24,
@@ -277,7 +277,7 @@ const questions = [
         meaning3 : "To realise you've made a mistake",
         meaning4 : "To have a hangover",
         correct_meaning : "When you can't believe something happened",
-        correct: "No",
+        correct: false,
     },
     {
         id: 25,
@@ -289,7 +289,7 @@ const questions = [
         meaning4 : "When someone is running out of patience",
         correct_meaning : "When someone is running out of patience",
         english_equivalent: "You're in trouble!",
-        correct: "No",
+        correct: false,
     },
     {
         id : 26,
@@ -300,7 +300,7 @@ const questions = [
         meaning3 : "To be rude to someone",
         meaning4 : "To win a bet",
         correct_meaning : "To have a hangover",
-        correct: "No",
+        correct: false,
     },
     {
         id : 27,
@@ -311,7 +311,7 @@ const questions = [
         meaning3 : "To make a compromise",
         meaning4 : "To make a bet with someone",
         correct_meaning : "In the middle of nowhere",
-        correct: "No",
+        correct: false,
     },
     {
         id : 28,
@@ -322,7 +322,7 @@ const questions = [
         meaning3 : "",
         meaning4 : "",
         correct_meaning : "To be able to trust someone",
-        correct: "No",
+        correct: false,
     },
     {
         id : 29,
@@ -333,7 +333,7 @@ const questions = [
         meaning3 : "To take something too seriously",
         meaning4 : "To have a good sense of humour",
         correct_meaning : "To be unnecessarily pouty",
-        correct: "No",
+        correct: false,
     },
     {
         id : 30,
@@ -344,7 +344,7 @@ const questions = [
         meaning3 : "To be a good listener",
         meaning4 : "To decline an invitation",
         correct_meaning : "To decline an invitation",
-        correct: "No",
+        correct: false,
     },
     {
         id : 31,
@@ -355,7 +355,7 @@ const questions = [
         meaning3 : "To say 'I don't know either'",
         meaning4 : "",
         correct_meaning : "To say 'I don't know either'",
-        correct: "No",
+        correct: false,
     },
     {
         id : 32,
@@ -367,7 +367,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "To tell someone a lie (usually in a teasing way)",
         english_equivalent:  "To pull someone's leg",
-        correct: "No",
+        correct: false,
     },
     {
         id : 33,
@@ -379,7 +379,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "Everything is ok",
         english_equivalent:  "It's all good",
-        correct: "No",
+        correct: false,
     },
     {
         id : 34,
@@ -391,7 +391,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "To trick someone",
         english_equivalent:  "To pull a fast one",
-        correct: "No",
+        correct: false,
     },
     {
         id : 35,
@@ -403,7 +403,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "To guarantee something",
         english_equivalent:  "I can vouch for that/them",
-        correct: "No",
+        correct: false,
     },
     {
         id : 36,
@@ -415,7 +415,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "Hang on in there",
         english_equivalent:  "____",
-        correct: "No",
+        correct: false,
     },
     {
         id : 37,
@@ -427,7 +427,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "I'm not staying up late tonight",
         english_equivalent:  "____",
-        correct: "No",
+        correct: false,
     },
     {
         id : 38,
@@ -439,7 +439,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "Use it or lose it",
         english_equivalent:  "You snooze, you lose",
-        correct: "No",
+        correct: false,
     },
     {
         id : 39,
@@ -451,7 +451,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "It doesn't make any difference",
         english_equivalent:  "The damage is already done",
-        correct: "No",
+        correct: false,
     },
     {
         id : 40,
@@ -463,7 +463,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "I can't believe it",
         english_equivalent:  "____",
-        correct: "No",
+        correct: false,
     },
     {
         id : 41,
@@ -475,7 +475,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "Making very slow progress",
         english_equivalent:  "____",
-        correct: "No",
+        correct: false,
     },
     {
         id : 42,
@@ -487,7 +487,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "Someone who is emotional/likely to cry",
         english_equivalent:  "____",
-        correct: "No",
+        correct: false,
     },
     {
         id : 43,
@@ -499,7 +499,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "To be extremely exhausted",
         english_equivalent:  "____",
-        correct: "No",
+        correct: false,
     },
     {
         id : 44,
@@ -511,7 +511,7 @@ const questions = [
         meaning4 : "",
         correct_meaning : "I have a mental block",
         english_equivalent:  "____",
-        correct: "No",
+        correct: false,
     },
 ]
 

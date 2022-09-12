@@ -27,7 +27,7 @@ let availableQuestions =[];
 
 /* Setting fixed value variables */
 const POINT_VALUE = 1;
-const TOTAL_QUESTIONS = 12;
+const TOTAL_QUESTIONS = 4;
 
 /* Example Qs */
 /* let questions = [
@@ -216,7 +216,7 @@ options.forEach(option => {
         if (classToApply === 'correct') {
             increaseScore(POINT_VALUE);
             selectedOption.innerText += " ✔️"
-            currentQuestion.correct = "Yes";
+            currentQuestion.correct = true;
             console.log(currentQuestion.correct)
         }
         /* apply appropriate class to the selected answer (red or green colour) */
@@ -269,11 +269,10 @@ function insertTable(askedQuestions) {
     let summaryTableHTML = '';
     for (let question of askedQuestions){
         summaryTableHTML += `
-            <tr>
+            <tr class="${question.correct}">
                 <td>${question.idiom}</td>
                 <td>${question.literal_translation}</td>
                 <td>${question.correct_meaning}</td>
-                <td>${question.correct}</td>
             </tr>
         `;
         summaryTable.innerHTML = summaryTableHTML;
