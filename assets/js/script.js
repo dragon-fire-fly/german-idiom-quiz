@@ -25,91 +25,91 @@ let availableQuestions =[];
 
 /* Setting fixed value variables */
 const POINT_VALUE = 1;
-const TOTAL_QUESTIONS = 4;
+const TOTAL_QUESTIONS = 8;
 
 /* Example Qs */
 let questions = [
     {
         id : 1,
-        question : "Der Koch war verliebt",
+        idiom : "Der Koch war verliebt",
         literal_translation : "The cook was in love",
-        option1 : "To get an extra portion",
-        option2 : "The meal is too salty",
-        option3 : "To find a hair in your meal",
-        option4 : "The meal is already cold",
-        answer : "The meal is too salty",
+        meaning1 : "To get an extra portion",
+        meaning2 : "The meal is too salty",
+        meaning3 : "To find a hair in your meal",
+        meaning4 : "The meal is already cold",
+        correct_meaning : "The meal is too salty",
         english_equivalent: ""
     },
     {
         id : 2,
-        question : "Die Kirche im Dorf lassen",
+        idiom : "Die Kirche im Dorf lassen",
         literal_translation : "To leave the church in the village",
-        option1 : "To ask someone to get over something",
-        option2 : "To feel adventurous",
-        option3 : "To not get carried away",
-        option4 : "To tease someone for having a lot of lugguage",
-        answer : "To not get carried away",
+        meaning1 : "To ask someone to get over something",
+        meaning2 : "To feel adventurous",
+        meaning3 : "To not get carried away",
+        meaning4 : "To tease someone for having a lot of lugguage",
+        correct_meaning : "To not get carried away",
     },
     {
         id : 3,
-        question : "Nicht die hellster Glühbirne (im Shrank)",
+        idiom : "Nicht die hellster Glühbirne (im Shrank)",
         literal_translation : "Not the brightest lightbulb (in the cupboard)",
-        option1 : "Someone who is overly critical of others",
-        option2 : "Someone who is not considered very attractive",
-        option3 : "Someone who is not very welcoming to others",
-        option4 : "Someone who is not considered very smart",
-        answer: "Someone who is not considered very smart",
+        meaning1 : "Someone who is overly critical of others",
+        meaning2 : "Someone who is not considered very attractive",
+        meaning3 : "Someone who is not very welcoming to others",
+        meaning4 : "Someone who is not considered very smart",
+        correct_meaning: "Someone who is not considered very smart",
         english_equivalent : "Not the sharpest tool in the shed",
     },
     {
         id : 4,
-        question : "Schwein haben",
+        idiom : "Schwein haben",
         literal_translation : "To have a pig",
-        option1 : "To be in a bad mood",
-        option2 : "To have a stroke of luck",
-        option3 : "To have a feast",
-        option4 : "To have a hangover",
-        answer : "To have a stroke of luck",
+        meaning1 : "To be in a bad mood",
+        meaning2 : "To have a stroke of luck",
+        meaning3 : "To have a feast",
+        meaning4 : "To have a hangover",
+        correct_meaning : "To have a stroke of luck",
     },
     {
         id : 5,
-        question : "Einen Korb geben",
+        idiom : "Einen Korb geben",
         literal_translation : "To give someone a basket",
-        option1 : "To give someone a compliment",
-        option2 : "To be rude to someone",
-        option3 : "To be a good listener",
-        option4 : "To decline an invitation",
-        answer : "To decline an invitation",
+        meaning1 : "To give someone a compliment",
+        meaning2 : "To be rude to someone",
+        meaning3 : "To be a good listener",
+        meaning4 : "To decline an invitation",
+        correct_meaning : "To decline an invitation",
     },
     {
         id : 6,
-        question : "Eine Extrawurst verlangen",
+        idiom : "Eine Extrawurst verlangen",
         literal_translation : "To ask for an extra sausage",
-        option1 : "To request an extra portion",
-        option2 : "To fish for compliments",
-        option3 : "To ask for special treatment",
-        option4 : "To be the butt of a joke",
-        answer : "To ask for special treatment",
+        meaning1 : "To request an extra portion",
+        meaning2 : "To fish for compliments",
+        meaning3 : "To ask for special treatment",
+        meaning4 : "To be the butt of a joke",
+        correct_meaning : "To ask for special treatment",
     },
     {
         id : 7,
-        question : "Tomaten auf den Augen haben",
+        idiom : "Tomaten auf den Augen haben",
         literal_translation : "To have tomatoes on one's eyes",
-        option1 : "To look on the bright side of something",
-        option2 : "To be oblivious to what’s going around you",
-        option3 : "To be extremely angry",
-        option4 : "To be embarrassed",
-        answer : "To be oblivious to what’s going around you",
+        meaning1 : "To look on the bright side of something",
+        meaning2 : "To be oblivious to what’s going around you",
+        meaning3 : "To be extremely angry",
+        meaning4 : "To be embarrassed",
+        correct_meaning : "To be oblivious to what’s going around you",
     },
     {
         id : 8,
-        question : "Da haben wir den Salat",
+        idiom : "Da haben wir den Salat",
         literal_translation : "There we have the salad",
-        option1 : "There's the final product",
-        option2 : "To think something is boring",
-        option3 : "To be in a real mess",
-        option4 : "To put all the pieces together",
-        answer : "To be in a real mess",
+        meaning1 : "There's the final product",
+        meaning2 : "To think something is boring",
+        meaning3 : "To be in a real mess",
+        meaning4 : "To put all the pieces together",
+        correct_meaning : "To be in a real mess",
         english_equivalent : "The fat's in the fire"
     },
 ];
@@ -154,28 +154,27 @@ function selectQuizQuestions(randomisedQs){
 }
 
 function getNewQuestion() {
+    /* +1 to the question counter */
+    questionCounter++;
+    console.log("It added one to question counter")
+    /* display question number x of y */
+    progressText.innerText = `Question ${questionCounter} of ${TOTAL_QUESTIONS}`;
+    /* display progress bar as percentage out of total Qs */
+    progressBarFull.style.width = `${(questionCounter/TOTAL_QUESTIONS) * 100}%`;
+    
     /* if there are no remaining Qs available or we have reached the total number of Qs, end game */
-    if (availableQuestions.length===0 || questionCounter > TOTAL_QUESTIONS) {
+    if (questionCounter >= TOTAL_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
         nextButton.addEventListener('click', e => {
             // hide quiz
             endgame()
         });
     };
-    /* +1 to the question counter */
-    questionCounter++;
-    /* display question number x of y */
-    progressText.innerText = `Question ${questionCounter} of ${TOTAL_QUESTIONS}`;
-    /* display progress bar as percentage out of total Qs */
-    progressBarFull.style.width = `${(questionCounter/TOTAL_QUESTIONS) * 100}%`;
-
-
+    
     /* finds the question from the list of questions using index number */
     currentQuestion = quizQuestions[questionCounter-1];
-
     /* displays the text for the new question */
-    question.innerText = currentQuestion.question;
-
+    question.innerText = currentQuestion.idiom;
     /* displays the literal translation and event listener to display it */
     translateButton.addEventListener('click', e => {
         translation.classList.remove('hidden');
@@ -185,12 +184,12 @@ function getNewQuestion() {
     /* display options for the question asked */
     options.forEach(option => {
         const number = option.dataset['number'];
-        option.innerText = currentQuestion['option' + number];
+        option.innerText = currentQuestion['meaning' + number];
     });
 
     acceptingAnswers = true;
     /* if there is exactly one question remaining in list, change next button to end */
-    if (questionCounter > TOTAL_QUESTIONS) {
+    if (questionCounter >= TOTAL_QUESTIONS) {
         nextButton.innerText = "End";
     } 
 }
@@ -207,7 +206,7 @@ options.forEach(option => {
         const selectedAnswer = selectedOption.id;
         console.log(selectedAnswer);
         /* compare user answer to correct answer and apply class of 'correct' or 'incorrect'*/
-        let classToApply = selectedOption.innerText == currentQuestion.answer ? 'correct': 'incorrect';
+        let classToApply = selectedOption.innerText == currentQuestion.correct_meaning ? 'correct': 'incorrect';
         console.log(classToApply);
 
         /* if the user answer is correct, call increase score function */
@@ -220,23 +219,30 @@ options.forEach(option => {
         /* if the user answers incorrectly, also display the correct answer in green */
         if (classToApply === 'incorrect') {
             for (let i=0; i < 4; i++) {
-                if (options[i].innerText === currentQuestion.answer){
+                if (options[i].innerText === currentQuestion.correct_meaning){
                     options[i].classList.add('correct')
                 }
             }
-        }
-
-        /* when next button clicked, reset class of user answer, hide translation and obtain new question */
-        nextButton.addEventListener('click', e => {
-            for (let i=0; i < 4; i++) {
-                options[i].classList.remove('correct')
-                options[i].classList.remove('incorrect')
-            }
-            translation.classList.add('hidden');
-            getNewQuestion();
-        });
+        }      
     });
 });
+
+/* next button event listener */
+/* when next button clicked, reset class of user answer, hide translation and obtain new question */
+nextButton.addEventListener('click', e => {
+    nextQuestion();
+});
+
+/* next question function */
+function nextQuestion() {
+    for (let i=0; i < 4; i++) {
+        options[i].classList.remove('correct');
+        options[i].classList.remove('incorrect');
+    }
+    translation.classList.add('hidden');
+    getNewQuestion();
+    console.log("next button pressed");
+}
 
 /* increase score by 1 point if correct */
 function increaseScore(num) {
@@ -252,18 +258,16 @@ startGame();
 function insertTable(askedQuestions) {
     let summaryTableHTML = '';
     for (let question of askedQuestions){
-        summaryTableHTML += `<tr><td>${question.question}</td><td>${question.literal_translation}</td><td>${question.answer}</td></tr>`;
+        summaryTableHTML += `<tr><td>${question.idiom}</td><td>${question.literal_translation}</td><td>${question.correct_meaning}</td></tr>`;
         summaryTable.innerHTML = summaryTableHTML;
     }
 }
-/* unhide table on user request */
+/* unhide table on user click */
 function endgame(){
     questionContainer.classList.add('hidden');
     quizEnd.classList.remove('hidden');
     reviewButton.addEventListener('click', e=> {
         table.classList.remove('hidden')
     })
-
-    // event listener for review button - show table only when clicked
     insertTable(quizQuestions);
 }
