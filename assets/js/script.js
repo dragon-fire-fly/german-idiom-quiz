@@ -9,6 +9,7 @@ const nextButton = document.querySelector('#next-button');
 const translation = document.querySelector('#translation');
 const translateButton = document.querySelector('#translate-button');
 const quizEnd = document.querySelector('#quiz-end');
+const quizScore = document.querySelector('#quiz-score')
 const reviewButton = document.querySelector('#review-btn')
 const table = document.querySelector('#table')
 const summaryTable = document.querySelector('#summary-table');
@@ -266,6 +267,7 @@ function insertTable(askedQuestions) {
 function endgame(){
     questionContainer.classList.add('hidden');
     quizEnd.classList.remove('hidden');
+    quizScore.innerText = `Your score is: ${score}`;
     reviewButton.addEventListener('click', e=> {
         table.classList.remove('hidden')
     })
