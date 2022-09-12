@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 /* Linking to the DOM */
 const questionContainer = document.querySelector('#q-container');
 const question = document.querySelector('#question');
@@ -26,10 +27,10 @@ let availableQuestions =[];
 
 /* Setting fixed value variables */
 const POINT_VALUE = 1;
-const TOTAL_QUESTIONS = 8;
+const TOTAL_QUESTIONS = 12;
 
 /* Example Qs */
-let questions = [
+/* let questions = [
     {
         id : 1,
         idiom : "Der Koch war verliebt",
@@ -113,7 +114,7 @@ let questions = [
         correct_meaning : "To be in a real mess",
         english_equivalent : "The fat's in the fire"
     },
-];
+]; */
 
 /* create a function to start the game */
 function startGame() {
@@ -157,7 +158,6 @@ function selectQuizQuestions(randomisedQs){
 function getNewQuestion() {
     /* +1 to the question counter */
     questionCounter++;
-    console.log("It added one to question counter")
     /* display question number x of y */
     progressText.innerText = `Question ${questionCounter} of ${TOTAL_QUESTIONS}`;
     /* display progress bar as percentage out of total Qs */
@@ -178,8 +178,13 @@ function getNewQuestion() {
     question.innerText = currentQuestion.idiom;
     /* displays the literal translation and event listener to display it */
     translateButton.addEventListener('click', e => {
-        translation.classList.remove('hidden');
+        if (translation.classList.contains("hidden")) {
+            translation.classList.remove('hidden');
+        } else {
+            translation.classList.add('hidden');
+        }
     });
+    /* If moving the above to a new function, this one needs to stay here */
     translation.innerText = currentQuestion.literal_translation;
 
     /* display options for the question asked */
@@ -202,17 +207,16 @@ options.forEach(option => {
         /* stop accepting answers so user cannot click another answer */
         acceptingAnswers = false;
         const selectedOption = e.target;
-        console.log(selectedOption);
         /* retrieve the number (1-4) for the chosen answer */
-        const selectedAnswer = selectedOption.id;
-        console.log(selectedAnswer);
+        /* const selectedAnswer = selectedOption.id;  remove?? No longer needed as not using data numbers*/
         /* compare user answer to correct answer and apply class of 'correct' or 'incorrect'*/
         let classToApply = selectedOption.innerText == currentQuestion.correct_meaning ? 'correct': 'incorrect';
-        console.log(classToApply);
 
         /* if the user answer is correct, call increase score function */
         if (classToApply === 'correct') {
             increaseScore(POINT_VALUE);
+            currentQuestion.correct = "Yes";
+            console.log(currentQuestion.correct)
         }
         /* apply appropriate class to the selected answer (red or green colour) */
         selectedOption.classList.add(classToApply);
@@ -227,6 +231,8 @@ options.forEach(option => {
         }      
     });
 });
+
+translation.classList.add('hidden');
 
 /* next button event listener */
 /* when next button clicked, reset class of user answer, hide translation and obtain new question */
@@ -259,7 +265,14 @@ startGame();
 function insertTable(askedQuestions) {
     let summaryTableHTML = '';
     for (let question of askedQuestions){
-        summaryTableHTML += `<tr><td>${question.idiom}</td><td>${question.literal_translation}</td><td>${question.correct_meaning}</td></tr>`;
+        summaryTableHTML += `
+            <tr>
+                <td>${question.idiom}</td>
+                <td>${question.literal_translation}</td>
+                <td>${question.correct_meaning}</td>
+                <td>${question.correct}</td>
+            </tr>
+        `;
         summaryTable.innerHTML = summaryTableHTML;
     }
 }
@@ -269,7 +282,7 @@ function endgame(){
     quizEnd.classList.remove('hidden');
     quizScore.innerText = `Your score is: ${score}`;
     reviewButton.addEventListener('click', e=> {
-        table.classList.remove('hidden')
-    })
+        table.classList.remove('hidden');
+    });
     insertTable(quizQuestions);
 }
