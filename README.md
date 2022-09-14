@@ -65,6 +65,83 @@ As a user I would like to know whether I have selected the correct answer.
 
 <!-- JS features -->
 
+Functions:
+
+startGame()
+- calls the shuffle() function
+- calls the selectQuizQuestions() function
+- calls the getNewQuestion() function
+
+shuffle()
+- shuffles the list of questions from the large question bank
+- returns the full shuffled list to the startGame() function
+
+selectQuizQuestions()
+- takes the first 12 questions from the shuffled list
+- returns the 12 random Qs to the startGame() function
+
+<!-- Need to seperate out the scoring functionality to a new function -->
+scoring()
+- increases the question counter each time a new quesiton is displayed
+- updates the progress counter (question x of y)
+- updates the progress bar
+- if there are no questions remaining on the quizQuestions list, add an end button event listener, which when clicked calls the endGame() function
+
+getNewQuestion()
+- determines the currentQuestion and selects it from the list of 12 quizQuestions
+- adds event listener for the literal translation toggle button and displays it
+- updates the question text in the html file
+- displays the 4 possible answers in the html file and adds event listeners to each
+- once an answer is selected, detemrmines if it is correct or incorrect and calls the appropriate function
+- if there is exactly one question remaining, hide the 'next' button and display the 'end' button instead. <!-- move to scoring function?? -->
+
+nextQuestion()
+- resets answers by removing 'correct' and/or 'incorrect' classes from answers
+- hide literal translation
+- calls the getNewQuestion() function
+
+
+<!-- new function for determining correct answer -->
+correctAnswer()
+- applies the 'correct' class to the selected answer for CSS styling (green colour)
+- increases the quiz score by 1 point
+- adds a check mark to the correct answer for accessibility
+- changes the value of the "correct" key in the question object to "true" to indicate the user answered correctly
+
+incorrectAnswer()
+- applies the 'incorrect' class to the selected answer for CSS styling (red colour)
+- also applies the 'correct' class to the correct answer for CSS styling (green colour)
+- adds a cross to the chosen answer and a tick to the correct answer for accessibility
+
+increaseScore()
+- increases the global variable "score" by the POINT_VALUE value (in this case 1, but this is changable if desired)
+- updates the text for the score in the html
+
+toggleTranslation()
+- triggered if the user clicks the "see translation" button
+- toggles the literal english translation of the question
+
+endGame()
+- tidies up the screen at the end of the game
+- hides the container that displays the questions
+- unhides the summary page with score displayed
+- displays a button with an event listener for users to click if they wish to review their answers
+- calls the insertTable() function
+
+insertTable()
+- generates a summary table of the questions asked
+- takes the list of 12 random questions as an argument
+- inserts as many rows of html as there are in the random question list (12, but this is changable, if desired)
+- adds one <td></td> each for the idiom, literal translation and correct meaning
+- the row is coloured depending on whether the user got the answer correct (green) or incorrect (red)
+- the rows are then injected into the html table
+
+
+
+<!-- pull the translation button function out of getNewQ -->
+
+
+
 - question list with large bank of questions
 - randomisation function which shuffles the question bank and selects 12 questions. This allows replayability of the quiz and ensures the same question is not asked more than once in the same play.
 - question number and progress bar displayed so user knows how many questions will be asked and which question they are currently answering

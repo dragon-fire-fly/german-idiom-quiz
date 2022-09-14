@@ -7,6 +7,7 @@ const progressText = document.querySelector('#progressText');
 const scoreText = document.querySelector('#score');
 const progressBarFull = document.querySelector('#progressBarFull');
 const nextButton = document.querySelector('#next-button');
+const endButton = document.querySelector('#end-button')
 const translation = document.querySelector('#translation');
 const translateButton = document.querySelector('#translate-button');
 const quizEnd = document.querySelector('#quiz-end');
@@ -166,7 +167,7 @@ function getNewQuestion() {
     /* if there are no remaining Qs available or we have reached the total number of Qs, end game */
     if (questionCounter >= TOTAL_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
-        nextButton.addEventListener('click', e => {
+        endButton.addEventListener('click', e => {
             // hide quiz
             endgame()
         });
@@ -177,12 +178,15 @@ function getNewQuestion() {
     /* displays the text for the new question */
     question.innerText = currentQuestion.idiom;
     /* displays the literal translation and event listener to display it */
+    translation.classList.add('hidden');
+    
     translateButton.addEventListener('click', e => {
-        if (translation.classList.contains("hidden")) {
+        toggleTranslation()
+        /* if (translation.classList.contains("hidden")) {
             translation.classList.remove('hidden');
         } else {
             translation.classList.add('hidden');
-        }
+        } */
     });
     /* If moving the above to a new function, this one needs to stay here */
     translation.innerText = currentQuestion.literal_translation;
@@ -194,9 +198,10 @@ function getNewQuestion() {
     });
 
     acceptingAnswers = true;
-    /* if there is exactly one question remaining in list, change next button to end */
+    /* if there is exactly one question remaining in list, hide next button and show end button */
     if (questionCounter >= TOTAL_QUESTIONS) {
-        nextButton.innerText = "End";
+        endButton.classList.remove('hidden');
+        nextButton.classList.add('hidden');
     } 
 }
 
@@ -231,11 +236,12 @@ options.forEach(option => {
                     options[i].innerText += " ✔️"
                 }
             }
-        }      
+        }
+        nextButton.classList.remove('hidden')
     });
 });
 
-translation.classList.add('hidden');
+
 
 /* next button event listener */
 /* when next button clicked, reset class of user answer, hide translation and obtain new question */
@@ -243,6 +249,14 @@ nextButton.addEventListener('click', e => {
     nextQuestion();
 });
 
+
+function toggleTranslation(){
+    if (translation.classList.contains("hidden")) {
+        translation.classList.remove('hidden');
+    } else {
+        translation.classList.add('hidden');
+    }
+}
 /* next question function */
 function nextQuestion() {
     for (let i=0; i < 4; i++) {
