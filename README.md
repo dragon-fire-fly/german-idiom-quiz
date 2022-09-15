@@ -67,8 +67,15 @@ As a user I would like to know whether I have selected the correct answer.
 
 Functions:
 
+onLoad()
+- adds event listener for start button which hides start page and unhides quiz page and calls startGame()
+- adds event listener for home button which reloads the page
+- adds event listener for how to play button which opens the how to play modal
+- adds event listener for the close button on the how to play modal
+- adds event listener for a click outside the modal window
+- both the close button and click outside event listeners close the how to play modal
+
 startGame()
-- hides start page and unhides quiz page
 - calls the shuffle() function
 - calls the selectQuizQuestions() function
 - calls the getNewQuestion() function

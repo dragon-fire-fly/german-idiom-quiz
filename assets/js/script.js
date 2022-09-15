@@ -4,7 +4,11 @@
 const homeContainer = document.querySelector('.home-container');
 const startButton = document.querySelector('#start-btn');
 const homeButton = document.querySelector('#home-btn')
+
+/* How to play modal */
 const howToPlayButton = document.querySelector('#how-to-play-btn')
+const howToPlayModal = document.querySelector("#how-to-play")
+const closeModal = document.querySelector('#close-modal')
 
 /* Question page */
 const mainContainer = document.querySelector('.main-container')
@@ -39,10 +43,11 @@ let availableQuestions =[];
 const POINT_VALUE = 1;
 const TOTAL_QUESTIONS = 4;
 
-on_load()
+onLoad()
+
 /* call the startGame function when start quiz button pressed */
 /* hides start page and unhides quiz page */
-function on_load(){
+function onLoad(){
     startButton.addEventListener('click', e => {
         console.log("start button pressed");
         homeContainer.classList.add('hidden');
@@ -52,7 +57,21 @@ function on_load(){
     /* event listener for home button */
     homeButton.addEventListener('click', e => {
         window.location.reload();
-        console.log("home button pressed")
+        console.log("home button pressed");
+    })
+    /* event listener for how to play button */
+    howToPlayButton.addEventListener('click', e => {
+        /* shows how to play modal */
+        howToPlayModal.classList.remove("hidden");
+        console.log("how to play clicked");
+    })
+    closeModal.addEventListener('click', e => {
+        howToPlayModal.classList.add("hidden");
+    })
+    window.addEventListener('click', e => {
+        if (e.target == howToPlayModal) {
+        howToPlayModal.classList.add("hidden");
+    }
     })
 }
 
