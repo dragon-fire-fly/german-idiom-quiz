@@ -2,7 +2,9 @@
 /* Linking to the DOM */
 /* home page */
 const homeContainer = document.querySelector('.home-container');
-const startButton = document.querySelector('#start-btn')
+const startButton = document.querySelector('#start-btn');
+const homeButton = document.querySelector('#home-btn')
+const howToPlayButton = document.querySelector('#how-to-play-btn')
 
 /* Question page */
 const mainContainer = document.querySelector('.main-container')
@@ -37,22 +39,25 @@ let availableQuestions =[];
 const POINT_VALUE = 1;
 const TOTAL_QUESTIONS = 4;
 
-
+on_load()
 /* call the startGame function when start quiz button pressed */
-startButton.addEventListener('click', e => {
-    console.log("start button pressed");
-    homeContainer.classList.add('hidden');
-    mainContainer.classList.remove('hidden');
-    startGame();
+/* hides start page and unhides quiz page */
+function on_load(){
+    startButton.addEventListener('click', e => {
+        console.log("start button pressed");
+        homeContainer.classList.add('hidden');
+        mainContainer.classList.remove('hidden');
+        startGame();
+    })
+    /* event listener for home button */
+    homeButton.addEventListener('click', e => {
+        window.location.reload();
+        console.log("home button pressed")
+    })
 }
-)
-
-
 
 /* create a function to start the game */
 function startGame() {
-    /* hides start page and unhides quiz page */
-    
     /* setting the counters to start at 0 and accessing question list */
     questionCounter = 0;
     score = 0;
@@ -171,11 +176,12 @@ options.forEach(option => {
                 }
             }
         }
+        /* display next button if not on the last question */
+        if (questionCounter != TOTAL_QUESTIONS){
         nextButton.classList.remove('hidden')
+    }
     });
 });
-
-
 
 /* next button event listener */
 /* when next button clicked, reset class of user answer, hide translation and obtain new question */
@@ -230,6 +236,7 @@ function endgame(){
     quizScore.innerText = `Your score is: ${score}`;
     reviewButton.addEventListener('click', e=> {
         table.classList.remove('hidden');
+        reviewButton.classList.add('hidden');
     });
     insertTable(quizQuestions);
 }
