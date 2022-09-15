@@ -68,6 +68,7 @@ As a user I would like to know whether I have selected the correct answer.
 Functions:
 
 startGame()
+- hides start page and unhides quiz page
 - calls the shuffle() function
 - calls the selectQuizQuestions() function
 - calls the getNewQuestion() function
