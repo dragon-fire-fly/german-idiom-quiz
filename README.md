@@ -81,8 +81,9 @@ startGame()
 - calls the getNewQuestion() function
 
 shuffle()
-- shuffles the list of questions from the large question bank
-- returns the full shuffled list to the startGame() function
+- shuffles an array
+- This method is used to shuffle both the list of questions from the large question bank and the 4 possible answers for each question
+- returns the full shuffled question list to the startGame() function and the answers to the getNewQuestion() function
 
 selectQuizQuestions()
 - takes the first 12 questions from the shuffled list

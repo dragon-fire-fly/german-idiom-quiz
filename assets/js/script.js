@@ -127,7 +127,7 @@ function getNewQuestion() {
         localStorage.setItem('mostRecentScore', score);
         endButton.addEventListener('click', e => {
             // hide quiz
-            endgame()
+            endgame();
         });
     };
     

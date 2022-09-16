@@ -1,12 +1,58 @@
-/* :root {
-    background-color: rgb(0,0,0);
-} */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;800&family=Nova+Square&display=swap');
+
+:root {
+    /* Main colour scheme */
+    --black: rgb(0,0,0);
+    --white: rgb(255,255,255);
+    --accent-red: rgb(221, 0, 0);
+    --accent-gold: rgb(255, 206,0);
+    --soft-gold: rgb(238, 219, 137);
+    --correct: rgb(140, 168, 145);
+    --incorrect: rgba(231, 74, 57, 0.74);
+    
+    /* Fonts */
+    --h1: Kanit;
+    --h2: Kanit;
+    --main-text: Kanit;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+main {
+    /* background-color: var(--black);
+    background-image: linear-gradient(var(--black), var(--accent-gold), var(--accent-red));
+    background-repeat: no-repeat;
+    height: 100%; */
+    background-image: url(/assets/images/vector-flag.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: var(--main-text);
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--white);
+    font-family: var(--h1);
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--black);
+    font-family: var(--h2);
+}
+
+h3 {
+    font-size: 2rem;
+    color: var(--white);
+    font-family: var(--h2);
+}
+
+/* Home page styling */
 
 
 /* The Modal (background) */
@@ -19,17 +65,17 @@
     width: 100%;
     height: 100%;
     overflow: auto; 
-  }
-
+}
 
   /* Modal Content/Box */
 .modal-content {
-    background-color: white;
+    background-color: rgba(0,0,0,0.9);
+    color: white;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid black;
     width: 80%;
-  }
+}
 
 /* The Close Button */
 .close {
@@ -37,17 +83,18 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
+}
 
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* styling for main container on page */
 .main-container {
+    /* background-color: rgba(255,255,255,0.4); */
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -55,13 +102,14 @@
     grid-template-rows: repeat(4, 1fr);
     justify-content: center;
     align-items: center;
-    max-width: 80%;
+    max-width: 100%;
     margin: 0 auto;
     padding: 1rem;
 }
 
 /*  styling for question container, score etc */
 #q-container {
+    background-color: rgba(255,255,255,0.5);
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row: 2;
@@ -94,7 +142,7 @@
 #progressBar {
     width: 15rem;
     height: 2rem;
-    border: 0.2rem solid blueviolet;
+    border: 0.2rem solid var(--black);
     margin-top: 2rem;
     border-radius: 50px;
     overflow: hidden;
@@ -102,25 +150,26 @@
 
 #progressBarFull {
     height: 100%;
-    background: blueviolet;
+    background: var(--accent-red);
     width: 0%;
 }
 
 /* styling for option A-D containers */
 .answer-btn {
-    background-color: aqua;
-    width: 100%;
+    background-color: var(--accent-gold);
+    width: 80%;
+    text-align: center;
     padding: 0.5rem;
     margin: 0.25rem;
     font-size: 120%;
 }
 
 .correct {
-    background-color: green;
+    background-color: var(--correct);
 }
 
 .incorrect {
-    background-color: red;
+    background-color: var(--incorrect);
 }
 
 /* hidden class */
