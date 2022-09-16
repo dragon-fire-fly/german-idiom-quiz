@@ -625,3 +625,7 @@ const questions = [
  /* Was schert es die (deutsche) Eiche, wenn sich die Sau dran reibt. 
  You can criticise something, but nothing will change
  Does the moon care when dogs bark at it.*/
+
+ /* Die Flinte ins Korn werfen
+ To throw your rifle into the cornfield
+ To not give up easily */

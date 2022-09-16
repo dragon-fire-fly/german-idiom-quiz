@@ -135,22 +135,12 @@ function getNewQuestion() {
     currentQuestion = quizQuestions[questionCounter-1];
     /* displays the text for the new question */
     question.innerText = currentQuestion.idiom;
-    /* displays the literal translation and event listener to display it */
-    translation.classList.add('hidden');
-    
-    translateButton.addEventListener('click', e => {
-        toggleTranslation()
-        /* if (translation.classList.contains("hidden")) {
-            translation.classList.remove('hidden');
-        } else {
-            translation.classList.add('hidden');
-        } */
-    });
-    /* If moving the above to a new function, this one needs to stay here */
+
+    /* displays the literal translation div for the current question inside the translation */
     translation.innerText = currentQuestion.literal_translation;
 
     /* shuffle possible answers */
-    currentQuestion.Meanings = shuffle(currentQuestion.meanings)
+    currentQuestion.meanings = shuffle(currentQuestion.meanings)
     console.log(currentQuestion.meanings)
     /* display options for the question asked */
     options.forEach(option => {
@@ -205,19 +195,20 @@ options.forEach(option => {
     });
 });
 
+/* displays the literal translation and event listener to display it */   
+translateButton.addEventListener('click', e => {
+    toggleTranslation()
+});
+
 /* next button event listener */
 /* when next button clicked, reset class of user answer, hide translation and obtain new question */
 nextButton.addEventListener('click', e => {
     nextQuestion();
 });
 
-
+/* Toggle the literal translation */
 function toggleTranslation(){
-    if (translation.classList.contains("hidden")) {
-        translation.classList.remove('hidden');
-    } else {
-        translation.classList.add('hidden');
-    }
+    translation.classList.toggle("hidden");
 }
 /* next question function */
 function nextQuestion() {
