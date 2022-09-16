@@ -43,7 +43,94 @@ let availableQuestions =[];
 const POINT_VALUE = 1;
 const TOTAL_QUESTIONS = 4;
 
-onLoad()
+/* Test questions */
+const questions = [
+    {
+        id : 1,
+        idiom : "Der Koch war verliebt",
+        literal_translation : "The cook was in love",
+        meanings : [
+            "To get an extra portion",
+            "The meal is too salty",
+            "To find a hair in your meal",
+            "The meal is already cold",
+        ],
+        correct_meaning : "The meal is too salty",
+        english_equivalent: "",
+        correct: false,
+    },
+    {
+        id : 2,
+        idiom : "Am Essen war die Küchenfee dran",
+        literal_translation : "It was the Kitchen Fairy's turn to cook",
+        meanings : [
+            "To get a take-away",
+            "When no one wants to cook",
+            "When the kitchen is in a mess",
+            "The food was burnt",
+        ],
+        correct_meaning : "The food was burnt",
+        english_equivalent: "",
+        correct: false,
+    },
+    {
+        id : 3,
+        idiom : "Nicht die hellster Glühbirne (im Shrank)",
+        literal_translation : "Not the brightest lightbulb (in the cupboard)",
+        meanings : [
+            "Someone who is overly critical of others",
+            "Someone who is not considered very attractive",
+            "Someone who is not very welcoming to others",
+            "Someone who is not considered very smart",
+        ],
+        correct_meaning : "Someone who is not considered very smart",
+        english_equivalent : "Not the sharpest tool in the shed",
+        correct: false,
+    },
+    {
+        id : 4,
+        idiom : "Das ist nur ein Katzensprung ",
+        literal_translation : "That is only a cat's leap",
+        meanings : [
+            "When something is right around the corner",
+            "When something is risky",
+            "When something is simple",
+            "When someone jumps to conclusions",
+        ],
+        correct_meaning : "When something is right around the corner",
+        english_equivalent : "Only a stone's throw",
+        correct: false,
+    },
+    {
+        id : 6,
+        idiom : "Hat nicht alle Tassen in Shrank",
+        literal_translation : "Not all the cups are in the cupboard",
+        meanings : [
+            "The dishwasher needs unloading",
+            "When someone is messy",
+            "When someone can't make it to an event",
+            "When someone is not 'all there'",
+        ],
+        correct_meaning : "When someone is not 'all there'",
+        english_equivalent : "",
+        correct: false,
+    },
+    {
+        id : 8,
+        idiom : "Eine Extrawurst verlangen",
+        literal_translation : "To ask for an extra sausage",
+        meanings : [
+            "To request an extra portion",
+            "To fish for compliments",
+            "To ask for special treatment",
+            "To be the butt of a joke",
+        ],
+        correct_meaning : "To ask for special treatment",
+        correct: false,
+    },
+]
+
+onLoad();
 
 /* call the startGame function when start quiz button pressed */
 /* hides start page and unhides quiz page */
@@ -92,18 +179,18 @@ function startGame() {
 }
 
 /* shuffle function takes the original question list and randomises the entries */
-function shuffle(questionList) {
-    let currentIndex = questionList.length,  randomIndex;
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
     // While there remain elements to shuffle.
     while (currentIndex != 0) {
         // Pick a random element.
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
         // And swap it with the current element.
-        [questionList[currentIndex], questionList[randomIndex]] = [
-            questionList[randomIndex], questionList[currentIndex]];
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
     }
-    return questionList;
+    return array;
 }
 
 /* adds the first 12 randomised quesions to a list called "quizQuestions*/
@@ -149,10 +236,13 @@ function getNewQuestion() {
     /* If moving the above to a new function, this one needs to stay here */
     translation.innerText = currentQuestion.literal_translation;
 
+    /* shuffle possible answers */
+    currentQuestion.Meanings = shuffle(currentQuestion.meanings)
+    console.log(currentQuestion.meanings)
     /* display options for the question asked */
     options.forEach(option => {
         const number = option.dataset['number'];
-        option.innerText = currentQuestion['meaning' + number];
+        option.innerText = currentQuestion.meanings[number];
     });
 
     acceptingAnswers = true;
