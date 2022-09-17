@@ -12,13 +12,15 @@
 </head>
 <body>
     <nav>
-        <button id="home-btn" class="btn">Home</button>
-        <button id="how-to-play-btn" class="btn">How to Play</button>
+        <ul class="nav-bar">
+            <li id="home-btn" class="nav-btn">Home</li>
+            <li id="how-to-play-btn" class="nav-btn">How to Play</li>
+        </ul>
     </nav>
     <main>
         <!-- Home page container -->
         <div class="home-container">
-            <div id="home" class="flex-column flex-center">
+            <div id="home" class="center-content">
                 <h1>German Idiom Quiz</h1>
                 
                 <button id="start-btn" class="btn">Start Quiz</button>
@@ -63,7 +65,7 @@
                         </h2>
                     </div>
                 </div>
-                <div class="q-container">
+                <div class="question-box">
                     <h2 id="question">Idiom</h2>
                     <div id="translate-button"><i class="fa-sharp fa-solid fa-plus"></i></div>
                     <div id="translation" class="hidden">literal translation</div>

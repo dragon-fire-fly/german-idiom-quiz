@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;800&family=Nova+Square&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;800&family=Nova+Square&display=swap');
 
 :root {
     /* Main colour scheme */
@@ -27,33 +27,92 @@ main {
     background-image: linear-gradient(var(--black), var(--accent-gold), var(--accent-red));
     background-repeat: no-repeat;
     height: 100%; */
-    background-image: url(/assets/images/vector-flag.jpg);
+    background: url(../images/german-flag-distressed-hd.webp);
     background-size: cover;
     background-position: center;
     font-family: var(--main-text);
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2rem; /* 3 for mq */
     color: var(--white);
     font-family: var(--h1);
     font-weight: 800;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1rem;
     color: var(--black);
     font-family: var(--h2);
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: 1rem;
     color: var(--white);
     font-family: var(--h2);
 }
 
-/* Home page styling */
+/* Nav bar styling */
+.nav-bar {
+    background-color: var(--black);
+    color: var(--accent-gold);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-text);
+    font-size: 1.3rem;
+    font-weight: 500;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 50px;
+    align-items: center;
+}
 
+#home-btn {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    color: var(--accent-red);
+}
+
+#how-to-play-btn {
+    grid-column-start: 4;
+    grid-column-end: 7;
+}
+
+/* Home page styling */
+.home-container {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%;
+    margin: 0 auto;
+    display: grid;
+/*     grid-template-columns: repeat(5 1fr);
+    grid-template-rows: repeat; */
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    color: var(--accent-gold);
+    background: linear-gradient(90deg,var(--black) 0%, var(--accent-red) 100%);
+    font-family: var(--main-text);
+    font-weight: 500;
+    height: 2rem;
+    width: auto;
+}
+
+#start-btn {
+    justify-content: center;
+    text-align: center;
+    grid-column-start: 2;
+}
 
 /* The Modal (background) */
 .modal {
@@ -98,23 +157,27 @@ h3 {
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+/*     grid-template-columns: repeat(3, 1fr); */
+    grid-template-rows: repeat(5, 1fr);
     justify-content: center;
     align-items: center;
     max-width: 100%;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 /*  styling for question container, score etc */
 #q-container {
+    display: grid;
+    /* grid-column: inherit; */
+    /* grid-row: inherit; */
     background-color: rgba(255,255,255,0.5);
     grid-column-start: 2;
     grid-column-end: 3;
-    grid-row: 2;
+    grid-row-start: 2;
+    grid-row-end: 5;
     width: 100%;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 /*  styling for top bar (score, progress bar, etc) */
@@ -134,14 +197,14 @@ h3 {
     text-align: center;
 }
 #progressText {
-    font-size: 150%;
+    font-size: 100%;
     grid-column: 1, 2;
     grid-row: 1,2;
 
 }
 #progressBar {
-    width: 15rem;
-    height: 2rem;
+    width: 5rem;
+    height: 1rem;
     border: 0.2rem solid var(--black);
     margin-top: 2rem;
     border-radius: 50px;
@@ -154,16 +217,27 @@ h3 {
     width: 0%;
 }
 
+.option-container {
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.question-box {
+    margin: 25px;
+}
+
 /* styling for option A-D containers */
 .answer-btn {
     background-color: var(--accent-gold);
-    width: 80%;
+    width: 90%;
     text-align: center;
     padding: 0.5rem;
     margin: 0.25rem;
-    font-size: 120%;
+    font-size: 110%;
+    font-weight: 500;
 }
-
+/* styling for correct and incorrect answers */
 .correct {
     background-color: var(--correct);
 }
@@ -207,11 +281,11 @@ td, th {
 }
 
 .true {
-    background-color: green;
+    background-color: var(--correct);
 }
 
 .false {
-    background-color: red;
+    background-color: var(--incorrect);
 }
 
 /*  media queries */

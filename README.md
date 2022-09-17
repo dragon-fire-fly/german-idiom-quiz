@@ -238,3 +238,13 @@ I would like to thank my Mentor Tim Nelson for all his advice, encouragement and
 I would also like to thank my husband who contributed many of the idioms for the quiz.
 
 [Back to Top](#contents)
+
+
+
+<!--  resources:
+https://colorswall.com/palette/50961 - germany palette 
+https://img.wallpapersafari.com/desktop/1920/1080/61/86/eQLs4h.jpg - distressed german flag img
+
+converted with https://convertio.co/jpg-webp/
+
+ -->

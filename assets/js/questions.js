@@ -471,7 +471,7 @@ const questions = [
     },
     {
         id : 35,
-        idiom : "Die Hand für etwas-jemanden ins Feuer legen",
+        idiom : "Die Hand für etwas/jemanden ins Feuer legen",
         literal_translation : "To put your hand in the fire for someone/something",
         meanings : [
             "To bet on something",
@@ -629,3 +629,7 @@ const questions = [
  /* Die Flinte ins Korn werfen
  To throw your rifle into the cornfield
  To not give up easily */
+
+ /* eine Wundertüte sein - 
+ to be a mystery bag
+ to be unpredictable */
