@@ -334,7 +334,7 @@ const questions = [
         id: 25,
         idiom : "Gleich rappelts im Karton",
         literal_translation : "The cardboard box is rattling",
-        meaning1s: [
+        meanings: [
             "When someone is keeping a secret",
             "When someone is overly excited",
             "When someone is gossiping",

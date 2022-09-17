@@ -245,6 +245,7 @@ function insertTable(askedQuestions) {
 /* unhide table on user click */
 function endgame(){
     questionContainer.classList.add('hidden');
+    console.log("question container should be hidden")
     quizEnd.classList.remove('hidden');
     quizScore.innerText = `Your score is: ${score}`;
     reviewButton.addEventListener('click', e=> {
