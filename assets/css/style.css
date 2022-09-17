@@ -22,6 +22,7 @@
     box-sizing: border-box;
 }
 
+/* general styling of page */
 main {
      background-color: var(--black);
     /*background-image: linear-gradient(var(--black), var(--accent-gold), var(--accent-red));
@@ -69,6 +70,13 @@ h3 {
     align-items: center;
 }
 
+
+/* Buttons */
+.btn {
+    font-family: var(--main-text);
+    font-weight: 500;
+}
+
 #home-btn {
     grid-column-start: 2;
     grid-column-end: 3;
@@ -90,6 +98,39 @@ h3 {
     text-decoration-color: var(--accent-red);
 }
 
+#start-btn {
+    color: var(--accent-gold);
+    background: linear-gradient(90deg,var(--black) 0%, var(--accent-red) 100%);
+    height: 2rem;
+    width: auto;
+}
+
+.next-end-btn {
+    padding: 0.5rem;
+    margin: 0.25rem;
+    font-size: 1.2rem;
+    background-color: var(--black);
+    color: var(--accent-gold);
+    grid-column-start: 4;
+    grid-column-end: 6;
+}
+
+#review-btn {
+    font-size: 1.2rem;
+    background-color: var(--black);
+    color: var(--accent-gold);
+}
+
+/* styling for option A-D containers */
+.answer-btn {
+    background-color: var(--accent-gold);
+    width: 90%;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
 
 /* Home page styling */
 .home-container {
@@ -110,24 +151,6 @@ h3 {
     justify-content: center;
     align-items: center;
 }
-
-#start-btn {
-    color: var(--accent-gold);
-    background: linear-gradient(90deg,var(--black) 0%, var(--accent-red) 100%);
-    height: 2rem;
-    width: auto;
-}
-
-.btn {
-    font-family: var(--main-text);
-    font-weight: 500;
-}
-
-/* #start-btn {
-    justify-content: center;
-    text-align: center;
-    grid-column-start: 2;
-} */
 
 /* The Modal (background) */
 .modal {
@@ -240,16 +263,6 @@ h3 {
     margin: 25px;
 }
 
-/* styling for option A-D containers */
-.answer-btn {
-    background-color: var(--accent-gold);
-    width: 90%;
-    text-align: center;
-    padding: 0.5rem;
-    margin: 0.25rem;
-    font-size: 1rem;
-    font-weight: 500;
-}
 /* styling for correct and incorrect answers */
 .correct {
     background-color: var(--correct);
@@ -259,32 +272,9 @@ h3 {
     background-color: var(--incorrect);
 }
 
-/* hidden class */
-.hidden {
-    display: none;
-}
-
-/* styling for start and next buttons */
 .next-end {
     display: grid;
     grid-template-columns: repeat(5,1fr);
-}
-
-.next-end-btn {
-   /*  width: 25%; */
-    padding: 0.5rem;
-    margin: 0.25rem;
-    font-size: 1.2rem;
-    background-color: var(--black);
-    color: var(--accent-gold);
-    grid-column-start: 4;
-    grid-column-end: 6;
-}
-
-#review-btn {
-    font-size: 1.2rem;
-    background-color: var(--black);
-    color: var(--accent-gold);
 }
 
 /* styling for the end of quiz page */
@@ -325,6 +315,11 @@ th {
 
 .false {
     background-color: var(--incorrect);
+}
+
+/* hidden class */
+.hidden {
+    display: none;
 }
 
 /*  media queries */

@@ -1,33 +1,39 @@
 /* jshint esversion: 11 */
+
 /* Linking to the DOM */
-/* home page */
+
+/* Main page container*/
 const homeContainer = document.querySelector('.home-container');
-const startButton = document.querySelector('#start-btn');
-const homeButton = document.querySelector('#home-btn')
+const mainContainer = document.querySelector('.main-container');
+const quizEnd = document.querySelector('#quiz-end');
 
 /* How to play modal */
-const howToPlayButton = document.querySelector('#how-to-play-btn')
-const howToPlayModal = document.querySelector("#how-to-play")
-const closeModal = document.querySelector('#close-modal')
+const howToPlayButton = document.querySelector('#how-to-play-btn');
+const howToPlayModal = document.querySelector("#how-to-play");
+const closeModal = document.querySelector('#close-modal');
+
+/* Buttons */
+const startButton = document.querySelector('#start-btn');
+const homeButton = document.querySelector('#home-btn');
+const reviewButton = document.querySelector('#review-btn');
+const nextButton = document.querySelector('#next-button');
+const endButton = document.querySelector('#end-button')
 
 /* Question page */
-const mainContainer = document.querySelector('.main-container')
 const questionContainer = document.querySelector('#q-container');
 const question = document.querySelector('#question');
 const options = Array.from(document.querySelectorAll('.option-text'));
-const progressText = document.querySelector('#progressText');
-const scoreText = document.querySelector('#score');
-const progressBarFull = document.querySelector('#progressBarFull');
-const nextButton = document.querySelector('#next-button');
-const endButton = document.querySelector('#end-button')
 const translation = document.querySelector('#translation');
 const translateButton = document.querySelector('#translate-button');
 
-/* Quiz end page */
-const quizEnd = document.querySelector('#quiz-end');
-const quizScore = document.querySelector('#quiz-score')
-const reviewButton = document.querySelector('#review-btn')
-const table = document.querySelector('#table')
+/* Progress bar */
+const progressText = document.querySelector('#progressText');
+const scoreText = document.querySelector('#score');
+const progressBarFull = document.querySelector('#progressBarFull');
+
+/* Quiz end page and summary table*/
+const quizScore = document.querySelector('#quiz-score');
+const table = document.querySelector('#table');
 const summaryTable = document.querySelector('#summary-table');
 
 /* Setting base values for mutable variables */
@@ -43,6 +49,7 @@ let availableQuestions =[];
 const POINT_VALUE = 1;
 const TOTAL_QUESTIONS = 4;
 
+/* Calls on-page load JS */
 onLoad();
 
 /* call the startGame function when start quiz button pressed */
@@ -65,6 +72,7 @@ function onLoad(){
         howToPlayModal.classList.remove("hidden");
         console.log("how to play clicked");
     })
+    /* closes how to play modal */
     closeModal.addEventListener('click', e => {
         howToPlayModal.classList.add("hidden");
     })
@@ -149,11 +157,7 @@ function getNewQuestion() {
     });
 
     acceptingAnswers = true;
-    /* if there is exactly one question remaining in list, hide next button and show end button */
-    if (questionCounter >= TOTAL_QUESTIONS) {
-        endButton.classList.remove('hidden');
-        nextButton.classList.add('hidden');
-    } 
+
 }
 
 options.forEach(option => {
@@ -188,12 +192,24 @@ options.forEach(option => {
                 }
             }
         }
+        
         /* display next button if not on the last question */
         if (questionCounter != TOTAL_QUESTIONS){
         nextButton.classList.remove('hidden')
     }
+        /* if there is exactly one question remaining in list, hide next button and show end button */
+        if (questionCounter >= TOTAL_QUESTIONS) {
+            endButton.classList.remove('hidden');
+            nextButton.classList.add('hidden');
+        } 
     });
 });
+
+/* hides next button until answer chosen */
+function hideNextButton() {
+    nextButton.classList.add('hidden');
+}
+
 
 /* displays the literal translation and event listener to display it */   
 translateButton.addEventListener('click', e => {
@@ -204,6 +220,7 @@ translateButton.addEventListener('click', e => {
 /* when next button clicked, reset class of user answer, hide translation and obtain new question */
 nextButton.addEventListener('click', e => {
     nextQuestion();
+    hideNextButton();
 });
 
 /* Toggle the literal translation */
@@ -218,7 +235,6 @@ function nextQuestion() {
     }
     translation.classList.add('hidden');
     getNewQuestion();
-    console.log("next button pressed");
 }
 
 /* increase score by 1 point if correct */
