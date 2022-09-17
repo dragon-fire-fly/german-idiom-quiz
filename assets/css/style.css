@@ -41,7 +41,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--black);
     font-family: var(--h2);
 }
@@ -108,11 +108,11 @@ h3 {
     width: auto;
 }
 
-#start-btn {
+/* #start-btn {
     justify-content: center;
     text-align: center;
     grid-column-start: 2;
-}
+} */
 
 /* The Modal (background) */
 .modal {
@@ -169,8 +169,8 @@ h3 {
 /*  styling for question container, score etc */
 #q-container {
     display: grid;
-    /* grid-column: inherit; */
-    /* grid-row: inherit; */
+/*     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr); */
     background-color: rgba(255,255,255,0.5);
     grid-column-start: 2;
     grid-column-end: 3;
@@ -190,14 +190,15 @@ h3 {
 .top-bar-text {
     grid-column: 1;
     text-align: center;
-    font-size: 2rem; 
+    font-size: 120%; 
 }
 
 .top-bar-main-text {
     text-align: center;
+    font-size: 120%;
 }
 #progressText {
-    font-size: 100%;
+    font-size: 120%;
     grid-column: 1, 2;
     grid-row: 1,2;
 
@@ -234,7 +235,7 @@ h3 {
     text-align: center;
     padding: 0.5rem;
     margin: 0.25rem;
-    font-size: 110%;
+    font-size: 1rem;
     font-weight: 500;
 }
 /* styling for correct and incorrect answers */
@@ -252,12 +253,20 @@ h3 {
 }
 
 /* styling for start and next buttons */
+.start-next {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+}
+
 .button {
-    background-color: gray;
-    width: 25%;
+   /*  width: 25%; */
     padding: 0.5rem;
     margin: 0.25rem;
-    font-size: 120%;
+    font-size: 1.2rem;
+    background-color: var(--black);
+    color: var(--accent-gold);
+    grid-column-start: 4;
+    grid-column-end: 6;
 }
 
 /* styling for the end of quiz page */

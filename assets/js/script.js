@@ -118,7 +118,7 @@ function getNewQuestion() {
     /* +1 to the question counter */
     questionCounter++;
     /* display question number x of y */
-    progressText.innerText = `Question ${questionCounter} of ${TOTAL_QUESTIONS}`;
+    progressText.innerHTML = `Question <br>${questionCounter} of ${TOTAL_QUESTIONS}`;
     /* display progress bar as percentage out of total Qs */
     progressBarFull.style.width = `${(questionCounter/TOTAL_QUESTIONS) * 100}%`;
     
