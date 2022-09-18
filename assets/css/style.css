@@ -300,6 +300,10 @@ h3 {
     color: var(--accent-gold);
 }
 
+#end-timer {
+    color: var(--white);
+}
+
 td, th {
     border: 1px solid;
     padding: 10px;

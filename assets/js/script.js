@@ -31,6 +31,11 @@ const progressText = document.querySelector('#progressText');
 const scoreText = document.querySelector('#score');
 const progressBarFull = document.querySelector('#progressBarFull');
 
+/* Timer */
+const timer = document.querySelector('#timer')
+const endTimer = document.querySelector('#end-timer')
+let timeTaken;
+
 /* Quiz end page and summary table*/
 const quizScore = document.querySelector('#quiz-score');
 const table = document.querySelector('#table');
@@ -143,6 +148,16 @@ function countTimer(start) {
     if(seconds < 10)
         seconds = "0"+seconds;
     timer.innerHTML = hour + ":" + minute + ":" + seconds;
+    endButton.addEventListener('click', e => {
+        endTimer.innerText = "Your time is: " + hour + ":" + minute + ":" + seconds;
+        stopTimer();
+        timeTaken = hour + ":" + minute + ":" + seconds;
+        localStorage.setItem('mostRecentTime', timeTaken);
+    })
+}
+
+function stopTimer() {
+    clearInterval(timeInterval);
 }
 
 function getNewQuestion() {
