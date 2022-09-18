@@ -60,6 +60,7 @@ function onLoad(){
         homeContainer.classList.add('hidden');
         mainContainer.classList.remove('hidden');
         startGame();
+        startTimer();
     })
     /* event listener for home button */
     homeButton.addEventListener('click', e => {
@@ -120,6 +121,28 @@ function selectQuizQuestions(randomisedQs){
         quizQuestions.push(randomisedQs[i]);
     }
     return quizQuestions;
+}
+
+/* timer function */
+function startTimer(){ 
+    var start = Date.now();
+    timeInterval = setInterval(function(){countTimer(start)}, 1000);
+}
+
+function countTimer(start) {
+    now = Date.now();
+    var delta = Math.floor((now - start)/1000);
+    console.log(delta);
+    var hour = Math.floor(delta /3600);
+    var minute = Math.floor((delta - hour*3600)/60);
+    var seconds = delta - (hour*3600 + minute*60);
+    if(hour < 10)
+        hour = "0"+hour;
+    if(minute < 10)
+        minute = "0"+minute;
+    if(seconds < 10)
+        seconds = "0"+seconds;
+    timer.innerHTML = hour + ":" + minute + ":" + seconds;
 }
 
 function getNewQuestion() {
