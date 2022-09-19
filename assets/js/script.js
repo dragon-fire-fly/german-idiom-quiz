@@ -2,10 +2,12 @@
 
 /* Linking to the DOM */
 
-/* Main page container*/
+/* Main page containers */
 const homeContainer = document.querySelector('.home-container');
 const mainContainer = document.querySelector('.main-container');
 const quizEnd = document.querySelector('#quiz-end');
+const questionContainer = document.querySelector('#q-container');
+const highScoreContainer = document.querySelector('.high-score-container');
 
 /* How to play modal */
 const howToPlayButton = document.querySelector('#how-to-play-btn');
@@ -17,10 +19,10 @@ const startButton = document.querySelector('#start-btn');
 const homeButton = document.querySelector('#home-btn');
 const reviewButton = document.querySelector('#review-btn');
 const nextButton = document.querySelector('#next-button');
-const endButton = document.querySelector('#end-button')
+const endButton = document.querySelector('#end-button');
+const highScoreButton = document.querySelector('#high-score-btn')
 
 /* Question page */
-const questionContainer = document.querySelector('#q-container');
 const question = document.querySelector('#question');
 const options = Array.from(document.querySelectorAll('.option-text'));
 const translation = document.querySelector('#translation');
@@ -41,6 +43,9 @@ const quizScore = document.querySelector('#quiz-score');
 const table = document.querySelector('#table');
 const summaryTable = document.querySelector('#summary-table');
 
+/* High-score table */
+const highScoreList = document.querySelector('#high-score-list');
+
 /* Setting base values for mutable variables */
 let currentQuestion = {};
 let acceptingAnswers = true;
@@ -58,8 +63,10 @@ const TOTAL_QUESTIONS = 4;
 onLoad();
 
 /* call the startGame function when start quiz button pressed */
+
 /* hides start page and unhides quiz page */
 function onLoad(){
+    /* event listener for start button */
     startButton.addEventListener('click', e => {
         console.log("start button pressed");
         homeContainer.classList.add('hidden');
@@ -67,6 +74,15 @@ function onLoad(){
         startGame();
         startTimer();
     })
+
+    /* event listener for highscore button */
+    highScoreButton.addEventListener('click', e => {
+        console.log("highscore button button pressed");
+        homeContainer.classList.add('hidden');
+        highScoreContainer.classList.remove('hidden');
+        console.log("Highscores...?")
+    })
+
     /* event listener for home button */
     homeButton.addEventListener('click', e => {
         window.location.reload();

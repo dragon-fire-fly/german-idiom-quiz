@@ -34,6 +34,10 @@ main {
     background-position: center;
     font-family: var(--main-text);
 }
+p {
+    color: var(--white);
+    font-family: var(--main-text);
+}
 
 h1 {
     font-size: 2rem; /* 3 for mq */
@@ -54,6 +58,8 @@ h3 {
     font-family: var(--h2);
 }
 
+
+
 /* Nav bar styling */
 .nav-bar {
     background-color: var(--black);
@@ -69,12 +75,68 @@ h3 {
     grid-template-rows: 50px;
     align-items: center;
 }
+/* Home page styling */
+.home-container {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+/*     grid-template-columns: repeat(5 1fr);
+    grid-template-rows: repeat; */
+}
 
+/* styling for main container on page */
+.main-container {
+    /* background-color: rgba(255,255,255,0.4); */
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+/*     grid-template-columns: repeat(3, 1fr); */
+    grid-template-rows: repeat(5, 1fr);
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/*  styling for question container, score etc */
+#q-container {
+    background-color: rgba(255,255,255,0.5);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    width: 100vw;
+    /* justify-content: center; */
+}
+
+/* High-score page styling */
+.high-score-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+/*     grid-template-columns: repeat(3, 1fr); */
+    grid-template-rows: repeat(5, 1fr);
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
 
 /* Buttons */
 .btn {
     font-family: var(--main-text);
     font-weight: 500;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.5rem 2rem 0 var(--accent-gold);
 }
 
 #home-btn {
@@ -86,6 +148,7 @@ h3 {
 #home-btn:hover {
     text-decoration: underline;
     text-decoration-color: var(--accent-gold);
+    cursor: pointer;
 }
 
 #how-to-play-btn {
@@ -96,6 +159,7 @@ h3 {
 #how-to-play-btn:hover {
     text-decoration: underline;
     text-decoration-color: var(--accent-red);
+    cursor: pointer;
 }
 
 #start-btn {
@@ -103,6 +167,19 @@ h3 {
     background: linear-gradient(90deg,var(--black) 0%, var(--accent-red) 100%);
     height: 2rem;
     width: auto;
+    padding: 1rem;
+    line-height: 0.3rem;
+    font-size: 120%;
+}
+
+#high-score-btn {
+    color: var(--accent-gold);
+    background: linear-gradient(90deg,var(--black) 0%, var(--accent-red) 100%);
+    height: 2rem;
+    width: auto;
+    padding: 1rem;
+    line-height: 0.3rem;
+    font-size: 120%;
 }
 
 .next-end-btn {
@@ -130,19 +207,6 @@ h3 {
     margin: 0.25rem;
     font-size: 1rem;
     font-weight: 500;
-}
-
-/* Home page styling */
-.home-container {
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    max-height: 100%;
-    margin: 0 auto;
-    display: grid;
-/*     grid-template-columns: repeat(5 1fr);
-    grid-template-rows: repeat; */
 }
 
 .center-content {
@@ -189,32 +253,6 @@ h3 {
     cursor: pointer;
 }
 
-/* styling for main container on page */
-.main-container {
-    /* background-color: rgba(255,255,255,0.4); */
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-/*     grid-template-columns: repeat(3, 1fr); */
-    grid-template-rows: repeat(5, 1fr);
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 1.5rem;
-}
-
-/*  styling for question container, score etc */
-#q-container {
-    background-color: rgba(255,255,255,0.5);
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 5;
-    width: 100%;
-    /* justify-content: center; */
-}
-
 /*  styling for top bar (score, progress bar, etc) */
 #top-bar {
     display: grid;
@@ -226,6 +264,7 @@ h3 {
     grid-column: 1;
     text-align: center;
     font-size: 120%; 
+    color: var(--black);
 }
 
 .top-bar-main-text {
@@ -321,9 +360,17 @@ th {
     background-color: var(--incorrect);
 }
 
+/* Highscore styling */
+#high-score-list {
+    color: var(--white);
+}
+
 /* hidden class */
 .hidden {
     display: none;
 }
+
+
+
 
 /*  media queries */

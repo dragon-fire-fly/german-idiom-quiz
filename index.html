@@ -24,6 +24,8 @@
                 <h1>German Idiom Quiz</h1>
                 
                 <button id="start-btn" class="btn">Start Quiz</button>
+                <br>
+                <button id="high-score-btn" class="btn">Highscores</button>
             </div>
         </div>
         <!-- How to play modal -->
@@ -91,6 +93,7 @@
                 <div id="end-timer">00:00:00</div>
                 <button id="review-btn" class="btn">Review questions</button>
                 <div id="table" class="hidden">
+                    <p>Below is a summary of the asked questions. Correctly answered questions are highlighted in green, incorrect answers are highlighted in red.</p>
                     <table id="question-table">
                         <thead>
                             <tr>
@@ -102,7 +105,17 @@
                         <tbody id="summary-table">
                         </tbody>
                         </table>
+                </div>
             </div>
+        </div>
+        <!-- Highscore page -->
+        <div class="high-score-container hidden">
+            <div id="high-scores" class="center-content">
+                <h3>High Scores</h3>
+                <ul id="high-score-list"></ul>
+                <p>There should be text here now</p>
+            </div>
+            
         </div>
     </main>
 
