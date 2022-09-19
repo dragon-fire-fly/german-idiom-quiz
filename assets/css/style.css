@@ -24,15 +24,15 @@
 
 /* general styling of page */
 main {
-     background-color: var(--black);
-    /*background-image: linear-gradient(var(--black), var(--accent-gold), var(--accent-red));
-    background-repeat: no-repeat;
-    height: 100%; */
+    background-color: var(--black);
+    height: 100%;
+    width: 100%;
     background: url(../images/german-flag-distressed-hd.webp);
     background-size: cover;
     background-repeat: repeat-y;
     background-position: center;
     font-family: var(--main-text);
+    overflow-x: hidden;
 }
 p {
     color: var(--white);

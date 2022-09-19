@@ -91,6 +91,13 @@
                 <h1>Quiz completed!</h1>
                 <div id="quiz-score">You scored: </div>
                 <div id="end-timer">00:00:00</div>
+                <form class="form-container">
+                    <h3 id="enter-name">Enter your name to save your score!</h3>
+                    <input type="text" name="name" id="username" placeholder="Enter your name">
+                    <button class="btn" id="save-score-btn" type="submit" onclick="saveHighScore(event)" disabled>Save</button>
+                </form>
+                <h3 class="form-submitted hidden">Highscore added</h3>
+                <button>Play again</button>
                 <button id="review-btn" class="btn">Review questions</button>
                 <div id="table" class="hidden">
                     <p>Below is a summary of the asked questions. Correctly answered questions are highlighted in green, incorrect answers are highlighted in red.</p>

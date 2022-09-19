@@ -8,6 +8,7 @@ const mainContainer = document.querySelector('.main-container');
 const quizEnd = document.querySelector('#quiz-end');
 const questionContainer = document.querySelector('#q-container');
 const highScoreContainer = document.querySelector('.high-score-container');
+const formContainer = document.querySelector('.form-container')
 
 /* How to play modal */
 const howToPlayButton = document.querySelector('#how-to-play-btn');
@@ -43,8 +44,15 @@ const quizScore = document.querySelector('#quiz-score');
 const table = document.querySelector('#table');
 const summaryTable = document.querySelector('#summary-table');
 
-/* High-score table */
+/* High-scores */
+const username = document.querySelector('#username');
+const saveScoreBtn = document.querySelector('#save-score-btn');
+const mostRecentScore = localStorage.getItem('mostRecentScore');
+const mostRecentTime = localStorage.getItem("mostRecentTime")
 const highScoreList = document.querySelector('#high-score-list');
+/* return highscores or an empty string */
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+const formSubmitted = document.querySelector('.form-submitted');
 
 /* Setting base values for mutable variables */
 let currentQuestion = {};
@@ -58,6 +66,7 @@ let availableQuestions =[];
 /* Setting fixed value variables */
 const POINT_VALUE = 1;
 const TOTAL_QUESTIONS = 4;
+const MAX_HIGH_SCORES = 5;
 
 /* Calls on-page load JS */
 onLoad();
@@ -80,7 +89,8 @@ function onLoad(){
         console.log("highscore button button pressed");
         homeContainer.classList.add('hidden');
         highScoreContainer.classList.remove('hidden');
-        console.log("Highscores...?")
+        getHighscores();
+        console.log("getHighscores called")
     })
 
     /* event listener for home button */
@@ -314,6 +324,7 @@ function insertTable(askedQuestions) {
 }
 /* unhide table on user click */
 function endgame(){
+
     questionContainer.classList.add('hidden');
     console.log("question container should be hidden")
     quizEnd.classList.remove('hidden');
@@ -324,3 +335,44 @@ function endgame(){
     });
     insertTable(quizQuestions);
 }
+
+
+saveHighScore = e => {
+    e.preventDefault()
+    
+    const score = {
+        score:mostRecentScore,
+        name: username.value,
+        time:mostRecentTime
+    }
+    
+    highScores.push(score)
+    
+    highScores.sort((a,b) => {
+        return b.score - a.score
+    })
+    
+    highScores.splice(5)
+    
+    localStorage.setItem('highScores', JSON.stringify(highScores))
+    /* window.location.assign('/') */
+}
+    
+function getHighscores(){
+    highScoreList.innerHTML = highScores.map(score => {
+        return `<li class="high-score">${score.name} - ${score.score} - ${score.time} </li>`
+    }).join('')
+    console.log("Here are your highscores")
+}
+
+/* finalScore.innerText = mostRecentScore */
+
+username.addEventListener('keyup', () => {
+    saveScoreBtn.disabled = !username.value
+})
+saveScoreBtn.addEventListener('click', e => {
+    formContainer.classList.add('hidden');
+    formSubmitted.classList.remove('hidden');
+
+})
+    
