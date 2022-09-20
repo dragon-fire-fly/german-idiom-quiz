@@ -10,7 +10,7 @@
     --accent-gold: rgb(255, 206,0);
     --soft-gold: rgb(238, 219, 137);
     --correct: rgb(140, 168, 145);
-    --incorrect: rgba(231, 74, 57, 0.74);
+    --incorrect: rgb(231, 74, 57);
     
     /* Fonts */
     --h1: Kanit;

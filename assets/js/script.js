@@ -79,7 +79,6 @@ onLoad();
 function onLoad(){
     /* event listener for start button */
     startButton.addEventListener('click', e => {
-        console.log("start button pressed");
         homeContainer.classList.add('hidden');
         mainContainer.classList.remove('hidden');
         startGame();
@@ -88,23 +87,19 @@ function onLoad(){
 
     /* event listener for highscore button */
     highScoreButton.addEventListener('click', e => {
-        console.log("highscore button button pressed");
         homeContainer.classList.add('hidden');
         highScoreContainer.classList.remove('hidden');
         getHighscores();
-        console.log("getHighscores called")
     })
 
     /* event listener for home button */
     homeButton.addEventListener('click', e => {
         window.location.reload();
-        console.log("home button pressed");
     })
     /* event listener for how to play button */
     howToPlayButton.addEventListener('click', e => {
         /* shows how to play modal */
         howToPlayModal.classList.remove("hidden");
-        console.log("how to play clicked");
     })
     /* closes how to play modal */
     closeModal.addEventListener('click', e => {
@@ -123,14 +118,12 @@ function startGame() {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
-
     /* call function to shuffle the question list */
     randomisedQuestions = shuffle(availableQuestions);
     /* call function to select 12 random quiz questions */
     quizQuestions = selectQuizQuestions(randomisedQuestions);
     /* call the getNewQuestion function */
     getNewQuestion(); 
-    console.log(quizQuestions);
 }
 
 /* shuffle function takes the original question list and randomises the entries */
@@ -158,14 +151,18 @@ function selectQuizQuestions(randomisedQs){
 
 /* timer function */
 function startTimer(){ 
+    /* current UNIX time */
     var start = Date.now();
+    /* set time interval to 1 second */
     timeInterval = setInterval(function(){countTimer(start)}, 1000);
 }
 
 function countTimer(start) {
+    /* current UNIX time */
     now = Date.now();
+    /* difference between current and starting UNIX time, in seconds */
     var delta = Math.floor((now - start)/1000);
-    console.log(delta);
+    /* formatting the time as HH:MM:SS */
     var hour = Math.floor(delta /3600);
     var minute = Math.floor((delta - hour*3600)/60);
     var seconds = delta - (hour*3600 + minute*60);
@@ -175,11 +172,14 @@ function countTimer(start) {
         minute = "0"+minute;
     if(seconds < 10)
         seconds = "0"+seconds;
+    /* update the timer to the number of seconds passed */
     timer.innerHTML = hour + ":" + minute + ":" + seconds;
+    /* event listener to stop the timer and return the end time */
     endButton.addEventListener('click', e => {
         endTimer.innerText = "Your time is: " + hour + ":" + minute + ":" + seconds;
         stopTimer();
         timeTaken = hour + ":" + minute + ":" + seconds;
+        /* saves end time to local storage */
         localStorage.setItem('mostRecentTime', timeTaken);
     })
 }
@@ -188,14 +188,13 @@ function stopTimer() {
     clearInterval(timeInterval);
 }
 
-function getNewQuestion() {
+function scoring(){
     /* +1 to the question counter */
     questionCounter++;
     /* display question number x of y */
     progressText.innerHTML = `Question <br>${questionCounter} of ${TOTAL_QUESTIONS}`;
     /* display progress bar as percentage out of total Qs */
     progressBarFull.style.width = `${(questionCounter/TOTAL_QUESTIONS) * 100}%`;
-    
     /* if there are no remaining Qs available or we have reached the total number of Qs, end game */
     if (questionCounter >= TOTAL_QUESTIONS) {
         endButton.addEventListener('click', e => {
@@ -204,28 +203,32 @@ function getNewQuestion() {
             endgame();
         });
     };
-    
+    /* if there is exactly one question remaining in list, hide next button and show end button */
+    if (questionCounter >= TOTAL_QUESTIONS) {
+        endButton.classList.remove('hidden');
+        nextButton.classList.add('hidden');
+    } 
+}
+
+function getNewQuestion() {
+    /* call scoring() to update score and progress */
+    scoring();
     /* finds the question from the list of questions using index number */
     currentQuestion = quizQuestions[questionCounter-1];
     /* displays the text for the new question */
     question.innerText = currentQuestion.idiom;
-
     /* displays the literal translation div for the current question inside the translation */
     translation.innerText = currentQuestion.literal_translation;
-
     /* shuffle possible answers */
     currentQuestion.meanings = shuffle(currentQuestion.meanings)
-    console.log(currentQuestion.meanings)
     /* display options for the question asked */
     options.forEach(option => {
         const number = option.dataset['number'];
         option.innerText = currentQuestion.meanings[number];
     });
-
     acceptingAnswers = true;
-
 }
-
+/* check which answer is chosen */
 options.forEach(option => {
     /* add event listener to detect user click on an option */
     option.addEventListener('click', e => {
@@ -234,7 +237,6 @@ options.forEach(option => {
         acceptingAnswers = false;
         const selectedOption = e.target;
         /* retrieve the number (1-4) for the chosen answer */
-        /* const selectedAnswer = selectedOption.id;  remove?? No longer needed as not using data numbers*/
         /* compare user answer to correct answer and apply class of 'correct' or 'incorrect'*/
         let classToApply = selectedOption.innerText == currentQuestion.correct_meaning ? 'correct': 'incorrect';
 
@@ -243,31 +245,24 @@ options.forEach(option => {
             increaseScore(POINT_VALUE);
             selectedOption.innerText += " ✔️"
             currentQuestion.correct = true;
-            console.log(currentQuestion.correct)
         }
-        /* apply appropriate class to the selected answer (red or green colour) */
-        selectedOption.classList.add(classToApply);
-
         /* if the user answers incorrectly, also display the correct answer in green */
         if (classToApply === 'incorrect') {
             selectedOption.innerText += " ❌"
             for (let i=0; i < 4; i++) {
                 if (options[i].innerText === currentQuestion.correct_meaning){
-                    options[i].classList.add('correct')
-                    options[i].innerText += " ✔️"
+                    options[i].classList.add('correct');
+                    options[i].innerText += " ✔️";
                 }
             }
         }
+        /* apply appropriate class to the selected answer (red or green colour) */
+        selectedOption.classList.add(classToApply);
         
         /* display next button if not on the last question */
         if (questionCounter != TOTAL_QUESTIONS){
-        nextButton.classList.remove('hidden')
-    }
-        /* if there is exactly one question remaining in list, hide next button and show end button */
-        if (questionCounter >= TOTAL_QUESTIONS) {
-            endButton.classList.remove('hidden');
-            nextButton.classList.add('hidden');
-        } 
+        nextButton.classList.remove('hidden');
+        }
     });
 });
 
@@ -277,10 +272,15 @@ function hideNextButton() {
 }
 
 
-/* displays the literal translation and event listener to display it */   
+
+/* event listener for toggling translation */   
 translateButton.addEventListener('click', e => {
     toggleTranslation()
 });
+/* Toggle the literal translation */
+function toggleTranslation(){
+    translation.classList.toggle("hidden");
+}
 
 /* next button event listener */
 /* when next button clicked, reset class of user answer, hide translation and obtain new question */
@@ -289,10 +289,6 @@ nextButton.addEventListener('click', e => {
     hideNextButton();
 });
 
-/* Toggle the literal translation */
-function toggleTranslation(){
-    translation.classList.toggle("hidden");
-}
 /* next question function */
 function nextQuestion() {
     for (let i=0; i < 4; i++) {
@@ -324,43 +320,46 @@ function insertTable(askedQuestions) {
         summaryTable.innerHTML = summaryTableHTML;
     }
 }
-/* unhide table on user click */
+
 function endgame(){
-    /* saveHighScore();
-    console.log("saveHighScore() called") */
+    /* hides quiz page and shoes end page */
     questionContainer.classList.add('hidden');
     quizEnd.classList.remove('hidden');
+    /* updates final score */
     quizScore.innerText = `Your score is: ${score}`;
+    /* unhide table on user click */
     reviewButton.addEventListener('click', e=> {
         table.classList.remove('hidden');
         reviewButton.classList.add('hidden');
     });
+    /* redirects user to start page if they click "play again" */
     playAgainBtn.addEventListener('click', e => {
         window.location.assign('/');
     } )
+    /* calls the insert table function */
     insertTable(quizQuestions);
 }
 
 
 saveHighScore = e => {
+    /* prevents redirection */
     e.preventDefault()
-    
+    /* assigns the locally saved variables to an object */
     const score = {
         score:mostRecentScore,
         name: username.value,
         time:mostRecentTime
     }
-    
+    /* adds score to end of array */
     highScores.push(score)
-    
+    /* sorts the array */
     highScores.sort((a,b) => {
         return b.score - a.score
     })
-    
+    /* takes the first 5 scores */
     highScores.splice(5)
-    
+    /* saves the highScores in the local storage */
     localStorage.setItem('highScores', JSON.stringify(highScores))
-
 }
 
 /* function saveHighScore(){
@@ -387,7 +386,6 @@ function getHighscores(){
     highScoreList.innerHTML = highScores.map(score => {
         return `<li class="high-score">${score.name} - ${score.score} - ${score.time} </li>`
     }).join('')
-    console.log("Here are your highscores")
 }
 
 

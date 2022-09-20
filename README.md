@@ -1,4 +1,15 @@
 # German Idiom Quiz
+# Overview of project
+<!-- Am-i-responsive mock up -->
+
+The German Idiom Quiz is an interactive quiz testing the user's knowledge of commonly used German phrases (or 'idioms').
+The target audience for this quiz are language learners who speak English and are learning German.
+The quiz asks the user to select the correct answer out of four possible options for the translation of a given German idiom.
+
+The user has the option to see a literal English translation (which often does not provide many hints as to the meaning!) and to review the questions at the end of the quiz, providing an educational element to the quiz.
+
+[View the live site](https://dragon-fire-fly.github.io/german-idiom-quiz)  
+
 # Contents 
 * [**Project Overview**](<#overview-of-project>) 
 * [**User Experience (UX)**](<#user-experience-ux>)  
@@ -21,19 +32,6 @@
     * [Media](<#media>)
     * [Acknowledgements](<#acknowledgements>)
 
-# Overview of project
-<!-- Am-i-responsive mock up -->
-
-The German Idiom Quiz is an interactive quiz testing the user's knowledge of commonly used German phrases (or 'idioms').
-The target audience for this quiz are language learners who speak English and are learning German.
-The quiz asks the user to select the correct answer out of four possible options for the translation of a given German idiom.
-
-The user has the option to see a literal English translation (which often does not provide many hints as to the meaning!) and to review the questions at the end of the quiz, providing an educational element to the quiz.
-
-Link to live site:
-
-
-[Back to Top](#contents)
 
 # User Experience (UX)
 
@@ -44,6 +42,8 @@ As a user I would like to be able to review the asked questions so I can learn a
 As a user I would like to have different, randomised questions each time I play the quiz.
 As a user I would like the navigation of the page to be clear and intuitive.
 As a user I would like to know whether I have selected the correct answer.
+
+[Back to Top](#contents)
 
 ## Colour Scheme
 The colour scheme for the quiz was heavily based around the colours of the German flag (red, yellow and back). An image of a distressed looking flag was used as the main background for all pages.
@@ -67,16 +67,20 @@ To complement the colours in the flag, accent colours were chosen and saved as `
 The bold, accent colours came from a ["Germany" palette](https://colorswall.com/palette/4646) and the softer green for correct answers and "soft-gold" colours were picked from a ["Germany minimalistic" palette](https://colorswall.com/palette/50961). The softer red colour for incorrect answers was a manually picked colour.
 
 The colour scheme is shown below as a coolors colour palette:
-![coolers colour scheme](assets/images/colour-scheme.png).  
+![coolers colour scheme](assets/images/colour-scheme.png)  
+
+[Back to Top](#contents)
 
 ## Typography
 A simple, clear typeface was chosen from Google Fonts. Only one font was used for this project to maintain consistency and readability but a variety of font weights were used to add visual interest.
 
 ![Kanit typeface](assets/images/kanit-font.png)
 
+[Back to Top](#contents)
 
 ## Wireframes
-The following wireframes were created at the start of the project in order to guide the design and functionality of the website.
+<details>
+<summary>The following wireframes were created at the start of the project in order to guide the design and functionality of the website.</summary>
 
 ### Welcome Page
 ![Welcome page](assets/images/welcome-page-wireframe.png)
@@ -87,28 +91,67 @@ The following wireframes were created at the start of the project in order to gu
 ### How to play modal
 ![How to play modal](assets/images/how-to-play-wireframe.png)
 
-### Leaderboard page
-![Leaderboard page](assets/images/leaderboard-wireframe.png)
+### High score board page
+![Highscore board page](assets/images/leaderboard-wireframe.png)  
 
+</details>
 
 [Back to Top](#contents)
 
 # Features
 ## Existing Features
-
-
 ### Style Features
-<!-- stlye features -->
+
+#### Nav bar (with colours)
+
+#### How to play modal
+
+#### Start game and Highscores buttons
+
+#### Main quiz page
+
+#### Q number and progress bar
+
+#### Timer
+
+#### Score
+
+#### Question
+
+#### Literal translation toggle
+
+#### 4 possible answers with styling for correct and incorrect
+
+#### Next and End buttons
+
+#### End page
+
+#### Review Qs table
 
 
-
-
-
-
+[Back to Top](#contents)
 <!-- JS features -->
 ### Javascript Functions
+The implemented JavaScript functionality is sumarised below:
 
-#### `onLoad()`
+- pop-up box (modal) to see how to play the game
+- option to return to the main page at any time
+- option to view high score board
+- question list with large bank of questions
+- randomisation function which shuffles the question bank and selects 12 questions. This allows replayability of the quiz and ensures the same question is not asked more than once in the same play
+- question number and progress bar displayed so user knows how many questions will be asked and which question they are currently answering
+- The user is able to view the literal translation of the German phrase in English, if they wish. This allows the user to set their own difficulty level for a given question
+- A count-up timer records how long the quiz attempt has taken
+- Under each question are 4 possible answers for the user to choose between. They can simply click the answer to select it. If the correct answer is selected, the answer button turns green and a check mark appears. If the incorrect answer is selected, the chosen answer button turns red and a cross is shown (and the button for the correct answer turns green with a check mark to iundicate the correct answer)
+- The score is updated by adding 1 for each correctly answered question, to a maximum of 12
+- At the end of the quiz, the user has the option to submit their name to the high score board
+- they also have the option to see a table of all questions asked in the quiz, their literal translations and their correct answers
+
+[Back to Top](#contents)
+
+Detailed descriptions of each implemented JavaScript function can be read below:
+
+`onLoad()`
 - adds event listener for start button which when clicked hides start page and unhides quiz page, calls `startGame()` and starts timer
 - adds event listener for Highscore button which when clicked hides start page, unhides highscore page and calls `getHighScores()`
 - adds event listener for home button which reloads the page
@@ -116,6 +159,7 @@ The following wireframes were created at the start of the project in order to gu
 - adds event listener for the close button on the how to play modal
 - adds event listener for a click outside the modal window
 - both the close button and click outside event listeners close the how to play modal
+
 
 #### `startGame()`
 - sets starting values of question counter and score to 0
@@ -147,22 +191,34 @@ The following wireframes were created at the start of the project in order to gu
 #### `stopTimer()`
 - clears the time interval
 
-<!-- Need to seperate out the scoring functionality to a new function -->
-<!-- #### `scoring()`
+#### `scoring()`
 - increases the question counter each time a new quesiton is displayed
 - updates the progress counter (question x of y)
 - updates the progress bar
-- if there are no questions remaining on the quizQuestions list, add an end button event listener, which when clicked calls the endGame() function -->
+- if there is exactly one question remaining, hide the 'next' button and display the 'end' button instead.
+- if there are no questions remaining on the quizQuestions list, add an end button event listener, which when clicked calls the `endGame()` function
 
 #### `getNewQuestion()`
-- determines the currentQuestion and selects it from the list of 12 quizQuestions
-- adds event listener for the literal translation toggle button and displays it
+- calls `scoring()` function to update progress
+- determines the current question and selects it from the list of 12 quiz questions
 - updates the question text in the html file
+- displays the literal translation (but awaits the user requesting it)
 - displays the 4 possible answers in the html file and adds event listeners to each
-- once an answer is selected, detemrmines if it is correct or incorrect and calls the appropriate function
-- if there is exactly one question remaining, hide the 'next' button and display the 'end' button instead. <!-- move to scoring function?? -->
+- once an answer is selected, unhides the 'next' button and determines if it is correct or incorrect and applies the following changes:
+
+if answer is correct:
+- applies the 'correct' class to the selected answer for CSS styling (green colour)
+- increases the quiz score by 1 point
+- adds a check mark to the correct answer for accessibility
+- changes the value of the "correct" key in the question object to "true" to indicate the user answered correctly
+
+if answer is incorrect:
+- applies the 'incorrect' class to the selected answer for CSS styling (red colour)
+- also applies the 'correct' class to the correct answer for CSS styling (green colour)
+- adds a cross to the chosen answer and a tick to the correct answer for accessibility
 
 #### `hideNextButton()`
+- hides the next button until the next time an answer is chosen
 
 #### `toggleTranslation()`
 - triggered if the user clicks the "see translation" button
@@ -171,7 +227,7 @@ The following wireframes were created at the start of the project in order to gu
 #### `nextQuestion()`
 - resets answers by removing 'correct' and/or 'incorrect' classes from answers
 - hide literal translation
-- calls the getNewQuestion() function
+- calls the `getNewQuestion()` function
 
 #### `increaseScore()`
 - increases the global variable "score" by the POINT_VALUE value (in this case 1, but this is changable if desired)
@@ -185,49 +241,25 @@ The following wireframes were created at the start of the project in order to gu
 - the row is coloured depending on whether the user got the answer correct (green) or incorrect (red)
 - the rows are then injected into the html table
 
-
 #### `endGame()`
 - tidies up the screen at the end of the game
 - hides the container that displays the questions
 - unhides the summary page with score displayed
 - displays a button with an event listener for users to click if they wish to review their answers
-- calls the insertTable() function
+- calls the insertTable() function and passes in the questions from the quiz
 
 #### `saveHighScore`
-
+- prevents redirection to start page
+- creates a dictionary from the locally stored items - `mostRecentScore`, `username` and `mostRecentTime`
+- add newest score to the end of the `highScores` array
+- sorts scores based on their values
+- takes the first 5 scores from the array
+- saves these scores as `highScores` into local storage
 
 #### `getHighScores()`
+- maps the highscores to the highscore list and adds a list item for each value in the array
 
-
-
-<!-- new function for determining correct answer -->
-
-
-
-`correctAnswer()`
-- applies the 'correct' class to the selected answer for CSS styling (green colour)
-- increases the quiz score by 1 point
-- adds a check mark to the correct answer for accessibility
-- changes the value of the "correct" key in the question object to "true" to indicate the user answered correctly
-
-incorrectAnswer()
-- applies the 'incorrect' class to the selected answer for CSS styling (red colour)
-- also applies the 'correct' class to the correct answer for CSS styling (green colour)
-- adds a cross to the chosen answer and a tick to the correct answer for accessibility
-
-
-
-<!-- pull the translation button function out of getNewQ -->
-
-
-
-- question list with large bank of questions
-- randomisation function which shuffles the question bank and selects 12 questions. This allows replayability of the quiz and ensures the same question is not asked more than once in the same play.
-- question number and progress bar displayed so user knows how many questions will be asked and which question they are currently answering
-- The user is able to view the literal translation of the German phrase in English, if they wish. This allows the user to set their own difficulty level for a given question.
-- Under each question are 4 possible answers for the user to choose between. They can simply click the answer to select it. If tthe correct answer is selected, the answer button turns green. If the incorrect answer is selected, the chosen answer button turns red (and the button for the correct answer turns green).
-- The score is updated by adding 1 for each correctly answered question, to a maximum of 12.
-- At the end of the quiz, the user has the option to see a table of all questions asked in the quiz, their literal translations and their correct answers.
+[Back to Top](#contents)
 
 
 ### Event Listeners
@@ -242,7 +274,7 @@ incorrectAnswer()
 - highScoreButton
 
 <!-- Quiz buttons -->
-- translateButton
+- translateButton (<!-- - adds event listener for the literal translation toggle button and displays it -->)
 - options
 - nextButton
 - endButton (x2 !)
@@ -253,14 +285,11 @@ incorrectAnswer()
 - username
 - saveScoreBtn
 
+[Back to Top](#contents)
 
 ## Features Left to Implement
-- How to play/rules
-- Final score shown at the end of the quiz
-
-- Timer function
-- Scoreboard
 - Reversed language (German to English) option
+- Ability to play against other players
 
 [Back to Top](#contents)
 
@@ -285,11 +314,18 @@ incorrectAnswer()
 - CSS Jigsaw
 - JS Linter (JSHint)
 
+[Back to Top](#contents)
 ## Responsiveness testing
+
+[Back to Top](#contents)
 
 ## Lighthouse testing
 
+[Back to Top](#contents)
+
 ## Accessibility testing
+
+[Back to Top](#contents)
 
 ## Browser compatibility
 
@@ -298,13 +334,14 @@ incorrectAnswer()
 # Bugs
 ## Resolved
 
-
+[Back to Top](#contents)
 # Outstanding
 
 [Back to Top](#contents)
 
 # Deployment
 ## Deployment with GitHub Pages
+
 
 ## Forking someone else's repository
 
@@ -317,17 +354,22 @@ incorrectAnswer()
 
 A number of reference sources and tutorials were utilised for this project. The main quiz structure, progress bar and score tracking were based on the YouTube tutorial by [Brian Design](https://www.youtube.com/watch?v=f4fB9Xg2JEY) with reference to this [Web Dev Simplified](https://www.youtube.com/watch?v=riDzcEQbX6k) quiz tutorial.
 
-This [Stack Overflow](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array) was helpful for learning how to shuffle a list of objects using JavaScript.
+This [Stack Overflow](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array) answer was helpful for learning how to shuffle a list of objects using JavaScript.
+
+This [Stack Overflow](https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript) answer was helpful for implementing a count up timer.
 
 This YouTube video by [Dylan Israel](https://www.youtube.com/watch?v=ri5Nqe_IK50) helped to implement a table whose values are updated using JavaScript.
 
 Some of the German Idioms used in the quiz were found in these [FluentU](https://www.fluentu.com/blog/german/common-german-idioms/) and [Chatterbug](https://blog.chatterbug.com/en/10-german-idioms-to-sound-more-german/) blog posts.
 
-## Media
-[strong Germany palette](https://colorswall.com/palette/4646)  
-[soft Germany palette](https://colorswall.com/palette/50961)  
-[distressed German flag](https://img.wallpapersafari.com/desktop/1920/1080/61/86/eQLs4h.jpg)
+[Back to Top](#contents)
 
+## Media
+[Strong Germany palette](https://colorswall.com/palette/4646)  
+[Soft Germany palette](https://colorswall.com/palette/50961)  
+[Distressed German flag](https://img.wallpapersafari.com/desktop/1920/1080/61/86/eQLs4h.jpg)
+
+[Back to Top](#contents)
 
 ## Acknowledgements
 I would like to thank my Mentor Tim Nelson for all his advice, encouragement and enthusiasm during the development of this quiz.
