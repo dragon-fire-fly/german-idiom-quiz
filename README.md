@@ -47,6 +47,7 @@ The user has the option to see a literal English translation (which often does n
 
 ## Colour Scheme
 The colour scheme for the quiz was heavily based around the colours of the German flag (red, yellow and back). An image of a distressed looking flag was used as the main background for all pages.
+<!-- converted to webp -->
 
 ![distressed flag](assets/images/german-flag-distressed-hd.webp)
 
@@ -67,14 +68,14 @@ To complement the colours in the flag, accent colours were chosen and saved as `
 The bold, accent colours came from a ["Germany" palette](https://colorswall.com/palette/4646) and the softer green for correct answers and "soft-gold" colours were picked from a ["Germany minimalistic" palette](https://colorswall.com/palette/50961). The softer red colour for incorrect answers was a manually picked colour.
 
 The colour scheme is shown below as a coolors colour palette:
-![coolers colour scheme](assets/images/colour-scheme.png)  
+![coolers colour scheme](assets/documentation/colour-scheme.png)  
 
 [Back to Top](#contents)
 
 ## Typography
 A simple, clear typeface was chosen from Google Fonts. Only one font was used for this project to maintain consistency and readability but a variety of font weights were used to add visual interest.
 
-![Kanit typeface](assets/images/kanit-font.png)
+![Kanit typeface](assets/documentation/kanit-font.png)
 
 [Back to Top](#contents)
 
@@ -83,16 +84,16 @@ A simple, clear typeface was chosen from Google Fonts. Only one font was used fo
 <summary>The following wireframes were created at the start of the project in order to guide the design and functionality of the website.</summary>
 
 ### Welcome Page
-![Welcome page](assets/images/welcome-page-wireframe.png)
+![Welcome page](assets/documentation/wireframes/welcome-page-wireframe.png)
 
 ### Main quiz page
-![Main quiz page](assets/images/main-quiz-wireframe.png)
+![Main quiz page](assets/documentation/wireframes/main-quiz-wireframe.png)
 
 ### How to play modal
-![How to play modal](assets/images/how-to-play-wireframe.png)
+![How to play modal](assets/documentation/wireframes/how-to-play-wireframe.png)
 
 ### High score board page
-![Highscore board page](assets/images/leaderboard-wireframe.png)  
+![Highscore board page](assets/documentation/wireframes/leaderboard-wireframe.png)  
 
 </details>
 
@@ -341,11 +342,45 @@ if answer is incorrect:
 
 # Deployment
 ## Deployment with GitHub Pages
+The site was deployed to GitHub Pages by taking the following steps:
+
+Click on the "Settings" tab in the Github respository for the project
+Find and click on the "Pages" subsection on the left-hand menu bar
+Under "Source", select "Branch: main" and click save
+After a few miunutes, the site should be successfully deployed and the link may be found on the same page or under "Environments" on the right hand side of the repository page.
+From here, the "View Deployment" button leads directly to the deployed site.
+
+![Github pages](assets/documentation/deployment/github-pages.png)  
+![Github environments](assets/documentation/deployment/github-environments.png)  
+![View deployment](assets/documentation/deployment/view-deployment.png)  
 
 
 ## Forking someone else's repository
+To create your own copy of this project on another computer, the following steps may be followed, which allow you to make a copy onto your own GitHub account, without changing the original code that you are copying:
+
+Locate the repository of the project you would like to copy
+In the top-right corner of the repository click on the "fork" button
+Navigate to your fork of the project and start coding!
+
+![Forking a page](assets/documentation/deployment/forking.png)  
 
 ## Creating a local clone of a project
+Following these steps will allow you to clone a repository and open it in your local IDE, for example Visual Studio Code, Eclipse or NetBeans:
+
+Locate the repository of the project you would like to copy
+Click the green "Code" button to access a drop down menu
+Ensuring that HTTPS is selected, select the copy button (as shown in the screenshot below) to copy the URL of the repository of interest
+Open your local IDE and change the current working directory in GitBash to the desired location for the new repository
+In the command line, type 'git clone' and paste the URL obtained earlier from GitHub.
+
+![Local IDE clone](assets/documentation/deployment/https.png)  
+
+Alternatively, you can create a local copy of this repository, by typing the follow into your IDE terminal:
+- `git clone https://github.com/dragon-fire-fly/german-idiom-quiz.git`
+
+Or, if using Gitpod, you can click below to create your own workspace using this repository.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/dragon-fire-fly/german-idiom-quiz)
 
 [Back to Top](#contents)
 
