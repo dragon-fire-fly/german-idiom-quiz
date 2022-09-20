@@ -1,5 +1,7 @@
+/* Google font link */
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;800&family=Nova+Square&display=swap');
 
+/* :root values */
 :root {
     /* Main colour scheme */
     --black: rgb(0,0,0);
@@ -16,13 +18,13 @@
     --main-text: Kanit;
 }
 
+/* top level general styling of page */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* general styling of page */
 main {
     background-color: var(--black);
     height: 100%;
@@ -58,7 +60,12 @@ h3 {
     font-family: var(--h2);
 }
 
-
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Nav bar styling */
 .nav-bar {
@@ -75,6 +82,9 @@ h3 {
     grid-template-rows: 50px;
     align-items: center;
 }
+
+/* Main container styling */
+
 /* Home page styling */
 .home-container {
     width: 100vw;
@@ -88,7 +98,7 @@ h3 {
     grid-template-rows: repeat; */
 }
 
-/* styling for main container on page */
+/* Main quiz container styling */
 .main-container {
     /* background-color: rgba(255,255,255,0.4); */
     width: 100vw;
@@ -103,7 +113,7 @@ h3 {
     padding: 1.5rem;
 }
 
-/*  styling for question container, score etc */
+/*  Question container, score etc */
 #q-container {
     background-color: rgba(255,255,255,0.5);
     grid-column-start: 2;
@@ -128,6 +138,21 @@ h3 {
     padding: 1.5rem;
 }
 
+/* container for next and end buttons */
+.next-end {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+}
+
+/* styling for the end of quiz page */
+#quiz-end {
+    /* grid-column-start: 1;
+    grid-column-end: -1; */
+    grid-row: 2;
+    width: 100%;
+    justify-content: center;
+    /* background-color: var(--black); */
+}
 /* Buttons */
 .btn {
     font-family: var(--main-text);
@@ -209,12 +234,6 @@ h3 {
     font-weight: 500;
 }
 
-.center-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 /* The Modal (background) */
 .modal {
@@ -311,21 +330,6 @@ h3 {
     background-color: var(--incorrect);
 }
 
-.next-end {
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-}
-
-/* styling for the end of quiz page */
-#quiz-end {
-
-    /* grid-column-start: 1;
-    grid-column-end: -1; */
-    grid-row: 2;
-    width: 100%;
-    justify-content: center;
-    /* background-color: var(--black); */
-}
 
 /* styling for the summary table */
 #question-table {
@@ -363,6 +367,7 @@ th {
 /* Highscore styling */
 #high-score-list {
     color: var(--white);
+   /*  list-style-type: none; */
 }
 
 /* hidden class */

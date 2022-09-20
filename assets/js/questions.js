@@ -605,7 +605,7 @@ const questions = [
             "To require extra attention",
             "To make a fool of oneself",
         ],
-        correct_meaning : "To have have a mental block",
+        correct_meaning : "To have a mental block",
         correct: false,
     },
 ]

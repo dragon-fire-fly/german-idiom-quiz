@@ -46,10 +46,50 @@ As a user I would like the navigation of the page to be clear and intuitive.
 As a user I would like to know whether I have selected the correct answer.
 
 ## Colour Scheme
+The colour scheme for the quiz was heavily based around the colours of the German flag (red, yellow and back). An image of a distressed looking flag was used as the main background for all pages.
+
+![distressed flag](assets/images/german-flag-distressed-hd.webp)
+
+To complement the colours in the flag, accent colours were chosen and saved as `root` values, as shown below:
+
+```
+:root {
+    /* Main colour scheme */
+    --black: rgb(0,0,0);
+    --white: rgb(255,255,255);
+    --accent-red: rgb(221, 0, 0);
+    --accent-gold: rgb(255, 206,0);
+    --soft-gold: rgb(238, 219, 137);
+    --correct: rgb(140, 168, 145);
+    --incorrect: rgba(231, 74, 57, 0.74);
+}
+```
+The bold, accent colours came from a ["Germany" palette](https://colorswall.com/palette/4646) and the softer green for correct answers and "soft-gold" colours were picked from a ["Germany minimalistic" palette](https://colorswall.com/palette/50961). The softer red colour for incorrect answers was a manually picked colour.
+
+The colour scheme is shown below as a coolors colour palette:
+[coolers colour scheme](assets/images/colour-scheme.png).  
 
 ## Typography
+A simple, clear typeface was chosen from Google Fonts. Only one font was used for this project to maintain consistency and readability but a variety of font weights were used to add visual interest.
+
+![Kanit typeface](assets/images/kanit-font.png)
+
 
 ## Wireframes
+The following wireframes were created at the start of the project in order to guide the design and functionality of the website.
+
+### Welcome Page
+![Welcome page](assets/images/welcome-page-wireframe.png)
+
+### Main quiz page
+![Main quiz page](assets/images/main-quiz-wireframe.png)
+
+### How to play modal
+![How to play modal](assets/images/how-to-play-wireframe.png)
+
+### Leaderboard page
+![Leaderboard page](assets/images/leaderboard-wireframe.png)
+
 
 [Back to Top](#contents)
 
@@ -59,6 +99,8 @@ As a user I would like to know whether I have selected the correct answer.
 
 
 <!-- stlye features -->
+
+
 
 
 
@@ -246,5 +288,9 @@ https://colorswall.com/palette/50961 - germany palette
 https://img.wallpapersafari.com/desktop/1920/1080/61/86/eQLs4h.jpg - distressed german flag img
 
 converted with https://convertio.co/jpg-webp/
+
+timer:
+https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
+
 
  -->

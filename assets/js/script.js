@@ -53,6 +53,7 @@ const highScoreList = document.querySelector('#high-score-list');
 /* return highscores or an empty string */
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 const formSubmitted = document.querySelector('.form-submitted');
+const highscoreData = document.querySelector('#highscore-data')
 
 /* Setting base values for mutable variables */
 let currentQuestion = {};
@@ -196,8 +197,8 @@ function getNewQuestion() {
     
     /* if there are no remaining Qs available or we have reached the total number of Qs, end game */
     if (questionCounter >= TOTAL_QUESTIONS) {
-        localStorage.setItem('mostRecentScore', score);
         endButton.addEventListener('click', e => {
+            localStorage.setItem('mostRecentScore', score);
             // hide quiz
             endgame();
         });
@@ -324,9 +325,9 @@ function insertTable(askedQuestions) {
 }
 /* unhide table on user click */
 function endgame(){
-
+    /* saveHighScore();
+    console.log("saveHighScore() called") */
     questionContainer.classList.add('hidden');
-    console.log("question container should be hidden")
     quizEnd.classList.remove('hidden');
     quizScore.innerText = `Your score is: ${score}`;
     reviewButton.addEventListener('click', e=> {
@@ -355,8 +356,28 @@ saveHighScore = e => {
     highScores.splice(5)
     
     localStorage.setItem('highScores', JSON.stringify(highScores))
-    /* window.location.assign('/') */
+
 }
+
+/* function saveHighScore(){
+    
+    const score = {
+        score: mostRecentScore,
+        name: username.value,
+        time: mostRecentTime
+    }
+    console.log("I'm saving the scores now")
+    
+    highScores.push(score)
+    
+    highScores.sort((a,b) => {
+        return b.score - a.score
+    })
+    
+    highScores.splice(5)
+    
+    localStorage.setItem('highScores', JSON.stringify(highScores))
+} */
     
 function getHighscores(){
     highScoreList.innerHTML = highScores.map(score => {
@@ -364,6 +385,7 @@ function getHighscores(){
     }).join('')
     console.log("Here are your highscores")
 }
+
 
 /* finalScore.innerText = mostRecentScore */
 
@@ -373,6 +395,5 @@ username.addEventListener('keyup', () => {
 saveScoreBtn.addEventListener('click', e => {
     formContainer.classList.add('hidden');
     formSubmitted.classList.remove('hidden');
-
 })
     
