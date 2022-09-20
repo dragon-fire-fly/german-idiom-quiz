@@ -67,7 +67,7 @@ To complement the colours in the flag, accent colours were chosen and saved as `
 The bold, accent colours came from a ["Germany" palette](https://colorswall.com/palette/4646) and the softer green for correct answers and "soft-gold" colours were picked from a ["Germany minimalistic" palette](https://colorswall.com/palette/50961). The softer red colour for incorrect answers was a manually picked colour.
 
 The colour scheme is shown below as a coolors colour palette:
-[coolers colour scheme](assets/images/colour-scheme.png).  
+![coolers colour scheme](assets/images/colour-scheme.png).  
 
 ## Typography
 A simple, clear typeface was chosen from Google Fonts. Only one font was used for this project to maintain consistency and readability but a variety of font weights were used to add visual interest.
@@ -97,7 +97,7 @@ The following wireframes were created at the start of the project in order to gu
 ## Existing Features
 
 
-
+### Style Features
 <!-- stlye features -->
 
 
@@ -106,39 +106,55 @@ The following wireframes were created at the start of the project in order to gu
 
 
 <!-- JS features -->
+### Javascript Functions
 
-Functions:
-
-onLoad()
-- adds event listener for start button which hides start page and unhides quiz page and calls startGame()
+#### `onLoad()`
+- adds event listener for start button which when clicked hides start page and unhides quiz page, calls `startGame()` and starts timer
+- adds event listener for Highscore button which when clicked hides start page, unhides highscore page and calls `getHighScores()`
 - adds event listener for home button which reloads the page
 - adds event listener for how to play button which opens the how to play modal
 - adds event listener for the close button on the how to play modal
 - adds event listener for a click outside the modal window
 - both the close button and click outside event listeners close the how to play modal
 
-startGame()
-- calls the shuffle() function
-- calls the selectQuizQuestions() function
-- calls the getNewQuestion() function
+#### `startGame()`
+- sets starting values of question counter and score to 0
+- retrieves the questions list from question.js
+- calls the `shuffle()` function
+- calls the `selectQuizQuestions()` function
+- calls the `getNewQuestion()` function
 
-shuffle()
+#### `shuffle()`
 - shuffles an array
+- picks a random element from the array and swaps it with the current element
 - This method is used to shuffle both the list of questions from the large question bank and the 4 possible answers for each question
-- returns the full shuffled question list to the startGame() function and the answers to the getNewQuestion() function
+- returns the full shuffled question list to the `startGame()` function and the answers to the `getNewQuestion()` function
 
-selectQuizQuestions()
+#### `selectQuizQuestions()`
 - takes the first 12 questions from the shuffled list
-- returns the 12 random Qs to the startGame() function
+- returns these 12 Qs to the `startGame()` function
+
+#### `startTimer()`
+- retrieves the current UNIX time and saves as starting time
+- sets the interval as 1000 milliseconds (1 second) so that the time is returned once per second
+
+#### `countTimer()`
+- retrieves the current UNIX time
+- calculates the difference between the current UNIX time and the starting UNIX time, rounds down and divides by 1000 to give the timer in whole seconds
+- formats the time to HH:MM:SS format
+- adds event listener for end button to call the `stopTimer()` function, update the end timer and saves the end value to local storage
+
+#### `stopTimer()`
+- clears the time interval
 
 <!-- Need to seperate out the scoring functionality to a new function -->
-scoring()
+<!-- #### `scoring()`
 - increases the question counter each time a new quesiton is displayed
 - updates the progress counter (question x of y)
 - updates the progress bar
-- if there are no questions remaining on the quizQuestions list, add an end button event listener, which when clicked calls the endGame() function
+- if there are no questions remaining on the quizQuestions list, add an end button event listener, which when clicked calls the endGame() function -->
 
-getNewQuestion()
+#### `getNewQuestion()`
 - determines the currentQuestion and selects it from the list of 12 quizQuestions
 - adds event listener for the literal translation toggle button and displays it
 - updates the question text in the html file
@@ -146,14 +162,49 @@ getNewQuestion()
 - once an answer is selected, detemrmines if it is correct or incorrect and calls the appropriate function
 - if there is exactly one question remaining, hide the 'next' button and display the 'end' button instead. <!-- move to scoring function?? -->
 
-nextQuestion()
+#### `hideNextButton()`
+
+#### `toggleTranslation()`
+- triggered if the user clicks the "see translation" button
+- toggles the literal english translation of the question
+
+#### `nextQuestion()`
 - resets answers by removing 'correct' and/or 'incorrect' classes from answers
 - hide literal translation
 - calls the getNewQuestion() function
 
+#### `increaseScore()`
+- increases the global variable "score" by the POINT_VALUE value (in this case 1, but this is changable if desired)
+- updates the text for the score in the html
+
+#### `insertTable()`
+- generates a summary table of the questions asked
+- takes the list of 12 random questions as an argument
+- inserts as many rows of html as there are in the random question list (12, but this is changable, if desired)
+- adds one <td></td> each for the idiom, literal translation and correct meaning
+- the row is coloured depending on whether the user got the answer correct (green) or incorrect (red)
+- the rows are then injected into the html table
+
+
+#### `endGame()`
+- tidies up the screen at the end of the game
+- hides the container that displays the questions
+- unhides the summary page with score displayed
+- displays a button with an event listener for users to click if they wish to review their answers
+- calls the insertTable() function
+
+#### `saveHighScore`
+
+
+#### `getHighScores()`
+
+
 
 <!-- new function for determining correct answer -->
-correctAnswer()
+
+
+
+`correctAnswer()`
 - applies the 'correct' class to the selected answer for CSS styling (green colour)
 - increases the quiz score by 1 point
 - adds a check mark to the correct answer for accessibility
@@ -163,29 +214,6 @@ incorrectAnswer()
 - applies the 'incorrect' class to the selected answer for CSS styling (red colour)
 - also applies the 'correct' class to the correct answer for CSS styling (green colour)
 - adds a cross to the chosen answer and a tick to the correct answer for accessibility
-
-increaseScore()
-- increases the global variable "score" by the POINT_VALUE value (in this case 1, but this is changable if desired)
-- updates the text for the score in the html
-
-toggleTranslation()
-- triggered if the user clicks the "see translation" button
-- toggles the literal english translation of the question
-
-endGame()
-- tidies up the screen at the end of the game
-- hides the container that displays the questions
-- unhides the summary page with score displayed
-- displays a button with an event listener for users to click if they wish to review their answers
-- calls the insertTable() function
-
-insertTable()
-- generates a summary table of the questions asked
-- takes the list of 12 random questions as an argument
-- inserts as many rows of html as there are in the random question list (12, but this is changable, if desired)
-- adds one <td></td> each for the idiom, literal translation and correct meaning
-- the row is coloured depending on whether the user got the answer correct (green) or incorrect (red)
-- the rows are then injected into the html table
 
 
 
@@ -202,9 +230,28 @@ insertTable()
 - At the end of the quiz, the user has the option to see a table of all questions asked in the quiz, their literal translations and their correct answers.
 
 
+### Event Listeners
+<!-- Nav bar -->
+- homeButton
+- howToPlayButton
+- closeModal
+- window
 
+<!-- Home page buttons -->
+- startButton
+- highScoreButton
 
+<!-- Quiz buttons -->
+- translateButton
+- options
+- nextButton
+- endButton (x2 !)
 
+<!-- End of game buttons -->
+- reviewButton
+- playAgainBtn
+- username
+- saveScoreBtn
 
 
 ## Features Left to Implement
@@ -227,6 +274,8 @@ insertTable()
 - [Balsamiq](https://balsamiq.com/) for creating wireframes at the start of the project to help guide HTML and CSS coding
 - CSS grid for positioning elements and improved responsiveness within the style.css file
 - `root` values in the style.css file for consistency and ease of alteration of colours and fonts
+- [Convertio image converter](https://convertio.co/jpg-webp/) for converting the background image to a webp file format
+
 
 [Back to Top](#contents)
 
@@ -248,6 +297,7 @@ insertTable()
 
 # Bugs
 ## Resolved
+
 
 # Outstanding
 
@@ -274,6 +324,10 @@ This YouTube video by [Dylan Israel](https://www.youtube.com/watch?v=ri5Nqe_IK50
 Some of the German Idioms used in the quiz were found in these [FluentU](https://www.fluentu.com/blog/german/common-german-idioms/) and [Chatterbug](https://blog.chatterbug.com/en/10-german-idioms-to-sound-more-german/) blog posts.
 
 ## Media
+[strong Germany palette](https://colorswall.com/palette/4646)  
+[soft Germany palette](https://colorswall.com/palette/50961)  
+[distressed German flag](https://img.wallpapersafari.com/desktop/1920/1080/61/86/eQLs4h.jpg)
+
 
 ## Acknowledgements
 I would like to thank my Mentor Tim Nelson for all his advice, encouragement and enthusiasm during the development of this quiz.
