@@ -336,7 +336,7 @@ function endgame() {
     });
     /* redirects user to start page if they click "play again" */
     playAgainBtn.addEventListener('click', e => {
-        window.location.assign('/');
+        window.location.reload();
     });
     /* calls the insert table function */
     insertTable(quizQuestions);

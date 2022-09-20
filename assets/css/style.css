@@ -207,11 +207,11 @@ h3 {
 }
 
 #review-btn,
-#play-again-btn {
+#play-again-btn,
+#save-score-btn {
     font-size: 1.2rem;
     background-color: var(--black);
     color: var(--accent-gold);
-    margin: 0.2rem;
     margin: 0.25rem;
 }
 
@@ -351,8 +351,14 @@ h3 {
     color: var(--white);
     font-size: 1.2rem;
 }
+
 .form-submitted {
     font-size: 1.5rem;
+}
+
+#table {
+    grid-column: 2/3;
+    justify-content: center;
 }
 
 td, th {
@@ -362,6 +368,10 @@ td, th {
 
 th {
     color: var(--white);
+}
+
+td {
+    width: 100px;
 }
 
 .true {
