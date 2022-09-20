@@ -49,11 +49,11 @@ const summaryTable = document.querySelector('#summary-table');
 /* High-scores */
 const username = document.querySelector('#username');
 const saveScoreBtn = document.querySelector('#save-score-btn');
-const mostRecentScore = localStorage.getItem('mostRecentScore');
-const mostRecentTime = localStorage.getItem("mostRecentTime");
+let mostRecentScore = localStorage.getItem('mostRecentScore');
+let mostRecentTime = localStorage.getItem("mostRecentTime");
 const highScoreList = document.querySelector('#high-score-list');
 /* return highscores or an empty string */
-const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 const formSubmitted = document.querySelector('.form-submitted');
 
 /* Setting base values for mutable variables */
@@ -185,6 +185,7 @@ function countTimer(start) {
         timeTaken = hour + ":" + minute + ":" + seconds;
         /* saves end time to local storage */
         localStorage.setItem('mostRecentTime', timeTaken);
+        mostRecentTime = timeTaken;
     });
 }
 
@@ -203,6 +204,7 @@ function scoring() {
     if (questionCounter >= TOTAL_QUESTIONS) {
         endButton.addEventListener('click', e => {
             localStorage.setItem('mostRecentScore', score);
+            mostRecentScore = score;
             // hide quiz
             endgame();
         });
@@ -342,10 +344,11 @@ function endgame() {
     insertTable(quizQuestions);
 }
 
-
-saveHighScore = e => {
+function saveHighScore() {
+    
+/* saveHighScore = e => { */
     /* prevents redirection */
-    e.preventDefault();
+   /*  e.preventDefault(); */
     /* assigns the locally saved variables to an object */
     const score = {
         score: mostRecentScore,
@@ -379,4 +382,5 @@ username.addEventListener('keyup', () => {
 saveScoreBtn.addEventListener('click', e => {
     formContainer.classList.add('hidden');
     formSubmitted.classList.remove('hidden');
+    saveHighScore();
 });

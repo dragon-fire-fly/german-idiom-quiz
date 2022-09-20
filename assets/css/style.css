@@ -31,7 +31,6 @@ main {
     width: 100%;
     background: url(../images/german-flag-distressed-hd.webp);
     background-size: cover;
-    background-repeat: repeat-y;
     background-position: center;
     font-family: var(--main-text);
     overflow-x: hidden;
@@ -362,17 +361,19 @@ h3 {
 }
 
 td, th {
-    border: 1px solid;
-    padding: 10px;
+    border: 1px solid var(--black);
+    padding: 3px;
+    width: 80px;
 }
 
 th {
     color: var(--white);
+    font-size: 1rem;
 }
 
-td {
+/* td {
     width: 100px;
-}
+} */
 
 .true {
     background-color: var(--correct);
@@ -424,6 +425,10 @@ td {
     
     #q-container {
         width: 80vw;
+    }
+    td, th {
+        padding: 6px;
+        width: auto;
     }
 }
 

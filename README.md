@@ -36,12 +36,12 @@ The user has the option to see a literal English translation (which often does n
 # User Experience (UX)
 
 ## User Stories
-As a user I would like to be able to quickly understand the purpose of the quiz and how to play.
-As a user I would like to have my knowledge of German idioms tested.
-As a user I would like to be able to review the asked questions so I can learn any phrases I did not already know.
-As a user I would like to have different, randomised questions each time I play the quiz.
-As a user I would like the navigation of the page to be clear and intuitive.
-As a user I would like to know whether I have selected the correct answer.
+- As a user I would like to be able to quickly understand the purpose of the quiz and how to play.
+- As a user I would like to have my knowledge of German idioms tested.
+- As a user I would like to be able to review the asked questions so I can learn any phrases I did not already know.
+- As a user I would like to have different, randomised questions each time I play the quiz.
+- As a user I would like the navigation of the page to be clear and intuitive.
+- As a user I would like to know whether I have selected the correct answer.
 
 [Back to Top](#contents)
 
