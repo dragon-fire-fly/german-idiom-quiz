@@ -21,7 +21,8 @@ const homeButton = document.querySelector('#home-btn');
 const reviewButton = document.querySelector('#review-btn');
 const nextButton = document.querySelector('#next-button');
 const endButton = document.querySelector('#end-button');
-const highScoreButton = document.querySelector('#high-score-btn')
+const highScoreButton = document.querySelector('#high-score-btn');
+const playAgainBtn = document.querySelector('#play-again-btn');
 
 /* Question page */
 const question = document.querySelector('#question');
@@ -334,6 +335,9 @@ function endgame(){
         table.classList.remove('hidden');
         reviewButton.classList.add('hidden');
     });
+    playAgainBtn.addEventListener('click', e => {
+        window.location.assign('/');
+    } )
     insertTable(quizQuestions);
 }
 

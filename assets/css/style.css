@@ -217,10 +217,13 @@ h3 {
     grid-column-end: 6;
 }
 
-#review-btn {
+#review-btn,
+#play-again-btn {
     font-size: 1.2rem;
     background-color: var(--black);
     color: var(--accent-gold);
+    margin: 0.2rem;
+    margin: 0.25rem;
 }
 
 /* styling for option A-D containers */
