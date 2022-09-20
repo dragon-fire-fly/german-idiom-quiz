@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 /* Question List */
 
 /* Below is an array of objects containing the questions for the quiz*/

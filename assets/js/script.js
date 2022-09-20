@@ -29,6 +29,7 @@ const question = document.querySelector('#question');
 const options = Array.from(document.querySelectorAll('.option-text'));
 const translation = document.querySelector('#translation');
 const translateButton = document.querySelector('#translate-button');
+let enEquiv = document.getElementById('en-equiv');
 
 /* Progress bar */
 const progressText = document.querySelector('#progressText');
@@ -260,6 +261,10 @@ options.forEach(option => {
         /* apply appropriate class to the selected answer (red or green colour) */
         selectedOption.classList.add(classToApply);
 
+        if (currentQuestion.english_equivalent){
+            enEquiv.innerHTML = `By the way... The English equivalent is...<br>${currentQuestion.english_equivalent}`;
+        }
+
         /* display next button if not on the last question */
         if (questionCounter != TOTAL_QUESTIONS) {
             nextButton.classList.remove('hidden');
@@ -295,6 +300,7 @@ nextButton.addEventListener('click', e => {
 
 /* next question function */
 function nextQuestion() {
+    enEquiv.innerHTML = "";
     for (let i = 0; i < 4; i++) {
         options[i].classList.remove('correct');
         options[i].classList.remove('incorrect');

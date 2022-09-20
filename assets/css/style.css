@@ -35,13 +35,14 @@ main {
     font-family: var(--main-text);
     overflow-x: hidden;
 }
+
 p {
     color: var(--white);
     font-family: var(--main-text);
 }
 
 h1 {
-    font-size: 2rem; /* 3 for mq */
+    font-size: 2rem;
     color: var(--white);
     font-family: var(--h1);
     font-weight: 800;
