@@ -326,6 +326,13 @@ h3 {
     background-color: var(--incorrect);
 }
 
+/* Styling for end page */
+#quiz-end {
+    grid-column: 2/3;
+    text-align: center;
+    margin: 1rem;;
+}
+
 
 /* styling for the summary table */
 #question-table {
@@ -337,10 +344,15 @@ h3 {
 
 #quiz-score {
     color: var(--accent-gold);
+    font-size: 1.2rem;
 }
 
 #end-timer {
     color: var(--white);
+    font-size: 1.2rem;
+}
+.form-submitted {
+    font-size: 1.5rem;
 }
 
 td, th {
