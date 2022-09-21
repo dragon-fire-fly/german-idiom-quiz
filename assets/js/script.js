@@ -46,7 +46,7 @@ let timeInterval;
 
 /* Quiz end page and summary table*/
 const quizScore = document.getElementById('quiz-score');
-const table = document.getElementById('table');
+const table = document.querySelector('#table');
 const summaryTable = document.getElementById('summary-table');
 
 /* High-scores */
@@ -345,6 +345,7 @@ function endgame() {
     quizScore.innerText = `Your score is: ${score}`;
     /* unhide table on user click */
     reviewButton.addEventListener('click', e => {
+        table.classList.add('add-flex');
         table.classList.remove('hidden');
         reviewButton.classList.add('hidden');
     });

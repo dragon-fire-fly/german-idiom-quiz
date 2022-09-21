@@ -380,12 +380,14 @@ h3 {
 }
 
 #table {
-    /* grid-column: 2/3; */
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+}
+
+.add-flex {
+    display: flex;
 }
 
 td, th {
@@ -445,7 +447,6 @@ th {
 
 /* hidden class */
 .hidden {
-    
     display: none;
 }
 
@@ -466,10 +467,10 @@ th {
         font-size: 1.8rem;
     }
     .btn {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .top-bar-text {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     .top-bar-main-text {
         font-size: 1.5rem;
@@ -501,20 +502,37 @@ th {
         font-size: 1.8rem;
     }
     .btn {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
-    .top-bar-text {
-        font-size: 1.5rem;
-    }
-    .top-bar-main-text {
-        font-size: 1.5rem;
-    }
+    .top-bar-text,
+    .top-bar-main-text,
     #timer {
         font-size: 1.5rem;
     }
     
     #q-container {
         width: 60vw;
+    }
+
+    #table {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    .summary-text {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+    }
+    
+    #question-table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 1rem;
+        margin-bottom: 50px;
     }
 }
 
@@ -534,19 +552,14 @@ th {
     .btn {
         font-size: 1.5rem;
     }
-    .top-bar-text {
+    .top-bar-text,
+    .top-bar-main-text,
+    #timer  {
         font-size: 2rem;
-    }
-    .top-bar-main-text {
-        font-size: 2rem;
-    }
-    #timer {
-        font-size: 1.8rem;
     }
     
     #q-container {
         width: 40vw;
-
     }
     .answer-btn {
         font-size: 1.2rem;
