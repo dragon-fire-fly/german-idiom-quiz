@@ -110,7 +110,7 @@ h3 {
     align-items: center;
     max-width: 100%;
     margin: 0 auto;
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 /*  Question container, score etc */
@@ -144,15 +144,6 @@ h3 {
     grid-template-columns: repeat(5,1fr);
 }
 
-/* styling for the end of quiz page */
-#quiz-end {
-    /* grid-column-start: 1;
-    grid-column-end: -1; */
-    grid-row: 2;
-    width: 100%;
-    justify-content: center;
-    /* background-color: var(--black); */
-}
 /* Buttons */
 .btn {
     font-family: var(--main-text);
@@ -343,10 +334,15 @@ h3 {
 }
 
 /* Styling for end page */
+/* styling for the end of quiz page */
 #quiz-end {
     grid-column: 2/3;
+    grid-row: 2;
+    width: 100%;
+    justify-content: center;
+    /* background-color: var(--black); */
+    margin: 0 auto;
     text-align: center;
-    margin: 1rem;;
 }
 
 .quiz-complete {
@@ -359,7 +355,7 @@ h3 {
     max-width: 80%;
     justify-content: center;
     text-align: center;
-    margin: 0 auto;
+    margin: 0;
 }
 
 #question-table {
@@ -384,7 +380,10 @@ h3 {
 }
 
 #table {
-    text-align: center;
+    /* grid-column: 2/3; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin: 0 auto;
 }
