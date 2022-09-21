@@ -31,9 +31,10 @@ main {
     width: 100%;
     background: url(../images/german-flag-distressed-hd.webp);
     background-size: cover;
+    position: fixed;
     background-position: center;
     font-family: var(--main-text);
-    overflow-x: hidden;
+/*     overflow-x: hidden; */
 }
 
 p {
@@ -43,7 +44,7 @@ p {
 
 h1 {
     font-size: 2rem;
-    color: var(--white);
+    color: var(--black);
     font-family: var(--h1);
     font-weight: 800;
 }
@@ -333,6 +334,10 @@ h3 {
     margin: 1rem;;
 }
 
+.quiz-complete {
+    color: var(--white);
+    font-size: 2rem;
+}
 
 /* styling for the summary table */
 #question-table {
@@ -358,7 +363,7 @@ h3 {
 
 #table {
     grid-column: 2/3;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 td, th {
@@ -385,6 +390,10 @@ th {
 }
 
 /* Highscore styling */
+.high-score-title {
+    font-size: 2rem;
+}
+
 #high-score-list {
     color: var(--white);
    /*  list-style-type: none; */

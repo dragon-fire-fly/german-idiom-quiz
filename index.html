@@ -50,20 +50,19 @@
         <div class="main-container hidden">
             <div id="q-container">
                 <div id="top-bar">
-                    <div id="top-bar-item"></div>
                         <p id="progressText" class="top-bar-text">
                             Question number
                         </p>
                         <div id="progressBar">
                             <div id="progressBarFull"></div>
                         </div>
-                    <div id="top-bar-item">
+                    <div>
                         <p class="top-bar-text">
                             Score
                         </p>
-                        <h2 class="top-bar-main-text" id="score">
+                        <h3 class="top-bar-text" id="score">
                             0
-                        </h2>
+                        </h3>
                         <div id="timer">00:00:00</div>
                     </div>
                 </div>
@@ -88,7 +87,7 @@
             </div>
             <!-- The end of quiz container -->
             <div id="quiz-end" class="hidden">
-                <h1>Quiz completed!</h1>
+                <h2 class="quiz-complete">Quiz completed!</h2>
                 <div id="quiz-score">You scored: </div>
                 <div id="end-timer">00:00:00</div>
                 <form class="form-container">
@@ -120,7 +119,8 @@
         <!-- Highscore page -->
         <div class="high-score-container hidden">
             <div id="high-scores" class="center-content">
-                <h3>High Scores</h3>
+                <h3 class="high-score-title">High Scores</h3>
+
                 <ol id="high-score-list"></ol>
             </div>
         </div>

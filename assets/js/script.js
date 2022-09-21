@@ -158,7 +158,7 @@ function startTimer() {
     var start = Date.now();
     /* set time interval to 1 second */
     timeInterval = setInterval(function() {
-        countTimer(start)
+        countTimer(start);
     }, 1000);
 }
 
@@ -371,7 +371,7 @@ function saveHighScore() {
     highScores.splice(MAX_HIGH_SCORES);
     /* saves the highScores in the local storage */
     localStorage.setItem('highScores', JSON.stringify(highScores));
-};
+}
 
 function getHighscores() {
     highScoreList.innerHTML = highScores.map(score => {

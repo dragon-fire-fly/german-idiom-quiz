@@ -610,7 +610,7 @@ const questions = [
         correct_meaning : "To have a mental block",
         correct: false,
     },
-]
+];
 
 
  /* die Musik der Zukunft (?) */
