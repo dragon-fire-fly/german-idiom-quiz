@@ -91,7 +91,8 @@
                 <div id="quiz-score">You scored: </div>
                 <div id="end-timer">00:00:00</div>
                 <form class="form-container">
-                    <h3 id="enter-name">Enter your name to save your score!</h3>
+                    <label for="username" id="enter-name">Enter your name to save your score!</label>
+                   <!--  <h3 id="enter-name">Enter your name to save your score!</h3> -->
                     <input type="text" name="name" id="username" placeholder="Enter your name">
                     <br>
                     <button class="btn" id="save-score-btn" type="submit" disabled>Save</button>
@@ -122,9 +123,9 @@
                 <h3 class="high-score-title">High Scores</h3>
                 <p class="no-highscores hidden">It looks like there are not yet any high scores. Why not play a game? :)</p>
                 <button id="return-home-btn" class="no-highscores main-page-btn btn hidden">Start Quiz</button>
-
-
                 <ol id="high-score-list"></ol>
+                <br>
+                <p class="local-msg">All high scores are local only to your system. We don't collect your data or use cookies.</p>
             </div>
         </div>
     </main>

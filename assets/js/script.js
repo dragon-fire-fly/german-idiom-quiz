@@ -356,7 +356,7 @@ function saveHighScore() {
     
 /* saveHighScore = e => { */
     /* prevents redirection */
-   /*  e.preventDefault(); */
+   /*  e.preventDefault();
     /* assigns the locally saved variables to an object */
     const score = {
         score: mostRecentScore,
@@ -377,13 +377,19 @@ function saveHighScore() {
 
 function getHighscores() {
     highScoreList.innerHTML = highScores.map(score => {
-        return `<li class="high-score">${score.name} - ${score.score} - ${score.time} </li>`;
+        return `<li class="high-score"> ${score.name} - ${score.score} - ${score.time} </li>`;
     }).join('');
 
     if (highScores == false){
         noHighScores.classList.remove('hidden');
-        returnHomeBtn.classList.remove('hidden')
+        returnHomeBtn.classList.remove('hidden');
     }
+    returnHomeBtn.addEventListener('click', e => {
+        highScoreContainer.classList.add('hidden');
+        mainContainer.classList.remove('hidden');
+        startGame();
+        startTimer();
+    })
 }
 
 

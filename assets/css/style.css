@@ -390,13 +390,25 @@ th {
 }
 
 /* Highscore styling */
+#enter-name {
+    font-size: 1rem;
+    color: var(--white);
+    font-family: var(--h2);
+}
+
 .high-score-title {
+    
     font-size: 2rem;
 }
 
 .no-highscores {
     margin: 2rem;
-
+}
+#high-scores {
+/*     display: flex;
+    flex-direction: column; */
+    justify-content: center;
+    align-items: center;
 }
 
 #high-score-list {
@@ -404,8 +416,14 @@ th {
    /*  list-style-type: none; */
 }
 
+.local-msg {
+    color: var(--white);
+    
+}
+
 /* hidden class */
 .hidden {
+    
     display: none;
 }
 
