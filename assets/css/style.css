@@ -25,14 +25,14 @@
     box-sizing: border-box;
 }
 
-main {
+body {
     background-color: var(--black);
     height: 100%;
-    width: 100%;
+    max-width: 100%;
     background: url(../images/german-flag-distressed-hd.webp);
     background-size: cover;
-    position: fixed;
     background-position: center;
+/*     position: fixed; */
     font-family: var(--main-text);
 /*     overflow-x: hidden; */
 }
@@ -350,11 +350,18 @@ h3 {
 }
 
 /* styling for the summary table */
+.summary-text {
+    max-width: 80%;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
 #question-table {
     border-collapse: collapse;
-    max-width: 100%;
-/*     max-height: 100%; */
+    max-width: 80%;
     font-size: 0.8rem;
+    margin-bottom: 50px;
 }
 
 #quiz-score {
@@ -372,8 +379,9 @@ h3 {
 }
 
 #table {
-    grid-column: 2/3;
-    /* justify-content: center; */
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 td, th {

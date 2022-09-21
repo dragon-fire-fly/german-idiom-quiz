@@ -316,7 +316,7 @@ const questions = [
             "To be almost ready to leave",
         ],
         correct_meaning : "To be exhausted",
-        english_equivalent: "I'm all tuckered out/done in",
+        english_equivalent: "I'm all tuckered out/ done in",
         correct: false,
     },
     {
@@ -384,7 +384,7 @@ const questions = [
             "To be able to trust someone",
         ],
         correct_meaning : "To be able to trust someone",
-        english_equivalent: "To be thick as thieves", /* ? */
+        english_equivalent: "To be thick as thieves",
         correct: false,
     },
     {
@@ -473,8 +473,8 @@ const questions = [
     },
     {
         id : 35,
-        idiom : "Die Hand für etwas/jemanden ins Feuer legen",
-        literal_translation : "To put your hand in the fire for someone/something",
+        idiom : "Die Hand für etwas/ jemanden ins Feuer legen",
+        literal_translation : "To put your hand in the fire for someone/ something",
         meanings : [
             "To bet on something",
             "To feel under pressure",
@@ -482,7 +482,7 @@ const questions = [
             "To guarantee something",
         ],
         correct_meaning : "To guarantee something",
-        english_equivalent:  "I can vouch for that/them",
+        english_equivalent:  "I can vouch for that/ them",
         correct: false,
     },
     {
@@ -575,11 +575,11 @@ const questions = [
         literal_translation : "To build (a house) near the water",
         meanings : [
             "To be foolish",
-            "Someone who is emotional/likely to cry",
+            "Someone who is emotional/ likely to cry",
             "To be impatient",
             "To be resourceful",
         ],
-        correct_meaning : "Someone who is emotional/likely to cry",
+        correct_meaning : "Someone who is emotional/ likely to cry",
         english_equivalent:  "To be weepy",
         correct: false,
     },
