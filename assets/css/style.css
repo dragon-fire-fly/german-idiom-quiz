@@ -394,6 +394,11 @@ th {
     font-size: 2rem;
 }
 
+.no-highscores {
+    margin: 2rem;
+
+}
+
 #high-score-list {
     color: var(--white);
    /*  list-style-type: none; */

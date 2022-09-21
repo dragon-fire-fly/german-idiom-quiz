@@ -23,6 +23,7 @@ const nextButton = document.querySelector('#next-button');
 const endButton = document.querySelector('#end-button');
 const highScoreButton = document.querySelector('#high-score-btn');
 const playAgainBtn = document.querySelector('#play-again-btn');
+const returnHomeBtn = document.getElementById('return-home-btn');
 
 /* Question page */
 const question = document.querySelector('#question');
@@ -56,6 +57,7 @@ const highScoreList = document.querySelector('#high-score-list');
 /* return highscores or an empty string */
 let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 const formSubmitted = document.querySelector('.form-submitted');
+const noHighScores = document.querySelector('.no-highscores');
 
 /* Setting base values for mutable variables */
 let currentQuestion = {};
@@ -377,6 +379,11 @@ function getHighscores() {
     highScoreList.innerHTML = highScores.map(score => {
         return `<li class="high-score">${score.name} - ${score.score} - ${score.time} </li>`;
     }).join('');
+
+    if (highScores == false){
+        noHighScores.classList.remove('hidden');
+        returnHomeBtn.classList.remove('hidden')
+    }
 }
 
 

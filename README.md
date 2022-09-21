@@ -318,13 +318,25 @@ if answer is incorrect:
 [Back to Top](#contents)
 ## Responsiveness testing
 
+
 [Back to Top](#contents)
 
 ## Lighthouse testing
 
+
 [Back to Top](#contents)
 
 ## Accessibility testing
+An [Eightshapes contrast grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23FFFFFF%2C%20White%0D%0A%23000000%2C%20Black%0D%0A%23dd0000%0D%0A%23ffce00%0D%0A%238ca891%0D%0A%23e74a39%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp) was created to check the contrast between the colours used on the page. The red text on black background received a score of 4 which makes it only suitable for large text. This combination was only used for the nav bar "home" button which is large text. All othe colour combinations used on the site produced a result of at least 5.1 (pass, AA rating), indicating they are suitable and readable.
+
+![Eightshapes contrast grid](assets/documentation/testing/eight-shapes-grid.png) 
+
+
+The [WAVE web accessibility evaluation tool](https://wave.webaim.org/report#/https://dragon-fire-fly.github.io/german-idiom-quiz/)
+Lack of contrast of main title with background image
+<!-- Try as black text -->
+
+
 
 [Back to Top](#contents)
 
@@ -335,8 +347,15 @@ if answer is incorrect:
 # Bugs
 ## Resolved
 
+- highscore local storage issue (2 x calling save to local storage and score saving at wrong time) (include debugger)
+
+- -1 to score (saving score before end button clicked)
+
+
 [Back to Top](#contents)
 # Outstanding
+
+- internal scroll on page
 
 [Back to Top](#contents)
 
