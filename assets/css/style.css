@@ -260,6 +260,11 @@ h3 {
     width: 80%;
 }
 
+.how-to-play {
+    color: white;
+    font-size: 1.5rem;
+}
+
 /* The Close Button */
 .close {
     color: red;

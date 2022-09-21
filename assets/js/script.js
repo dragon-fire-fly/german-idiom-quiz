@@ -5,56 +5,56 @@
 /* Main page containers */
 const homeContainer = document.querySelector('.home-container');
 const mainContainer = document.querySelector('.main-container');
-const quizEnd = document.querySelector('#quiz-end');
-const questionContainer = document.querySelector('#q-container');
+const quizEnd = document.getElementById('quiz-end');
+const questionContainer = document.getElementById('q-container');
 const highScoreContainer = document.querySelector('.high-score-container');
 const formContainer = document.querySelector('.form-container');
 
 /* How to play modal */
-const howToPlayButton = document.querySelector('#how-to-play-btn');
-const howToPlayModal = document.querySelector("#how-to-play");
-const closeModal = document.querySelector('#close-modal');
+const howToPlayButton = document.getElementById('how-to-play-btn');
+const howToPlayModal = document.getElementById("how-to-play");
+const closeModal = document.getElementById('close-modal');
 
 /* Buttons */
-const startButton = document.querySelector('#start-btn');
-const homeButton = document.querySelector('#home-btn');
-const reviewButton = document.querySelector('#review-btn');
+const startButton = document.getElementById('start-btn');
+const homeButton = document.getElementById('home-btn');
+const reviewButton = document.getElementById('review-btn');
 const startAgainBtn = document.getElementById("start-again");
-const nextButton = document.querySelector('#next-button');
-const endButton = document.querySelector('#end-button');
-const highScoreButton = document.querySelector('#high-score-btn');
-const playAgainBtn = document.querySelector('#play-again-btn');
+const nextButton = document.getElementById('next-button');
+const endButton = document.getElementById('end-button');
+const highScoreButton = document.getElementById('high-score-btn');
+const playAgainBtn = document.getElementById('play-again-btn');
 const returnHomeBtn = document.getElementById('return-home-btn');
 
 /* Question page */
-const question = document.querySelector('#question');
+const question = document.getElementById('question');
 const options = Array.from(document.querySelectorAll('.option-text'));
-const translation = document.querySelector('#translation');
-const translateButton = document.querySelector('#translate-button');
+const translation = document.getElementById('translation');
+const translateButton = document.getElementById('translate-button');
 let enEquiv = document.getElementById('en-equiv');
 
 /* Progress bar */
-const progressText = document.querySelector('#progressText');
-const scoreText = document.querySelector('#score');
-const progressBarFull = document.querySelector('#progressBarFull');
+const progressText = document.getElementById('progressText');
+const scoreText = document.getElementById('score');
+const progressBarFull = document.getElementById('progressBarFull');
 
 /* Timer */
-const timer = document.querySelector('#timer');
-const endTimer = document.querySelector('#end-timer');
+const timer = document.getElementById('timer');
+const endTimer = document.getElementById('end-timer');
 let timeTaken;
 let timeInterval;
 
 /* Quiz end page and summary table*/
-const quizScore = document.querySelector('#quiz-score');
-const table = document.querySelector('#table');
-const summaryTable = document.querySelector('#summary-table');
+const quizScore = document.getElementById('quiz-score');
+const table = document.getElementById('table');
+const summaryTable = document.getElementById('summary-table');
 
 /* High-scores */
-const username = document.querySelector('#username');
-const saveScoreBtn = document.querySelector('#save-score-btn');
+const username = document.getElementById('username');
+const saveScoreBtn = document.getElementById('save-score-btn');
 let mostRecentScore = localStorage.getItem('mostRecentScore');
 let mostRecentTime = localStorage.getItem("mostRecentTime");
-const highScoreList = document.querySelector('#high-score-list');
+const highScoreList = document.getElementById('high-score-list');
 /* return highscores or an empty string */
 let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 const formSubmitted = document.querySelector('.form-submitted');
