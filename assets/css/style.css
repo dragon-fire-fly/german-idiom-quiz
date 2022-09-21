@@ -66,6 +66,8 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: var(--black);
+    margin: 0.2rem;
 }
 
 /* Nav bar styling */
@@ -196,7 +198,15 @@ h3 {
     line-height: 0.3rem;
     font-size: 120%;
 }
-
+.start-again-btn {
+    padding: 0.5rem;
+    margin: 0.25rem;
+    font-size: 1.2rem;
+    background-color: var(--black);
+    color: var(--accent-gold);
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
 .next-end-btn {
     padding: 0.5rem;
     margin: 0.25rem;

@@ -266,25 +266,46 @@ if answer is incorrect:
 ### Event Listeners
 <!-- Nav bar -->
 - homeButton
+    - refreshes the page so the user can navigate to the starting page from anywhere on the site
 - howToPlayButton
+    - opens a modal which explains the features of the game to the user
 - closeModal
+    - allows the user to close the modal by clicking the "x"
 - window
+    - allows the user to close the modal by clicking anywhere outside the modal
 
 <!-- Home page buttons -->
 - startButton
+    - allows the user to initiate the quiz
 - highScoreButton
+    - allows the user to view the current highscore list
 
 <!-- Quiz buttons -->
-- translateButton (<!-- - adds event listener for the literal translation toggle button and displays it -->)
+- translateButton 
+    - allows the user to toggle the literal translation on and off
 - options
+    - display the 4 possible answers and allow the user to select one
 - nextButton
-- endButton (x2 !)
+    - allows the user to navigate to the next question
+- endButton
+    - stops the timer and saves the time to local storage
+    - saves the score to local storage
+    - ends the game
 
 <!-- End of game buttons -->
 - reviewButton
+    - allows the user the option to review the questions asked during the quiz with their answers
 - playAgainBtn
-- username
+    - reloads the page, allowing the user to play again, if desired
+- username field
+    - allows the user to enter a nickname for the leaderboard, if desired
 - saveScoreBtn
+    - allows the user to save their score, if desired
+
+### Other features:
+- English equivalent feature
+    - the user is shown an equivalent English idiom or phrase, where one is available
+
 
 [Back to Top](#contents)
 
@@ -332,8 +353,9 @@ An [Eightshapes contrast grid](https://contrast-grid.eightshapes.com/?version=1.
 ![Eightshapes contrast grid](assets/documentation/testing/eight-shapes-grid.png) 
 
 
-The [WAVE web accessibility evaluation tool](https://wave.webaim.org/report#/https://dragon-fire-fly.github.io/german-idiom-quiz/)
-Lack of contrast of main title with background image
+The [WAVE web accessibility evaluation tool](https://wave.webaim.org/report#/https://dragon-fire-fly.github.io/german-idiom-quiz/) was used to test accessibility.
+
+The tool identified a lack of contrast of main title with background image when it was white, so this was changed to black. 
 <!-- Try as black text -->
 
 
@@ -422,6 +444,7 @@ Some of the German Idioms used in the quiz were found in these [FluentU](https:/
 [Strong Germany palette](https://colorswall.com/palette/4646)  
 [Soft Germany palette](https://colorswall.com/palette/50961)  
 [Distressed German flag](https://img.wallpapersafari.com/desktop/1920/1080/61/86/eQLs4h.jpg)
+[German flag favicon image](https://www.kindpng.com/imgv/hombwi_round-germany-flag-png-transparent-image-circle-german/)
 
 [Back to Top](#contents)
 

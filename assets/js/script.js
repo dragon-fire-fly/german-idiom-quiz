@@ -19,6 +19,7 @@ const closeModal = document.querySelector('#close-modal');
 const startButton = document.querySelector('#start-btn');
 const homeButton = document.querySelector('#home-btn');
 const reviewButton = document.querySelector('#review-btn');
+const startAgainBtn = document.getElementById("start-again");
 const nextButton = document.querySelector('#next-button');
 const endButton = document.querySelector('#end-button');
 const highScoreButton = document.querySelector('#high-score-btn');
@@ -264,7 +265,7 @@ options.forEach(option => {
         selectedOption.classList.add(classToApply);
 
         if (currentQuestion.english_equivalent){
-            enEquiv.innerHTML = `By the way... The English equivalent is...<br>${currentQuestion.english_equivalent}`;
+            enEquiv.innerHTML = `By the way... The English equivalent is...<br><p class="center-content">"${currentQuestion.english_equivalent}"</p>`;
         }
 
         /* display next button if not on the last question */
@@ -292,7 +293,10 @@ translateButton.addEventListener('click', e => {
 function toggleTranslation() {
     translation.classList.toggle("hidden");
 }
-
+/* start-again event listener */
+startAgainBtn.addEventListener('click', e => {
+    window.location.reload();
+})
 /* next button event listener */
 /* when next button clicked, reset class of user answer, hide translation and obtain new question */
 nextButton.addEventListener('click', e => {

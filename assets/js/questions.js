@@ -496,7 +496,7 @@ const questions = [
             "To confide in someone",
         ],
         correct_meaning : "Hang on in there",
-        english_equivalent: "Keep a stiff upper lip!", /* keep calm and carry on */
+        english_equivalent: "Keep a stiff upper lip or keep calm and carry on",
         correct: false,
     },
     {
@@ -594,7 +594,7 @@ const questions = [
             "To be optimistic",
         ],
         correct_meaning : "To be extremely exhausted",
-        english_equivalent: "To be on one's last legs", /* to run on fumes */
+        english_equivalent: "To be on one's last legs or to run on fumes",
         correct: false,
     },
     {
@@ -618,6 +618,7 @@ const questions = [
  /* Wie Pech und Schwerfel sein / wie Pech und Schwefel zusammenhalten
  to be like pitch and sulfur
  to be (as) thick as thieves
+ Like bad luck and brimstone
  */
 
 
