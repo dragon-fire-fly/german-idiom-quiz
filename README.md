@@ -265,41 +265,41 @@ if answer is incorrect:
 
 ### Event Listeners
 <!-- Nav bar -->
-- homeButton
+- `homeButton`
     - refreshes the page so the user can navigate to the starting page from anywhere on the site
-- howToPlayButton
+- `howToPlayButton`
     - opens a modal which explains the features of the game to the user
-- closeModal
+- `closeModal`
     - allows the user to close the modal by clicking the "x"
-- window
+- `window`
     - allows the user to close the modal by clicking anywhere outside the modal
 
 <!-- Home page buttons -->
-- startButton
+- `startButton`
     - allows the user to initiate the quiz
-- highScoreButton
+- `highScoreButton`
     - allows the user to view the current highscore list
 
 <!-- Quiz buttons -->
-- translateButton 
+- `translateButton`
     - allows the user to toggle the literal translation on and off
-- options
+- `options`
     - display the 4 possible answers and allow the user to select one
-- nextButton
+- `nextButton`
     - allows the user to navigate to the next question
-- endButton
+- `endButton`
     - stops the timer and saves the time to local storage
     - saves the score to local storage
     - ends the game
 
 <!-- End of game buttons -->
-- reviewButton
+- `reviewButton`
     - allows the user the option to review the questions asked during the quiz with their answers
-- playAgainBtn
+- `playAgainBtn`
     - reloads the page, allowing the user to play again, if desired
-- username field
+- `username` field
     - allows the user to enter a nickname for the leaderboard, if desired
-- saveScoreBtn
+- `saveScoreBtn`
     - allows the user to save their score, if desired
 
 ### Other features:
@@ -371,13 +371,24 @@ The tool identified a lack of contrast of main title with background image when 
 
 - highscore local storage issue (2 x calling save to local storage and score saving at wrong time) (include debugger)
 
-- -1 to score (saving score before end button clicked)
+- When creating the `scoring()` function, the current score was erroneously being stored to the local storage when the question counter was on the last question, rather than when the end button was clicked (after the user has answered the final question). This was leading to the score being out by one if the user answered the final question correctly. To fix this bug, the `localStorage.setItem()` call was simply moved inside the event listener statement for the end button, as shown below.
+![Question counter bug](assets/documentation/bugs/q-counter-bug.png)
 
+
+- Whilst styling the page, the background image was assigned to `main` which created some overflow-x property issues on the main page which were overcome by setting the `overflow-x` property to hidden. This has the downstream effect of creating an internal scroll bar when the summary table was displayed, as shown in the screenshot below.
+This bug was overcome by instead assigning the background properties to the `body` and removing the `overflow-x: hidden;` property which was no longer required. This fixed the internal scroll bar issue.
+
+![Internal scroll bug](assets/documentation/bugs/internal-scroll-bug.png)
+
+
+- When styling the table, CSS flex was used to improve positioning of the table element. `display: flex;` was added to the CSS for the table, however this caused the `hidden` class to be ignored and thus the table was always being shown, rather than only after the user clicks the 'review questions' button. This was fixed by moving the `display: flex;` property to its own `add-flex` class and only being added to the table if the user clicks the review button. 
+
+![Table not hidden correctly](assets/documentation/bugs/table-not-hidden-bug.png)
 
 [Back to Top](#contents)
 # Outstanding
 
-- internal scroll on page
+- page redirect after submitting high score
 
 [Back to Top](#contents)
 

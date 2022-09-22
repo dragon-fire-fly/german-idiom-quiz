@@ -284,6 +284,9 @@ options.forEach(option => {
 /* hides next button until answer chosen */
 function hideNextButton() {
     nextButton.classList.add('hidden');
+    /* resets plus/minus button to default state */
+    plusMinus.classList.add("fa-plus");
+    plusMinus.classList.remove("fa-minus")
 }
 
 /* event listener for toggling translation */
