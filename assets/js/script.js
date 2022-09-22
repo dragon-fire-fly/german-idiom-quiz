@@ -31,6 +31,7 @@ const question = document.getElementById('question');
 const options = Array.from(document.querySelectorAll('.option-text'));
 const translation = document.getElementById('translation');
 const translateButton = document.getElementById('translate-button');
+let plusMinus = document.getElementById('plus-minus');
 let enEquiv = document.getElementById('en-equiv');
 
 /* Progress bar */
@@ -292,6 +293,12 @@ translateButton.addEventListener('click', e => {
 /* Toggle the literal translation */
 function toggleTranslation() {
     translation.classList.toggle("hidden");
+    if (translation.classList.contains('hidden')){
+        plusMinus.classList.remove("fa-minus"),
+            plusMinus.classList.add("fa-plus")} else {
+            plusMinus.classList.add("fa-minus"),
+            plusMinus.classList.remove("fa-plus");
+        };
 }
 /* start-again event listener */
 startAgainBtn.addEventListener('click', e => {
