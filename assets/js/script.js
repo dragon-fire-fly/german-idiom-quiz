@@ -72,7 +72,7 @@ let availableQuestions = [];
 
 /* Setting fixed value variables */
 const POINT_VALUE = 1;
-const TOTAL_QUESTIONS = 12;
+const TOTAL_QUESTIONS = 4;
 const MAX_HIGH_SCORES = 5;
 
 /* Calls on-page load JS */

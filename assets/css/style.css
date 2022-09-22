@@ -9,8 +9,7 @@
     --accent-red: rgb(221, 0, 0);
     --accent-gold: rgb(255, 206,0);
     --correct: rgb(140, 168, 145);
-    --incorrect: rgb(231, 74, 57);
-    
+    --incorrect: rgb(231, 74, 57);  
     /* Fonts */
     --h1: Kanit;
     --h2: Kanit;
@@ -36,7 +35,6 @@ body {
 }
 
 p {
-    color: var(--white);
     font-family: var(--main-text);
 }
 
@@ -84,8 +82,6 @@ h3 {
     align-items: center;
 }
 
-/* Main container styling */
-
 /* Home page styling */
 .home-container {
     height: 100vh;
@@ -126,7 +122,6 @@ h3 {
     width: 100vw;
     height: 100vh;
     display: grid;
-/*     grid-template-columns: repeat(3, 1fr); */
     grid-template-rows: repeat(5, 1fr);
     justify-content: center;
     align-items: center;
@@ -186,8 +181,9 @@ h3 {
     line-height: 0.3rem;
     font-size: 120%;
 }
+
 .start-again-btn {
-    padding: 0.5rem;
+    padding: 0.2rem;
     margin: 0.25rem;
     font-size: 1.2rem;
     background-color: var(--black);
@@ -195,8 +191,9 @@ h3 {
     grid-column-start: 1;
     grid-column-end: 3;
 }
+
 .next-end-btn {
-    padding: 0.5rem;
+    padding: 0.2rem;
     margin: 0.25rem;
     font-size: 1.2rem;
     background-color: var(--black);
@@ -225,7 +222,6 @@ h3 {
     font-weight: 500;
 }
 
-
 /* The Modal (background) */
 .modal {
     display: block;
@@ -238,7 +234,7 @@ h3 {
     overflow: auto; 
 }
 
-  /* Modal Content/Box */
+/* Modal Content/Box */
 .modal-content {
     background-color: rgba(0,0,0,0.9);
     color: white;
@@ -275,22 +271,20 @@ h3 {
 }
 
 .top-bar-text {
-    grid-column: 1;
     text-align: center;
-    font-size: 120%; 
+    font-size: 1.2rem; 
     color: var(--black);
 }
 
 .top-bar-main-text {
     text-align: center;
-    font-size: 120%;
+    font-size: 1.2rem;
 }
-#progressText {
-    font-size: 120%;
-    grid-column: 1, 2;
-    grid-row: 1,2;
 
+#progressText {
+    font-size: 1.2rem;
 }
+
 #progressBar {
     width: 5rem;
     height: 1rem;
@@ -307,6 +301,7 @@ h3 {
 }
 
 #timer {
+    grid-column-start: 4;
     font-size: 1.2rem;
 }
 
@@ -331,13 +326,11 @@ h3 {
 }
 
 /* Styling for end page */
-/* styling for the end of quiz page */
 #quiz-end {
     grid-column: 2/3;
     grid-row: 2;
     width: 100%;
     justify-content: center;
-    /* background-color: var(--black); */
     margin: 0 auto;
     text-align: center;
 }
@@ -350,12 +343,14 @@ h3 {
 /* styling for the summary table */
 .summary-text {
     max-width: 80%;
+    color: var(--white);
     justify-content: center;
     text-align: center;
     margin: 0;
 }
 
 #question-table {
+    background-color: var(--black);
     border-collapse: collapse;
     max-width: 80%;
     font-size: 0.8rem;
@@ -370,6 +365,11 @@ h3 {
 #end-timer {
     color: var(--white);
     font-size: 1.2rem;
+}
+
+#username {
+    padding:6px;
+    border-radius:10px;
 }
 
 .form-submitted {
@@ -394,13 +394,9 @@ td, th {
 }
 
 th {
-    color: var(--white);
+    color: var(--accent-gold);
     font-size: 1rem;
 }
-
-/* td {
-    width: 100px;
-} */
 
 .true {
     background-color: var(--correct);
@@ -418,13 +414,13 @@ th {
 }
 
 .high-score-title {
-    
     font-size: 2rem;
 }
 
 .no-highscores {
     margin: 2rem;
 }
+
 #high-scores {
     justify-content: center;
     align-items: center;
@@ -432,12 +428,10 @@ th {
 
 #high-score-list {
     color: var(--white);
-   /*  list-style-type: none; */
 }
 
 .local-msg {
     color: var(--white);
-    
 }
 
 /* hidden class */
@@ -445,31 +439,37 @@ th {
     display: none;
 }
 
-
 /*  media queries */
 /* chosen breakpoints: 450, 600, 1250px*/
 @media screen and (min-width: 450px) {
     h1 {
         font-size: 2.8rem;
     }
+
     h2 {
         font-size: 1.8rem;
     }
+
     h3 {
         font-size: 1.5rem;
     }
+
     .nav-bar {
         font-size: 1.8rem;
     }
+
     .btn {
         font-size: 1.2rem;
     }
+
     .top-bar-text {
         font-size: 1.3rem;
     }
+
     .top-bar-main-text {
         font-size: 1.5rem;
     }
+
     #timer {
         font-size: 1.5rem;
     }
@@ -486,24 +486,29 @@ th {
 
 @media screen and (min-width: 600px) {
     h1 {
-        font-size: 2.8rem;
+        font-size: 280%;
     }
+
     h2 {
-        font-size: 1.8rem;
+        font-size: 180%;
     }
+
     h3 {
-        font-size: 1.5rem;
+        font-size: 150%;
     }
+
     .nav-bar {
-        font-size: 1.8rem;
+        font-size: 180%;
     }
+
     .btn {
-        font-size: 1.2rem;
+        font-size: 150%;
     }
+
     .top-bar-text,
     .top-bar-main-text,
     #timer {
-        font-size: 1.5rem;
+        font-size: 150%;
     }
     
     #q-container {
@@ -515,47 +520,67 @@ th {
         justify-content: center;
         margin: 0 auto;
     }
+
     .summary-text {
         width: 100%;
         justify-content: center;
         text-align: center;
         margin: 0;
     }
-    
+
+    #quiz-end {
+        grid-column: 1/-1;
+    }
+
     #question-table {
         border-collapse: collapse;
         width: 100%;
         font-size: 1rem;
         margin-bottom: 50px;
     }
+
+    #progressText {
+        font-size: 130%;
+    }
+
+    .btn {
+        font-size: 150%;
+    }
+
+    #progressBar {
+        width: 8rem;
+        height: 1.5rem;
+    }
+
+    .quiz-complete {
+        font-size: 200%;
+    }
+
+    #quiz-score,
+    #end-timer,
+    #enter-name {
+        font-size: 150%;
+    }
 }
 
 @media screen and (min-width: 1250px) {
-    h1 {
-        font-size: 3.5rem;
-    }
-    h2 {
-        font-size: 2.2rem;
-    }
-    h3 {
-        font-size: 2rem;
-    }
-    .nav-bar {
-        font-size: 2rem;
-    }
-    .btn {
-        font-size: 1.5rem;
-    }
     .top-bar-text,
     .top-bar-main-text,
-    #timer  {
-        font-size: 2rem;
+    #timer {
+        font-size: 150%;
     }
     
-    #q-container {
+     #q-container {
         width: 40vw;
     }
-    .answer-btn {
-        font-size: 1.2rem;
+
+    .quiz-complete {
+        font-size: 280%;
+    }
+
+    #save-score-btn,
+    #play-again-btn,
+    #review-btn {
+        font-size: 130%;
     }
 }

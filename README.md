@@ -352,8 +352,12 @@ if answer is incorrect:
 [Back to Top](#contents)
 
 ## Features Left to Implement
-- Reversed language (German to English) option
+- Reversed language (German to English) option. 
+    - This would require a different question list to be made with the English equivalent (where present) to be set as the question and four possible answers to be created. Then, depending on which language is selected (by a button), one or the other list can be used for the game.
 - Ability to play against other players
+    - This could be achieved by saving the names, scores, etc to a database.
+- Store the most recently asked Qs into local storage
+    - This would enable the review table to be viewed later (until a new game is played). This would mean that the user can view the leaderboard or otherwise navigate around the site, and then revisit the summary table to see how they could improve next time.
 
 [Back to Top](#contents)
 
@@ -375,11 +379,16 @@ if answer is incorrect:
 # Testing
 ## Validator tests
 - HTML W3C
+![HTML W3C testing](assets/documentation/testing/w3-html.png)
 - CSS Jigsaw
+
 - JS Linter (JSHint)
+
 
 [Back to Top](#contents)
 ## Responsiveness testing
+
+
 
 
 [Back to Top](#contents)
@@ -387,7 +396,9 @@ if answer is incorrect:
 ## Lighthouse testing
 Lighthouse tests were performed using the built in lighthouse tool in Google Chrome Developer Tools. The aim of running Lighthouse tests is to improve site performance, accessibility and usability. The tests also measure the site crawlability and how highly it is displayed in search results in a search engine (SEO score). Scores over 90 are deemed to be very good.
 
+The lighthouse test results for desktop and mobile are shown below:
 
+![Lighthouse testing results](assets/documentation/testing/lighthouse-testing.png)
 
 [Back to Top](#contents)
 
@@ -409,6 +420,14 @@ After fixing the suggested accessibility issues, the WAVE report was as follows,
 [Back to Top](#contents)
 
 ## Browser compatibility
+- Chrome  
+All code was designed and tested throughout the development process on Chrome. All screenshots throughout the README were taken using the Chrome browser. All design features and functionality work as expected using Chrome (except those detailed in the [Remaining bugs](#outstanding) section)
+
+- Firefox
+The firefox rendering of the page styling is quite different to in Chrome. The buttons have a grey border which contrasts strongly with the dark buttons, in contrast to the black/dark-grey borders presented in Chrome. Other than that, the quiz looks as expected.
+
+In terms of functionality, most of the functions of the quiz work as expected, however the user cannot use the same name to save their high score to local storage as they have used before. This is in contrast to Chrome where the same name can be saved multiple times to local storage with different score and times.
+
 
 [Back to Top](#contents)
 
