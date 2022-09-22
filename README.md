@@ -8,6 +8,8 @@ The quiz asks the user to select the correct answer out of four possible options
 
 The user has the option to see a literal English translation (which often does not provide many hints as to the meaning!) and to review the questions at the end of the quiz, providing an educational element to the quiz.
 
+![https://ui.dev/amiresponsive?url=https://dragon-fire-fly.github.io/german-idiom-quiz/](assets/documentation/testing/am-i-responsive.png)
+
 [View the live site](https://dragon-fire-fly.github.io/german-idiom-quiz)  
 
 # Contents 
@@ -378,18 +380,50 @@ if answer is incorrect:
 
 # Testing
 ## Validator tests
-- HTML W3C
+- HTML Validation  
+The site passed W3C HTML testing with no errors or warnings
 ![HTML W3C testing](assets/documentation/testing/w3-html.png)
-- CSS Jigsaw
 
+- CSS validation  
+The CSS code was pasted into the [W3C Validation Service](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdragon-fire-fly.github.io%2Fgerman-idiom-quiz%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) and passed with no errors.
+![CSS Validation](assets/documentation/testing/css-validation.png)
+<p>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="https://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
+</p>
+      
 - JS Linter (JSHint)
+Both JS files were passed through [JSHint](https://jshint.com/)
+
 
 
 [Back to Top](#contents)
 ## Responsiveness testing
+The quiz was tested with [am-i-responsive](https://ui.dev/amiresponsive?url=https://dragon-fire-fly.github.io/german-idiom-quiz/) and performs on all tested screen sizes
+![am i respoonsive?](assets/documentation/testing/am-i-responsive.png)
 
+Each page was compared at three standard screen sizes - mobile (375px), tablet (768px) and large laptop/desktop (1440px)
 
+- Home page
+![Home page responsiveness](assets/documentation/responsiveness/home-responsive.png)
 
+- How to play modal
+![How to play modal responsiveness](assets/documentation/responsiveness/modal-responsive.png)
+
+- Main quiz page
+![Main quiz responsiveness](assets/documentation/responsiveness/main-quiz-responsive.png)
+
+- Quiz end page
+![Quiz end responsiveness](assets/documentation/responsiveness/quiz-complete-responsive.png)
+
+- Summary table
+![Summary table responsiveness](assets/documentation/responsiveness/summary-table-responsive.png)
+
+- Highscore page
+![High score page responsiveness](assets/documentation/responsiveness/highscores-responsive.png)
 
 [Back to Top](#contents)
 
@@ -463,9 +497,11 @@ This bug was overcome by instead assigning the background properties to the `bod
 ![Table not hidden correctly](assets/documentation/bugs/table-not-hidden-bug.png)
 
 [Back to Top](#contents)
+
 # Outstanding
 
-- page redirect after submitting high score
+- Page redirects after submitting high score
+    - This has been addressed by adding a warning at the bottom of the page before the user saves their answer that they will be immediately redirected
 
 [Back to Top](#contents)
 
