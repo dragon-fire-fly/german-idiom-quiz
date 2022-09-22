@@ -42,6 +42,10 @@ The user has the option to see a literal English translation (which often does n
 - As a user I would like to have different, randomised questions each time I play the quiz.
 - As a user I would like the navigation of the page to be clear and intuitive.
 - As a user I would like to know whether I have selected the correct answer.
+- As a user, I would like to be able to see how long it took me to complete the quiz.
+- As a user, I would like to be able to view and save my score.
+- As a user, I would like to know if there is an English equivalent to some of the idioms.
+- As a user, I would like to see a consistent use of colour and style.
 
 [Back to Top](#contents)
 
@@ -60,15 +64,14 @@ To complement the colours in the flag, accent colours were chosen and saved as `
     --white: rgb(255,255,255);
     --accent-red: rgb(221, 0, 0);
     --accent-gold: rgb(255, 206,0);
-    --soft-gold: rgb(238, 219, 137);
     --correct: rgb(140, 168, 145);
-    --incorrect: rgba(231, 74, 57, 0.74);
+    --incorrect: rgb(231, 74, 57);
 }
 ```
-The bold, accent colours came from a ["Germany" palette](https://colorswall.com/palette/4646) and the softer green for correct answers and "soft-gold" colours were picked from a ["Germany minimalistic" palette](https://colorswall.com/palette/50961). The softer red colour for incorrect answers was a manually picked colour.
+The bold, accent colours came from a ["Germany" palette](https://colorswall.com/palette/4646) and the softer green for correct answers were picked from a ["Germany minimalistic" palette](https://colorswall.com/palette/50961). The softer red colour for incorrect answers was a manually picked colour.
 
 The colour scheme is shown below as a coolors colour palette:
-![coolers colour scheme](assets/documentation/colour-scheme.png)  
+![coolers colour scheme](assets/documentation/coolers-theme.png)  
 
 [Back to Top](#contents)
 
@@ -108,6 +111,9 @@ A simple, clear typeface was chosen from Google Fonts. Only one font was used fo
 ![](assets/documentation/features/main-quiz-page.png)
 #### End page
 ![](assets/documentation/features/end-page.png) -->
+- Favicon  
+A a round german flag with a transparent background was used as a favicon for the site   
+![Favicon](assets/documentation/features/favicon.png)
 
 - High score page  
 If there are not yet any highscores saved in local storage, the user will be invited to play the quiz. If there is at least one score in local storage, up to 5 scores will be displayed with the highest score at the top  
@@ -286,8 +292,7 @@ if answer is incorrect:
 - displays a button with an event listener for users to click if they wish to review their answers
 - calls the insertTable() function and passes in the questions from the quiz
 
-#### `saveHighScore`
-- prevents redirection to start page
+#### `saveHighScore()`
 - creates a dictionary from the locally stored items - `mostRecentScore`, `username` and `mostRecentTime`
 - add newest score to the end of the `highScores` array
 - sorts scores based on their values
@@ -363,7 +368,7 @@ if answer is incorrect:
 - CSS grid for positioning elements and improved responsiveness within the style.css file
 - `root` values in the style.css file for consistency and ease of alteration of colours and fonts
 - [Convertio image converter](https://convertio.co/jpg-webp/) for converting the background image to a webp file format
-
+- [Favicon.io](https://favicon.io/) for converting an image file into a 16x16 favicon
 
 [Back to Top](#contents)
 
@@ -410,22 +415,31 @@ After fixing the suggested accessibility issues, the WAVE report was as follows,
 # Bugs
 ## Resolved
 
-- highscore local storage issue (2 x calling save to local storage and score saving at wrong time) (include debugger)
+- Bug 1:  question counter and progress bar bug  
+A bug was created during the early phases of development due to the `getNextQuestion()` function being too large and meaning that on each iteration of the function, the event listener for the next button was being triggered one additional time (once for the first question, twice for the second question, etc.) causing the question counter and progress bar to increment by more than one each time. This bug was solved by taking the event listener for the next button outside of the `getNextQuestion()` function and creating a new `nextQuestion()` function.
+
+![Question counter and progress bar bug](assets/documentation/bugs/q-counter-progress-bug.png)  
+Originally the code was within the `getNextQuestion()` function...  
+![Code for question counter and progress bar bug](assets/documentation/bugs/next-button-bug.png)
+... but was moved outside to an event listener calling a new function `nextQuestion()`:
+![Question counter and progress bar bug fixed](assets/documentation/bugs/nextQuestion-fixed.png)
+
+- Bug 2: highscore local storage issue (2 x calling save to local storage and score saving at wrong time) (include debugger)
 
 
 
 
-- When creating the `scoring()` function, the current score was erroneously being stored to the local storage when the question counter was on the last question, rather than when the end button was clicked (after the user has answered the final question). This was leading to the score being out by one if the user answered the final question correctly. To fix this bug, the `localStorage.setItem()` call was simply moved inside the event listener statement for the end button, as shown below.
+- Bug 3: When creating the `scoring()` function, the current score was erroneously being stored to the local storage when the question counter was on the last question, rather than when the end button was clicked (after the user has answered the final question). This was leading to the score being out by one if the user answered the final question correctly. To fix this bug, the `localStorage.setItem()` call was simply moved inside the event listener statement for the end button, as shown below.
 ![Question counter bug](assets/documentation/bugs/q-counter-bug.png)
 
 
-- Whilst styling the page, the background image was assigned to `main` which created some overflow-x property issues on the main page which were overcome by setting the `overflow-x` property to hidden. This has the downstream effect of creating an internal scroll bar when the summary table was displayed, as shown in the screenshot below.
+- Bug 4: Whilst styling the page, the background image was assigned to `main` which created some overflow-x property issues on the main page which were overcome by setting the `overflow-x` property to hidden. This has the downstream effect of creating an internal scroll bar when the summary table was displayed, as shown in the screenshot below.
 This bug was overcome by instead assigning the background properties to the `body` and removing the `overflow-x: hidden;` property which was no longer required. This fixed the internal scroll bar issue.
 
 ![Internal scroll bug](assets/documentation/bugs/internal-scroll-bug.png)
 
 
-- When styling the table, CSS flex was used to improve positioning of the table element. `display: flex;` was added to the CSS for the table, however this caused the `hidden` class to be ignored and thus the table was always being shown, rather than only after the user clicks the 'review questions' button. This was fixed by moving the `display: flex;` property to its own `add-flex` class and only being added to the table if the user clicks the review button. 
+- Bug 5: When styling the table, CSS flex was used to improve positioning of the table element. `display: flex;` was added to the CSS for the table, however this caused the `hidden` class to be ignored and thus the table was always being shown, rather than only after the user clicks the 'review questions' button. This was fixed by moving the `display: flex;` property to its own `add-flex` class and only being added to the table if the user clicks the review button. 
 
 ![Table not hidden correctly](assets/documentation/bugs/table-not-hidden-bug.png)
 
@@ -504,8 +518,9 @@ Some of the German Idioms used in the quiz were found in these [FluentU](https:/
 [Back to Top](#contents)
 
 ## Acknowledgements
-I would like to thank my Mentor Tim Nelson for all his advice, encouragement and enthusiasm during the development of this quiz.
-I would also like to thank my husband who contributed many of the idioms for the quiz.
+I would like to thank my Mentor Tim Nelson for all his advice, encouragement and enthusiasm during the development of this quiz. Thank you for helping me to fix many bugs and giving useful ideas and helpful hints!
+
+I would also like to thank my husband who contributed many of the idioms for the quiz and the Code Institute community on Slack, particularly Dave Horrocks who helped with my question counter bug and the class of May 2022 who provide support and enthusiasm for the course.
 
 [Back to Top](#contents)
 
