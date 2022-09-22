@@ -8,7 +8,6 @@
     --white: rgb(255,255,255);
     --accent-red: rgb(221, 0, 0);
     --accent-gold: rgb(255, 206,0);
-    --soft-gold: rgb(238, 219, 137);
     --correct: rgb(140, 168, 145);
     --incorrect: rgb(231, 74, 57);
     
@@ -478,6 +477,7 @@ th {
     #q-container {
         width: 80vw;
     }
+
     td, th {
         padding: 6px;
         width: auto;
