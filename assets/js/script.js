@@ -280,7 +280,7 @@ function hideNextButton() {
     nextButton.classList.add('hidden');
     /* resets plus/minus button to default state */
     plusMinus.classList.add("fa-plus");
-    plusMinus.classList.remove("fa-minus")
+    plusMinus.classList.remove("fa-minus");
 }
 
 /* event listener for toggling translation */
@@ -292,17 +292,17 @@ translateButton.addEventListener('click', e => {
 function toggleTranslation() {
     translation.classList.toggle("hidden");
     if (translation.classList.contains('hidden')){
-        plusMinus.classList.remove("fa-minus"),
-            plusMinus.classList.add("fa-plus")} else {
-            plusMinus.classList.add("fa-minus"),
+        plusMinus.classList.remove("fa-minus");
+            plusMinus.classList.add("fa-plus");} else {
+            plusMinus.classList.add("fa-minus");
             plusMinus.classList.remove("fa-plus");
-        };
+        }
 }
 
 /* start-again event listener */
 startAgainBtn.addEventListener('click', e => {
     window.location.reload();
-})
+});
 
 /* next button event listener */
 /* when next button clicked, reset class of user answer, hide translation and obtain new question */
@@ -399,7 +399,7 @@ function getHighscores() {
         mainContainer.classList.remove('hidden');
         startGame();
         startTimer();
-    })
+    });
 }
 /* disallows saving until a username entry has been added */
 username.addEventListener('keyup', () => {
@@ -410,4 +410,5 @@ saveScoreBtn.addEventListener('click', e => {
     formContainer.classList.add('hidden');
     formSubmitted.classList.remove('hidden');
     saveHighScore();
+
 });

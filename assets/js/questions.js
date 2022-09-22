@@ -611,30 +611,3 @@ const questions = [
         correct: false,
     },
 ];
-
-
- /* die Musik der Zukunft (?) */
-
- /* Wie Pech und Schwerfel sein / wie Pech und Schwefel zusammenhalten
- to be like pitch and sulfur
- to be (as) thick as thieves
- Like bad luck and brimstone
- */
-
-
- /* wie ein Hecht im Karpfenteich sein */
-
- /* Ich bin heute nicht ganz auf der Höhe.
- I'm not quite myself today/ a bit under the weather */
-
- /* Was schert es die (deutsche) Eiche, wenn sich die Sau dran reibt. 
- You can criticise something, but nothing will change
- Does the moon care when dogs bark at it.*/
-
- /* Die Flinte ins Korn werfen
- To throw your rifle into the cornfield
- To not give up easily */
-
- /* eine Wundertüte sein - 
- to be a mystery bag
- to be unpredictable */
