@@ -12,29 +12,6 @@ The user has the option to see a literal English translation (which often does n
 
 [View the live site](https://dragon-fire-fly.github.io/german-idiom-quiz)  
 
-# Contents 
-* [**Project Overview**](<#overview-of-project>) 
-* [**User Experience (UX)**](<#user-experience-ux>)  
-    * [User Stories](<#user-stories>)  
-    * [Colour Scheme](<#colour-scheme>)  
-    * [Typography](<#typography>)  
-    * [Wireframes](<#wireframes>)  
-* [**Features**](<#features>)  
-    * [Existing Features](<#existing-features>)  
-        * 
-    * [Features Left to Implement](<#features-left-to-implement>)  
-* [**Technologies Used**](<#technologies-used>)  
-* [**Testing**](<#testing>)  
-* [**Deployment**](<#deployment>)  
-    * [Github Pages](<#deployment-with-github-pages>) 
-    * [Forking a Repository](<#forking-someone-elses-repository>) 
-    * [Creating a Local Clone](<#creating-a-local-clone-of-a-project>)  
-* [**Credits**](<#credits>)  
-    * [Content](<#content>)
-    * [Media](<#media>)
-    * [Acknowledgements](<#acknowledgements>)
-
-
 # User Experience (UX)
 
 ## User Stories
@@ -43,13 +20,13 @@ The user has the option to see a literal English translation (which often does n
 - As a user I would like to be able to review the asked questions so I can learn any phrases I did not already know.
 - As a user I would like to have different, randomised questions each time I play the quiz.
 - As a user I would like the navigation of the page to be clear and intuitive.
-- As a user I would like to know whether I have selected the correct answer.
+- As a user I would like to know whether I have selected the correct answer but also see the correct answer if I answered incorrectly.
 - As a user, I would like to be able to see how long it took me to complete the quiz.
 - As a user, I would like to be able to view and save my score.
 - As a user, I would like to know if there is an English equivalent to some of the idioms.
 - As a user, I would like to see a consistent use of colour and style.
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 ## Colour Scheme
 The colour scheme for the quiz was heavily based around the colours of the German flag (red, yellow and back). An image of a distressed looking flag was used as the main background for all pages.
@@ -75,14 +52,14 @@ The bold, accent colours came from a ["Germany" palette](https://colorswall.com/
 The colour scheme is shown below as a coolors colour palette:
 ![coolers colour scheme](assets/documentation/coolers-theme.png)  
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 ## Typography
 A simple, clear typeface was chosen from Google Fonts. Only one font was used for this project to maintain consistency and readability but a variety of font weights were used to add visual interest.
 
 ![Kanit typeface](assets/documentation/kanit-font.png)
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 ## Wireframes
 <details>
@@ -102,19 +79,13 @@ A simple, clear typeface was chosen from Google Fonts. Only one font was used fo
 
 </details>
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 # Features
 ## Existing Features
 ### Style Features
-<!-- - Start page
-
-#### Main quiz page
-![](assets/documentation/features/main-quiz-page.png)
-#### End page
-![](assets/documentation/features/end-page.png) -->
 - Favicon  
-A a round german flag with a transparent background was used as a favicon for the site   
+A round german flag with a transparent background was used as a favicon for the site   
 ![Favicon](assets/documentation/features/favicon.png)
 
 - High score page  
@@ -174,8 +145,8 @@ The 4 randomised possible answers are displayed in yellow boxes. If the question
 At the end of the quiz, the user has the option to view a table summarising the 12 asked questions, their literal translation and correct meaning. If the question was answered correctly, it is highlighted in green. Otherwise, it is highlighted in red  
 ![Summary table](assets/documentation/features/summary-table.png)
 
-[Back to Top](#contents)
-<!-- JS features -->
+[Back to Top](#german-idiom-quiz)
+
 ### Javascript Functions
 The implemented JavaScript functionality is sumarised below:
 
@@ -192,7 +163,7 @@ The implemented JavaScript functionality is sumarised below:
 - At the end of the quiz, the user has the option to submit their name to the high score board
 - they also have the option to see a table of all questions asked in the quiz, their literal translations and their correct answers
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 Detailed descriptions of each implemented JavaScript function can be read below:
 
@@ -304,7 +275,7 @@ if answer is incorrect:
 #### `getHighScores()`
 - maps the highscores to the highscore list and adds a list item for each value in the array
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 
 ### Event Listeners
@@ -351,7 +322,7 @@ if answer is incorrect:
     - the user is shown an equivalent English idiom or phrase, where one is available
 
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 ## Features Left to Implement
 - Reversed language (German to English) option. 
@@ -361,7 +332,7 @@ if answer is incorrect:
 - Store the most recently asked Qs into local storage
     - This would enable the review table to be viewed later (until a new game is played). This would mean that the user can view the leaderboard or otherwise navigate around the site, and then revisit the summary table to see how they could improve next time.
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 # Technologies used
 - HTML5 for providing the core structure of the website pages
@@ -376,7 +347,7 @@ if answer is incorrect:
 - [Convertio image converter](https://convertio.co/jpg-webp/) for converting the background image to a webp file format
 - [Favicon.io](https://favicon.io/) for converting an image file into a 16x16 favicon
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 # Testing
 ## Validator tests
@@ -397,10 +368,14 @@ The CSS code was pasted into the [W3C Validation Service](https://jigsaw.w3.org/
       
 - JS Linter (JSHint)
 Both JS files were passed through [JSHint](https://jshint.com/)
+- script.js
+![jshint script.js](assets/documentation/testing/js-hint-main-js.png)
+- questions.js
+![jshint questions.js](assets/documentation/testing/js-hint-questions.png)
 
 
+[Back to Top](#german-idiom-quiz)
 
-[Back to Top](#contents)
 ## Responsiveness testing
 The quiz was tested with [am-i-responsive](https://ui.dev/amiresponsive?url=https://dragon-fire-fly.github.io/german-idiom-quiz/) and performs on all tested screen sizes
 ![am i respoonsive?](assets/documentation/testing/am-i-responsive.png)
@@ -425,7 +400,7 @@ Each page was compared at three standard screen sizes - mobile (375px), tablet (
 - Highscore page
 ![High score page responsiveness](assets/documentation/responsiveness/highscores-responsive.png)
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 ## Lighthouse testing
 Lighthouse tests were performed using the built in lighthouse tool in Google Chrome Developer Tools. The aim of running Lighthouse tests is to improve site performance, accessibility and usability. The tests also measure the site crawlability and how highly it is displayed in search results in a search engine (SEO score). Scores over 90 are deemed to be very good.
@@ -434,7 +409,7 @@ The lighthouse test results for desktop and mobile are shown below:
 
 ![Lighthouse testing results](assets/documentation/testing/lighthouse-testing.png)
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 ## Accessibility testing
 An [Eightshapes contrast grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23FFFFFF%2C%20White%0D%0A%23000000%2C%20Black%0D%0A%23dd0000%0D%0A%23ffce00%0D%0A%238ca891%0D%0A%23e74a39%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp) was created to check the contrast between the colours used on the page. The red text on black background received a score of 4 which makes it only suitable for large text. This combination was only used for the nav bar "home" button which is large text. All othe colour combinations used on the site produced a result of at least 5.1 (pass, AA rating), indicating they are suitable and readable.
@@ -450,20 +425,19 @@ After fixing the suggested accessibility issues, the WAVE report was as follows,
 ![WAVE Report](assets/documentation/testing/WAVE-tool%20summary.png)
 
 
-
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 ## Browser compatibility
 - Chrome  
 All code was designed and tested throughout the development process on Chrome. All screenshots throughout the README were taken using the Chrome browser. All design features and functionality work as expected using Chrome (except those detailed in the [Remaining bugs](#outstanding) section)
 
-- Firefox
+- Firefox  
 The firefox rendering of the page styling is quite different to in Chrome. The buttons have a grey border which contrasts strongly with the dark buttons, in contrast to the black/dark-grey borders presented in Chrome. Other than that, the quiz looks as expected.
 
-In terms of functionality, most of the functions of the quiz work as expected, however the user cannot use the same name to save their high score to local storage as they have used before. This is in contrast to Chrome where the same name can be saved multiple times to local storage with different score and times.
+    In terms of functionality, most of the functions of the quiz work as expected, however the user cannot use the same name to save their high score to local storage as they have used before. This is in contrast to Chrome where the same name can be saved multiple times to local storage with different score and times.
 
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 # Bugs
 ## Resolved
@@ -477,9 +451,10 @@ Originally the code was within the `getNextQuestion()` function...
 ... but was moved outside to an event listener calling a new function `nextQuestion()`:
 ![Question counter and progress bar bug fixed](assets/documentation/bugs/nextQuestion-fixed.png)
 
-- Bug 2: highscore local storage issue (2 x calling save to local storage and score saving at wrong time) (include debugger)
+- Bug 2: `saveHighScore()` function being called twice  
+Each time the user entered a name to save their score, the scoreboard was saving each entry twice. The source of this bug was found using a debugger to see that the `saveHighScore()` function was being called twice - once from the JS file and once from the HTML file. The HTML call was removed and the bug was solved
 
-
+![Saving twice bug](assets/documentation/bugs/highscore-repeat-bug.png)
 
 
 - Bug 3: When creating the `scoring()` function, the current score was erroneously being stored to the local storage when the question counter was on the last question, rather than when the end button was clicked (after the user has answered the final question). This was leading to the score being out by one if the user answered the final question correctly. To fix this bug, the `localStorage.setItem()` call was simply moved inside the event listener statement for the end button, as shown below.
@@ -496,14 +471,14 @@ This bug was overcome by instead assigning the background properties to the `bod
 
 ![Table not hidden correctly](assets/documentation/bugs/table-not-hidden-bug.png)
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 # Outstanding
 
 - Page redirects after submitting high score
     - This has been addressed by adding a warning at the bottom of the page before the user saves their answer that they will be immediately redirected
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 # Deployment
 ## Deployment with GitHub Pages
@@ -547,7 +522,7 @@ Or, if using Gitpod, you can click below to create your own workspace using this
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/dragon-fire-fly/german-idiom-quiz)
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 # Credits
 ## Content
@@ -562,7 +537,7 @@ This YouTube video by [Dylan Israel](https://www.youtube.com/watch?v=ri5Nqe_IK50
 
 Some of the German Idioms used in the quiz were found in these [FluentU](https://www.fluentu.com/blog/german/common-german-idioms/) and [Chatterbug](https://blog.chatterbug.com/en/10-german-idioms-to-sound-more-german/) blog posts.
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 ## Media
 [Strong Germany palette](https://colorswall.com/palette/4646)  
@@ -570,25 +545,11 @@ Some of the German Idioms used in the quiz were found in these [FluentU](https:/
 [Distressed German flag](https://img.wallpapersafari.com/desktop/1920/1080/61/86/eQLs4h.jpg)
 [German flag favicon image](https://www.kindpng.com/imgv/hombwi_round-germany-flag-png-transparent-image-circle-german/)
 
-[Back to Top](#contents)
+[Back to Top](#german-idiom-quiz)
 
 ## Acknowledgements
 I would like to thank my Mentor Tim Nelson for all his advice, encouragement and enthusiasm during the development of this quiz. Thank you for helping me to fix many bugs and giving useful ideas and helpful hints!
 
 I would also like to thank my husband who contributed many of the idioms for the quiz and the Code Institute community on Slack, particularly Dave Horrocks who helped with my question counter bug and the class of May 2022 who provide support and enthusiasm for the course.
 
-[Back to Top](#contents)
-
-
-
-<!--  resources:
-https://colorswall.com/palette/50961 - germany palette 
-https://img.wallpapersafari.com/desktop/1920/1080/61/86/eQLs4h.jpg - distressed german flag img
-
-converted with https://convertio.co/jpg-webp/
-
-timer:
-https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
-
-
- -->
+[Back to Top](#german-idiom-quiz)
