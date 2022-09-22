@@ -368,6 +368,8 @@ The CSS code was pasted into the [W3C Validation Service](https://jigsaw.w3.org/
       
 - JS Linter (JSHint)
 Both JS files were passed through [JSHint](https://jshint.com/)
+Both passed with no issues other than the undefined/unused variable of 'questions' due to them being seperate JS files  
+
 - script.js
 ![jshint script.js](assets/documentation/testing/js-hint-main-js.png)
 - questions.js
