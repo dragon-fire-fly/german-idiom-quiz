@@ -102,33 +102,69 @@ A simple, clear typeface was chosen from Google Fonts. Only one font was used fo
 # Features
 ## Existing Features
 ### Style Features
-
-#### Nav bar (with colours)
-
-#### How to play modal
-
-#### Start game and Highscores buttons
+<!-- - Start page
 
 #### Main quiz page
-
-#### Q number and progress bar
-
-#### Timer
-
-#### Score
-
-#### Question
-
-#### Literal translation toggle
-
-#### 4 possible answers with styling for correct and incorrect
-
-#### Next and End buttons
-
+![](assets/documentation/features/main-quiz-page.png)
 #### End page
+![](assets/documentation/features/end-page.png) -->
 
-#### Review Qs table
+- High score page  
+If there are not yet any highscores saved in local storage, the user will be invited to play the quiz. If there is at least one score in local storage, up to 5 scores will be displayed with the highest score at the top  
 
+![Highscore page](assets/documentation/features/highscore-table.png)
+
+- Nav bar   
+The nav bar allows the user to navigate back to the landing page (home) or open the "how to play" modal. The colours of these buttons were designed to complement the overall colour scheme, with an underline effect in the opposite colour appearing when hovered over
+
+![Nav bar](assets/documentation/features/nav-bar.png)
+
+
+- How to play modal  
+The how to play modal explains the basic rules and navigation for the quiz. The modal can be closed by clicking the "x" button or anywhere else on the page
+
+![How to play modal](assets/documentation/features/how-to-play-modal.png)
+
+- Buttons  
+1. Start and highscore buttons
+    - These allow the user to navigate from the landing page to the quiz or highscore pages
+2. Start quiz button on highscore page
+    - This allows the user to directly start the quiz from the highscore page
+3. End of quiz option buttons
+    - These buttons allow the user to save their score, play again (redirects to landing page or review the questions asked during the quiz)
+4. Quiz navigation buttons - next, end and start again
+    - Allow the user to progress to the next question, the end of the quiz or back to the landing page, respectively
+
+![Buttons](assets/documentation/features/buttons.png)
+
+- Question counter and progress bar  
+The question counter and progress bar tell the user how many questions they have answered, how many questions are in the quiz and therefore what percentage through the quiz they are. The progress bar is coloured red with a black border to complement the overall colour scheme  
+![Question counter](assets/documentation/features/question-counter.png)
+![Progress bar](assets/documentation/features/progress-bar.png)
+
+- Timer  
+The timer counts up from 0 and is displayed in a HH:MM:SS format  
+![Timer](assets/documentation/features/timer.png)
+
+- Score  
+The score starts at 0 with 1 point being added with each correctly answered question, to a maximum of 12 points  
+![Score](assets/documentation/features/score.png)
+
+- Question  
+The question is simply displayed in the centre of the screen. Each time the quiz is run, 12 questions are randomly selected from a large question bank  
+![Question](assets/documentation/features/idiom-text.png)
+
+- Literal translation toggle  
+The literal translation can be displayed by clicking the "+ Show/hide translation" toggle. Once opened, the "+" changed to a "-" to indicate the toggle is open. Once closed, it returns to its orignial "+" state 
+![Literal translation toggle](assets/documentation/features/show-translation.png)
+
+- 4 possible answers  
+The 4 randomised possible answers are displayed in yellow boxes. If the question is correctly answered, the box is highlighted in green and a check mark is shown. If the incorrect answer is chosed, the chosen answer is highliged in red with a cross mark and the correct answer is highlighted in green with a check mark so the user has the opportunity to see the correct answer  
+![Possible answers](assets/documentation/features/question-options.png)
+
+- Review questions table  
+At the end of the quiz, the user has the option to view a table summarising the 12 asked questions, their literal translation and correct meaning. If the question was answered correctly, it is highlighted in green. Otherwise, it is highlighted in red  
+![Summary table](assets/documentation/features/summary-table.png)
 
 [Back to Top](#contents)
 <!-- JS features -->
