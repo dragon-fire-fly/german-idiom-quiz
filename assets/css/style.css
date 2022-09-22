@@ -376,6 +376,10 @@ h3 {
     font-size: 1.5rem;
 }
 
+#warning {
+    color: var(--white);
+}
+
 #table {
     align-items: center;
     justify-content: center;
@@ -419,6 +423,11 @@ th {
 
 .no-highscores {
     margin: 2rem;
+    color: var(--white);
+}
+
+#play-game-btn {
+    color: var(--accent-gold);
 }
 
 #high-scores {

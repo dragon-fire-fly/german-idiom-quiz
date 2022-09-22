@@ -94,14 +94,6 @@
                 <h2 class="quiz-complete">Quiz completed!</h2>
                 <div id="quiz-score">You scored: </div>
                 <div id="end-timer">00:00:00</div>
-                <form class="form-container">
-                    <label for="username" id="enter-name">Enter your name to save your score!</label>
-                    <br>
-                    <input type="text" name="name" id="username" placeholder="Enter your name">
-                    <br>
-                    <button class="btn" id="save-score-btn" type="submit" disabled>Save</button>
-                </form>
-                <h3 class="form-submitted hidden">Highscore added</h3>
                 <button id="play-again-btn" class="btn">Play again</button>
                 <br>
                 <button id="review-btn" class="btn">Review questions</button>
@@ -117,8 +109,17 @@
                         </thead>
                         <tbody id="summary-table">
                         </tbody>
-                        </table>
+                    </table>
                 </div>
+                <form class="form-container">
+                    <label for="username" id="enter-name">Enter your name to save your score!*</label>
+                    <br>
+                    <input type="text" name="name" id="username" placeholder="Enter your name">
+                    <br>
+                    <button class="btn" id="save-score-btn" type="submit" disabled>Save</button>
+                </form>
+                <h3 class="form-submitted hidden">Highscore added</h3>
+                <p id="warning">*Please note that saving your score will return you to the homepage and you will no longer be able to review your answers</p>
             </div>
         </div>
         <!-- Highscore page -->
@@ -126,7 +127,7 @@
             <div id="high-scores" class="center-content">
                 <h3 class="high-score-title">High Scores</h3>
                 <p class="no-highscores hidden">It looks like there are not yet any high scores. Why not play a game? :)</p>
-                <button id="return-home-btn" class="no-highscores main-page-btn btn hidden">Start Quiz</button>
+                <button id="play-game-btn" class="no-highscores main-page-btn btn hidden">Start Quiz</button>
                 <ol id="high-score-list"></ol>
                 <br>
                 <p class="local-msg">All high scores are local only to your system. We don't collect your data or use cookies.</p>

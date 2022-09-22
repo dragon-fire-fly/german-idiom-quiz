@@ -1,7 +1,6 @@
 /* jshint esversion: 11 */
 
 /* Linking to the DOM */
-
 /* Main page containers */
 const homeContainer = document.querySelector('.home-container');
 const mainContainer = document.querySelector('.main-container');
@@ -24,7 +23,7 @@ const nextButton = document.getElementById('next-button');
 const endButton = document.getElementById('end-button');
 const highScoreButton = document.getElementById('high-score-btn');
 const playAgainBtn = document.getElementById('play-again-btn');
-const returnHomeBtn = document.getElementById('return-home-btn');
+const playGameBtn = document.getElementById('play-game-btn');
 
 /* Question page */
 const question = document.getElementById('question');
@@ -56,7 +55,6 @@ const saveScoreBtn = document.getElementById('save-score-btn');
 let mostRecentScore = localStorage.getItem('mostRecentScore');
 let mostRecentTime = localStorage.getItem("mostRecentTime");
 const highScoreList = document.getElementById('high-score-list');
-/* return highscores or an empty string */
 let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 const formSubmitted = document.querySelector('.form-submitted');
 const noHighScores = document.querySelector('.no-highscores');
@@ -79,7 +77,6 @@ const MAX_HIGH_SCORES = 5;
 onLoad();
 
 /* call the startGame function when start quiz button pressed */
-
 /* hides start page and unhides quiz page */
 function onLoad() {
     /* event listener for start button */
@@ -89,14 +86,12 @@ function onLoad() {
         startGame();
         startTimer();
     });
-
     /* event listener for highscore button */
     highScoreButton.addEventListener('click', e => {
         homeContainer.classList.add('hidden');
         highScoreContainer.classList.remove('hidden');
         getHighscores();
     });
-
     /* event listener for home button */
     homeButton.addEventListener('click', e => {
         window.location.reload();
@@ -148,7 +143,7 @@ function shuffle(array) {
     return array;
 }
 
-/* adds the first 12 randomised quesions to a list called "quizQuestions*/
+/* adds the first 12 randomised quesions to a list called "quizQuestions */
 function selectQuizQuestions(randomisedQs) {
     for (let i = 0; i < 12; i++) {
         quizQuestions.push(randomisedQs[i]);
@@ -166,6 +161,7 @@ function startTimer() {
     }, 1000);
 }
 
+/* Start the timer */
 function countTimer(start) {
     /* current UNIX time */
     let now = Date.now();
@@ -245,7 +241,6 @@ options.forEach(option => {
         /* retrieve the number (1-4) for the chosen answer */
         /* compare user answer to correct answer and apply class of 'correct' or 'incorrect'*/
         let classToApply = selectedOption.innerText == currentQuestion.correct_meaning ? 'correct' : 'incorrect';
-
         /* if the user answer is correct, call increase score function */
         if (classToApply === 'correct') {
             increaseScore(POINT_VALUE);
@@ -264,11 +259,10 @@ options.forEach(option => {
         }
         /* apply appropriate class to the selected answer (red or green colour) */
         selectedOption.classList.add(classToApply);
-
+        /* Adds the english equivalent, if present, to the HTML */
         if (currentQuestion.english_equivalent){
             enEquiv.innerHTML = `By the way... The English equivalent is...<br><p class="center-content">"${currentQuestion.english_equivalent}"</p>`;
         }
-
         /* display next button if not on the last question */
         if (questionCounter != TOTAL_QUESTIONS) {
             nextButton.classList.remove('hidden');
@@ -293,6 +287,7 @@ function hideNextButton() {
 translateButton.addEventListener('click', e => {
     toggleTranslation();
 });
+
 /* Toggle the literal translation */
 function toggleTranslation() {
     translation.classList.toggle("hidden");
@@ -303,10 +298,12 @@ function toggleTranslation() {
             plusMinus.classList.remove("fa-plus");
         };
 }
+
 /* start-again event listener */
 startAgainBtn.addEventListener('click', e => {
     window.location.reload();
 })
+
 /* next button event listener */
 /* when next button clicked, reset class of user answer, hide translation and obtain new question */
 nextButton.addEventListener('click', e => {
@@ -346,7 +343,7 @@ function insertTable(askedQuestions) {
         summaryTable.innerHTML = summaryTableHTML;
     }
 }
-
+/* ends the game */
 function endgame() {
     /* hides quiz page and shoes end page */
     questionContainer.classList.add('hidden');
@@ -368,10 +365,6 @@ function endgame() {
 }
 
 function saveHighScore() {
-    
-/* saveHighScore = e => { */
-    /* prevents redirection */
-   /*  e.preventDefault();
     /* assigns the locally saved variables to an object */
     const score = {
         score: mostRecentScore,
@@ -391,28 +384,28 @@ function saveHighScore() {
 }
 
 function getHighscores() {
+    /* maps the scores to the high score list */
     highScoreList.innerHTML = highScores.map(score => {
         return `<li class="high-score"> ${score.name} - ${score.score} - ${score.time} </li>`;
     }).join('');
-
+    /* if there are no highscores, shows play game button and message */
     if (highScores == false){
         noHighScores.classList.remove('hidden');
-        returnHomeBtn.classList.remove('hidden');
+        playGameBtn.classList.remove('hidden');
     }
-    returnHomeBtn.addEventListener('click', e => {
+    /* if play game button clicked, starts game and timer */
+    playGameBtn.addEventListener('click', e => {
         highScoreContainer.classList.add('hidden');
         mainContainer.classList.remove('hidden');
         startGame();
         startTimer();
     })
 }
-
-
-/* finalScore.innerText = mostRecentScore */
-
+/* disallows saving until a username entry has been added */
 username.addEventListener('keyup', () => {
     saveScoreBtn.disabled = !username.value;
 });
+/* saves the highscore and removes the save button */
 saveScoreBtn.addEventListener('click', e => {
     formContainer.classList.add('hidden');
     formSubmitted.classList.remove('hidden');
