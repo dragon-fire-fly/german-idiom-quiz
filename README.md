@@ -223,7 +223,8 @@ if answer is incorrect:
 
 #### `toggleTranslation()`
 - triggered if the user clicks the "see translation" button
-- toggles the literal english translation of the question
+- toggles the literal english translation of the question so it can be seen or hidden
+- the '+' sign is changed to a '-' sign if clicked, then changed back to a '+' sign if clicked again, so the user can easily see if the translation is toggled on or off
 
 #### `nextQuestion()`
 - resets answers by removing 'correct' and/or 'incorrect' classes from answers
@@ -343,6 +344,8 @@ if answer is incorrect:
 [Back to Top](#contents)
 
 ## Lighthouse testing
+Lighthouse tests were performed using the built in lighthouse tool in Google Chrome Developer Tools. The aim of running Lighthouse tests is to improve site performance, accessibility and usability. The tests also measure the site crawlability and how highly it is displayed in search results in a search engine (SEO score). Scores over 90 are deemed to be very good.
+
 
 
 [Back to Top](#contents)
@@ -355,8 +358,10 @@ An [Eightshapes contrast grid](https://contrast-grid.eightshapes.com/?version=1.
 
 The [WAVE web accessibility evaluation tool](https://wave.webaim.org/report#/https://dragon-fire-fly.github.io/german-idiom-quiz/) was used to test accessibility.
 
-The tool identified a lack of contrast of main title with background image when it was white, so this was changed to black. 
-<!-- Try as black text -->
+The tool identified a lack of contrast of main title with background image when it was white, so this was changed to black. It also identified a missing form label for the username input, which was consequently added and some skipped heading levels throughout the site, which were amended.
+
+After fixing the suggested accessibility issues, the WAVE report was as follows, with 0 errors or alerts:
+![WAVE Report](assets/documentation/testing/WAVE-tool%20summary.png)
 
 
 
@@ -370,6 +375,9 @@ The tool identified a lack of contrast of main title with background image when 
 ## Resolved
 
 - highscore local storage issue (2 x calling save to local storage and score saving at wrong time) (include debugger)
+
+
+
 
 - When creating the `scoring()` function, the current score was erroneously being stored to the local storage when the question counter was on the last question, rather than when the end button was clicked (after the user has answered the final question). This was leading to the score being out by one if the user answered the final question correctly. To fix this bug, the `localStorage.setItem()` call was simply moved inside the event listener statement for the end button, as shown below.
 ![Question counter bug](assets/documentation/bugs/q-counter-bug.png)
