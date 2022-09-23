@@ -448,7 +448,7 @@ In terms of functionality, most of the functions of the quiz work as expected, h
 [Back to Top](#german-idiom-quiz)
 
 # Bugs
-## Resolved
+## Resolved bugs
 
 - Bug 1:  question counter and progress bar bug  
 A bug was created during the early phases of development due to the `getNextQuestion()` function being too large and meaning that on each iteration of the function, the event listener for the next button was being triggered one additional time (once for the first question, twice for the second question, etc.) causing the question counter and progress bar to increment by more than one each time. This bug was solved by taking the event listener for the next button outside of the `getNextQuestion()` function and creating a new `nextQuestion()` function.
@@ -486,9 +486,9 @@ This was caused by the use of a form for submitting the high score. The form was
 
 [Back to Top](#german-idiom-quiz)
 
-# Outstanding
+## Outstanding bugs
 
-
+There are no remaining bugs that I am aware of.
 
 [Back to Top](#german-idiom-quiz)
 
