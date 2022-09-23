@@ -435,8 +435,14 @@ All code was designed and tested throughout the development process on Chrome. A
 
 - Firefox  
 The firefox rendering of the page styling is quite different to in Chrome. The buttons have a grey border which contrasts strongly with the dark buttons, in contrast to the black/dark-grey borders presented in Chrome. Other than that, the quiz looks as expected.
+- Start page in Firefox  
+![Firefox start page](documentation/testing/firefox-start-page.png)
+- Quiz page in Firefox  
+![Firefox quiz page](documentation/testing/firefox-main-quiz.png)
+- End page in Firefox  
+![Firefox end page](documentation/testing/firefox-end-page-table.png)  
 
-    In terms of functionality, most of the functions of the quiz work as expected, however the user cannot use the same name to save their high score to local storage as they have used before. This is in contrast to Chrome where the same name can be saved multiple times to local storage with different score and times.
+In terms of functionality, most of the functions of the quiz work as expected, however the user cannot use the same name to save their high score to local storage as they have used before. This is in contrast to Chrome where the same name can be saved multiple times to local storage with different score and times.
 
 
 [Back to Top](#german-idiom-quiz)
