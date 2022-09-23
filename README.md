@@ -160,6 +160,7 @@ The implemented JavaScript functionality is sumarised below:
 - A count-up timer records how long the quiz attempt has taken
 - Under each question are 4 possible answers for the user to choose between. They can simply click the answer to select it. If the correct answer is selected, the answer button turns green and a check mark appears. If the incorrect answer is selected, the chosen answer button turns red and a cross is shown (and the button for the correct answer turns green with a check mark to iundicate the correct answer)
 - The score is updated by adding 1 for each correctly answered question, to a maximum of 12
+- If there is an English Equivalent to the idiom, this is displayed once an answer has been chosen 
 - At the end of the quiz, the user has the option to submit their name to the high score board
 - they also have the option to see a table of all questions asked in the quiz, their literal translations and their correct answers
 
@@ -167,7 +168,7 @@ The implemented JavaScript functionality is sumarised below:
 
 Detailed descriptions of each implemented JavaScript function can be read below:
 
-`onLoad()`
+#### `onLoad()`
 - adds event listener for start button which when clicked hides start page and unhides quiz page, calls `startGame()` and starts timer
 - adds event listener for Highscore button which when clicked hides start page, unhides highscore page and calls `getHighScores()`
 - adds event listener for home button which reloads the page
