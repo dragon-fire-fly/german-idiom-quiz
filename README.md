@@ -479,12 +479,16 @@ This bug was overcome by instead assigning the background properties to the `bod
 
 ![Table not hidden correctly](documentation/bugs/table-not-hidden-bug.png)
 
+- Bug 6: Page redirects after submitting high score
+This was caused by the use of a form for submitting the high score. The form was removed and replaced simply with an input field. The corresponding classes and ids were updated from `form-submitted` and `form-saved` to `score-submitted` and `score-saved`.
+
+![Page redirect bug](documentation/bugs/form-redirect-bug.png)
+
 [Back to Top](#german-idiom-quiz)
 
 # Outstanding
 
-- Page redirects after submitting high score
-    - This has been addressed by adding a warning at the bottom of the page before the user saves their answer that they will be immediately redirected
+
 
 [Back to Top](#german-idiom-quiz)
 

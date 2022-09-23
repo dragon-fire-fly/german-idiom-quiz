@@ -7,7 +7,7 @@ const mainContainer = document.querySelector('.main-container');
 const quizEnd = document.getElementById('quiz-end');
 const questionContainer = document.getElementById('q-container');
 const highScoreContainer = document.querySelector('.high-score-container');
-const formContainer = document.querySelector('.form-container');
+const saveScore = document.querySelector('.save-score');
 
 /* How to play modal */
 const howToPlayButton = document.getElementById('how-to-play-btn');
@@ -56,7 +56,7 @@ let mostRecentScore = localStorage.getItem('mostRecentScore');
 let mostRecentTime = localStorage.getItem("mostRecentTime");
 const highScoreList = document.getElementById('high-score-list');
 let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-const formSubmitted = document.querySelector('.form-submitted');
+const scoreSubmitted = document.querySelector('.score-submitted');
 const noHighScores = document.querySelector('.no-highscores');
 
 /* Setting base values for mutable variables */
@@ -70,7 +70,7 @@ let availableQuestions = [];
 
 /* Setting fixed value variables */
 const POINT_VALUE = 1;
-const TOTAL_QUESTIONS = 12;
+const TOTAL_QUESTIONS = 4;
 const MAX_HIGH_SCORES = 5;
 
 /* Calls on-page load JS */
@@ -407,8 +407,8 @@ username.addEventListener('keyup', () => {
 });
 /* saves the highscore and removes the save button */
 saveScoreBtn.addEventListener('click', e => {
-    formContainer.classList.add('hidden');
-    formSubmitted.classList.remove('hidden');
+    saveScore.classList.add('hidden');
+    scoreSubmitted.classList.remove('hidden');
     saveHighScore();
 
 });
