@@ -70,7 +70,7 @@ let availableQuestions = [];
 
 /* Setting fixed value variables */
 const POINT_VALUE = 1;
-const TOTAL_QUESTIONS = 4;
+const TOTAL_QUESTIONS = 12;
 const MAX_HIGH_SCORES = 5;
 
 /* Calls on-page load JS */
@@ -127,8 +127,9 @@ function startGame() {
 }
 
 /* shuffle function takes the original question list and randomises the entries */
-function shuffle(array) {
-    let currentIndex = array.length,
+/* amended from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
+function shuffle(question_array) {
+    let currentIndex = question_array.length,
         randomIndex;
     // While there remain elements to shuffle.
     while (currentIndex != 0) {
@@ -136,11 +137,11 @@ function shuffle(array) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
         // And swap it with the current element.
-        [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]
+        [question_array[currentIndex], question_array[randomIndex]] = [
+            question_array[randomIndex], question_array[currentIndex]
         ];
     }
-    return array;
+    return question_array;
 }
 
 /* adds the first 12 randomised quesions to a list called "quizQuestions */
@@ -162,6 +163,7 @@ function startTimer() {
 }
 
 /* Start the timer */
+/* created with reference to https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript */
 function countTimer(start) {
     /* current UNIX time */
     let now = Date.now();
@@ -260,7 +262,7 @@ options.forEach(option => {
         /* apply appropriate class to the selected answer (red or green colour) */
         selectedOption.classList.add(classToApply);
         /* Adds the english equivalent, if present, to the HTML */
-        if (currentQuestion.english_equivalent){
+        if (currentQuestion.english_equivalent) {
             enEquiv.innerHTML = `By the way... The English equivalent is...<br><p class="center-content">"${currentQuestion.english_equivalent}"</p>`;
         }
         /* display next button if not on the last question */
@@ -291,12 +293,13 @@ translateButton.addEventListener('click', e => {
 /* Toggle the literal translation */
 function toggleTranslation() {
     translation.classList.toggle("hidden");
-    if (translation.classList.contains('hidden')){
+    if (translation.classList.contains('hidden')) {
         plusMinus.classList.remove("fa-minus");
-            plusMinus.classList.add("fa-plus");} else {
-            plusMinus.classList.add("fa-minus");
-            plusMinus.classList.remove("fa-plus");
-        }
+        plusMinus.classList.add("fa-plus");
+    } else {
+        plusMinus.classList.add("fa-minus");
+        plusMinus.classList.remove("fa-plus");
+    }
 }
 
 /* start-again event listener */
@@ -330,6 +333,7 @@ function increaseScore(num) {
 
 /* script for creating table of asked questions */
 /* insert html table rows for each question */
+/* created with reference to https://www.youtube.com/watch?v=ri5Nqe_IK50 */
 function insertTable(askedQuestions) {
     let summaryTableHTML = '';
     for (let question of askedQuestions) {
@@ -383,13 +387,14 @@ function saveHighScore() {
     localStorage.setItem('highScores', JSON.stringify(highScores));
 }
 
+/* created with reference to https://www.youtube.com/watch?v=f4fB9Xg2JEY */
 function getHighscores() {
     /* maps the scores to the high score list */
     highScoreList.innerHTML = highScores.map(score => {
         return `<li class="high-score"> ${score.name} - ${score.score} - ${score.time} </li>`;
     }).join('');
     /* if there are no highscores, shows play game button and message */
-    if (highScores == false){
+    if (highScores == false) {
         noHighScores.classList.remove('hidden');
         playGameBtn.classList.remove('hidden');
     }

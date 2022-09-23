@@ -211,7 +211,6 @@ Detailed descriptions of each implemented JavaScript function can be read below:
 - increases the question counter each time a new quesiton is displayed
 - updates the progress counter (question x of y)
 - updates the progress bar
-- if there is exactly one question remaining, hide the 'next' button and display the 'end' button instead.
 - if there are no questions remaining on the quizQuestions list, add an end button event listener, which when clicked calls the `endGame()` function
 
 #### `getNewQuestion()`
@@ -219,7 +218,10 @@ Detailed descriptions of each implemented JavaScript function can be read below:
 - determines the current question and selects it from the list of 12 quiz questions
 - updates the question text in the html file
 - displays the literal translation (but awaits the user requesting it)
+- shuffles the 4 possible answers by calling the `shuffle()` function again
 - displays the 4 possible answers in the html file and adds event listeners to each
+- if there is an English equivalent to the current idiom, it is displayed once an answer has been selected
+- if there is exactly one question remaining, hide the 'next' button and display the 'end' button instead.
 - once an answer is selected, unhides the 'next' button and determines if it is correct or incorrect and applies the following changes:
 
 if answer is correct:
@@ -235,6 +237,7 @@ if answer is incorrect:
 
 #### `hideNextButton()`
 - hides the next button until the next time an answer is chosen
+- also resets the plus/minus button for the literal translation back to its default "+" state
 
 #### `toggleTranslation()`
 - triggered if the user clicks the "see translation" button
@@ -261,8 +264,8 @@ if answer is incorrect:
 #### `endGame()`
 - tidies up the screen at the end of the game
 - hides the container that displays the questions
-- unhides the summary page with score displayed
-- displays a button with an event listener for users to click if they wish to review their answers
+- unhides the end/summary page with score displayed
+- displays a button with an event listener for users to click if they wish to review their answers and one for navigating back to the home page
 - calls the insertTable() function and passes in the questions from the quiz
 
 #### `saveHighScore()`
@@ -274,6 +277,7 @@ if answer is incorrect:
 
 #### `getHighScores()`
 - maps the highscores to the highscore list and adds a list item for each value in the array
+- if there are no high scores recorded yet, displays a button to directly start the quiz with an event listener
 
 [Back to Top](#german-idiom-quiz)
 
@@ -317,11 +321,6 @@ if answer is incorrect:
 - `saveScoreBtn`
     - allows the user to save their score, if desired
 
-### Other features:
-- English equivalent feature
-    - the user is shown an equivalent English idiom or phrase, where one is available
-
-
 [Back to Top](#german-idiom-quiz)
 
 ## Features Left to Implement
@@ -330,7 +329,10 @@ if answer is incorrect:
 - Ability to play against other players
     - This could be achieved by saving the names, scores, etc to a database.
 - Store the most recently asked Qs into local storage
-    - This would enable the review table to be viewed later (until a new game is played). This would mean that the user can view the leaderboard or otherwise navigate around the site, and then revisit the summary table to see how they could improve next time.
+    - This could be achieved by storing the IDs of each question from the question list into the local storage and would enable the review table to be viewed later (until a new game is played). This would mean that the user can view the leaderboard or otherwise navigate around the site, and then revisit the summary table to see how they could improve next time.
+- Add a "Are you sure you want to leave the page?" modal when home button clicked
+    - This would give the user the choice to stay on the current page to prevent users from accidently navigating to the home page during the the quiz and losing their score. 
+    - This could be achieved by setting an `activeGame` variable which is set to `true` when the game is started and `end` when the game is ended. The user is prompted to select "yes" or "no" to renavigate which could change the boolean value to `false` if "yes" is chosen or kept at `true` if "no" is chosen.
 
 [Back to Top](#german-idiom-quiz)
 
@@ -460,7 +462,7 @@ Originally the code was within the `getNextQuestion()` function...
 ![Question counter and progress bar bug fixed](documentation/bugs/nextQuestion-fixed.png)
 
 - Bug 2: `saveHighScore()` function being called twice  
-Each time the user entered a name to save their score, the scoreboard was saving each entry twice. The source of this bug was found using a debugger to see that the `saveHighScore()` function was being called twice - once from the JS file and once from the HTML file. The HTML call was removed and the bug was solved
+Each time the user entered a name to save their score, the scoreboard was saving each entry twice. The source of this bug was found using debugger mode to see that the `saveHighScore()` function was being called twice - once from the JS file and once from the HTML file. The HTML call was removed and the bug was solved
 
 ![Saving twice bug](documentation/bugs/highscore-repeat-bug.png)
 
@@ -480,7 +482,7 @@ This bug was overcome by instead assigning the background properties to the `bod
 ![Table not hidden correctly](documentation/bugs/table-not-hidden-bug.png)
 
 - Bug 6: Page redirects after submitting high score
-This was caused by the use of a form for submitting the high score. The form was removed and replaced simply with an input field. The corresponding classes and ids were updated from `form-submitted` and `form-saved` to `score-submitted` and `score-saved`.
+This was caused by the use of a form for submitting the high score. The form was removed and replaced simply with an input field. The corresponding classes and ids were updated from `form-container` and `form-submitted` to `save-score` and `score-submitted`.
 
 ![Page redirect bug](documentation/bugs/form-redirect-bug.png)
 
