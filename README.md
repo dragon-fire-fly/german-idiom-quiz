@@ -8,7 +8,7 @@ The quiz asks the user to select the correct answer out of four possible options
 
 The user has the option to see a literal English translation (which often does not provide many hints as to the meaning!) and to review the questions at the end of the quiz, providing an educational element to the quiz.
 
-![https://ui.dev/amiresponsive?url=https://dragon-fire-fly.github.io/german-idiom-quiz/](assets/documentation/testing/am-i-responsive.png)
+![https://ui.dev/amiresponsive?url=https://dragon-fire-fly.github.io/german-idiom-quiz/](documentation/testing/am-i-responsive.png)
 
 [View the live site](https://dragon-fire-fly.github.io/german-idiom-quiz)  
 
@@ -50,14 +50,14 @@ To complement the colours in the flag, accent colours were chosen and saved as `
 The bold, accent colours came from a ["Germany" palette](https://colorswall.com/palette/4646) and the softer green for correct answers were picked from a ["Germany minimalistic" palette](https://colorswall.com/palette/50961). The softer red colour for incorrect answers was a manually picked colour.
 
 The colour scheme is shown below as a coolors colour palette:
-![coolers colour scheme](assets/documentation/coolers-theme.png)  
+![coolers colour scheme](documentation/coolers-theme.png)  
 
 [Back to Top](#german-idiom-quiz)
 
 ## Typography
 A simple, clear typeface was chosen from Google Fonts. Only one font was used for this project to maintain consistency and readability but a variety of font weights were used to add visual interest.
 
-![Kanit typeface](assets/documentation/kanit-font.png)
+![Kanit typeface](documentation/kanit-font.png)
 
 [Back to Top](#german-idiom-quiz)
 
@@ -66,16 +66,16 @@ A simple, clear typeface was chosen from Google Fonts. Only one font was used fo
 <summary>The following wireframes were created at the start of the project in order to guide the design and functionality of the website.</summary>
 
 ### Welcome Page
-![Welcome page](assets/documentation/wireframes/welcome-page-wireframe.png)
+![Welcome page](documentation/wireframes/welcome-page-wireframe.png)
 
 ### Main quiz page
-![Main quiz page](assets/documentation/wireframes/main-quiz-wireframe.png)
+![Main quiz page](documentation/wireframes/main-quiz-wireframe.png)
 
 ### How to play modal
-![How to play modal](assets/documentation/wireframes/how-to-play-wireframe.png)
+![How to play modal](documentation/wireframes/how-to-play-wireframe.png)
 
 ### High score board page
-![Highscore board page](assets/documentation/wireframes/leaderboard-wireframe.png)  
+![Highscore board page](documentation/wireframes/leaderboard-wireframe.png)  
 
 </details>
 
@@ -86,23 +86,23 @@ A simple, clear typeface was chosen from Google Fonts. Only one font was used fo
 ### Style Features
 - Favicon  
 A round german flag with a transparent background was used as a favicon for the site   
-![Favicon](assets/documentation/features/favicon.png)
+![Favicon](documentation/features/favicon.png)
 
 - High score page  
 If there are not yet any highscores saved in local storage, the user will be invited to play the quiz. If there is at least one score in local storage, up to 5 scores will be displayed with the highest score at the top  
 
-![Highscore page](assets/documentation/features/highscore-table.png)
+![Highscore page](documentation/features/highscore-table.png)
 
 - Nav bar   
 The nav bar allows the user to navigate back to the landing page (home) or open the "how to play" modal. The colours of these buttons were designed to complement the overall colour scheme, with an underline effect in the opposite colour appearing when hovered over
 
-![Nav bar](assets/documentation/features/nav-bar.png)
+![Nav bar](documentation/features/nav-bar.png)
 
 
 - How to play modal  
 The how to play modal explains the basic rules and navigation for the quiz. The modal can be closed by clicking the "x" button or anywhere else on the page
 
-![How to play modal](assets/documentation/features/how-to-play-modal.png)
+![How to play modal](documentation/features/how-to-play-modal.png)
 
 - Buttons  
 1. Start and highscore buttons
@@ -114,36 +114,36 @@ The how to play modal explains the basic rules and navigation for the quiz. The 
 4. Quiz navigation buttons - next, end and start again
     - Allow the user to progress to the next question, the end of the quiz or back to the landing page, respectively
 
-![Buttons](assets/documentation/features/buttons.png)
+![Buttons](documentation/features/buttons.png)
 
 - Question counter and progress bar  
 The question counter and progress bar tell the user how many questions they have answered, how many questions are in the quiz and therefore what percentage through the quiz they are. The progress bar is coloured red with a black border to complement the overall colour scheme  
-![Question counter](assets/documentation/features/question-counter.png)
-![Progress bar](assets/documentation/features/progress-bar.png)
+![Question counter](documentation/features/question-counter.png)
+![Progress bar](documentation/features/progress-bar.png)
 
 - Timer  
 The timer counts up from 0 and is displayed in a HH:MM:SS format  
-![Timer](assets/documentation/features/timer.png)
+![Timer](documentation/features/timer.png)
 
 - Score  
 The score starts at 0 with 1 point being added with each correctly answered question, to a maximum of 12 points  
-![Score](assets/documentation/features/score.png)
+![Score](documentation/features/score.png)
 
 - Question  
 The question is simply displayed in the centre of the screen. Each time the quiz is run, 12 questions are randomly selected from a large question bank  
-![Question](assets/documentation/features/idiom-text.png)
+![Question](documentation/features/idiom-text.png)
 
 - Literal translation toggle  
 The literal translation can be displayed by clicking the "+ Show/hide translation" toggle. Once opened, the "+" changed to a "-" to indicate the toggle is open. Once closed, it returns to its orignial "+" state 
-![Literal translation toggle](assets/documentation/features/show-translation.png)
+![Literal translation toggle](documentation/features/show-translation.png)
 
 - 4 possible answers  
 The 4 randomised possible answers are displayed in yellow boxes. If the question is correctly answered, the box is highlighted in green and a check mark is shown. If the incorrect answer is chosed, the chosen answer is highliged in red with a cross mark and the correct answer is highlighted in green with a check mark so the user has the opportunity to see the correct answer  
-![Possible answers](assets/documentation/features/question-options.png)
+![Possible answers](documentation/features/question-options.png)
 
 - Review questions table  
 At the end of the quiz, the user has the option to view a table summarising the 12 asked questions, their literal translation and correct meaning. If the question was answered correctly, it is highlighted in green. Otherwise, it is highlighted in red  
-![Summary table](assets/documentation/features/summary-table.png)
+![Summary table](documentation/features/summary-table.png)
 
 [Back to Top](#german-idiom-quiz)
 
@@ -353,11 +353,11 @@ if answer is incorrect:
 ## Validator tests
 - HTML Validation  
 The site passed W3C HTML testing with no errors or warnings
-![HTML W3C testing](assets/documentation/testing/w3-html.png)
+![HTML W3C testing](documentation/testing/w3-html.png)
 
 - CSS validation  
 The CSS code was pasted into the [W3C Validation Service](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdragon-fire-fly.github.io%2Fgerman-idiom-quiz%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) and passed with no errors.
-![CSS Validation](assets/documentation/testing/css-validation.png)
+![CSS Validation](documentation/testing/css-validation.png)
 <p>
     <a href="https://jigsaw.w3.org/css-validator/check/referer">
         <img style="border:0;width:88px;height:31px"
@@ -371,36 +371,36 @@ Both JS files were passed through [JSHint](https://jshint.com/)
 Both passed with no issues other than the undefined/unused variable of 'questions' due to them being seperate JS files  
 
 - script.js
-![jshint script.js](assets/documentation/testing/js-hint-main-js.png)
+![jshint script.js](documentation/testing/js-hint-main-js.png)
 - questions.js
-![jshint questions.js](assets/documentation/testing/js-hint-questions.png)
+![jshint questions.js](documentation/testing/js-hint-questions.png)
 
 
 [Back to Top](#german-idiom-quiz)
 
 ## Responsiveness testing
 The quiz was tested with [am-i-responsive](https://ui.dev/amiresponsive?url=https://dragon-fire-fly.github.io/german-idiom-quiz/) and performs on all tested screen sizes
-![am i respoonsive?](assets/documentation/testing/am-i-responsive.png)
+![am i respoonsive?](documentation/testing/am-i-responsive.png)
 
 Each page was compared at three standard screen sizes - mobile (375px), tablet (768px) and large laptop/desktop (1440px)
 
 - Home page
-![Home page responsiveness](assets/documentation/responsiveness/home-responsive.png)
+![Home page responsiveness](documentation/responsiveness/home-responsive.png)
 
 - How to play modal
-![How to play modal responsiveness](assets/documentation/responsiveness/modal-responsive.png)
+![How to play modal responsiveness](documentation/responsiveness/modal-responsive.png)
 
 - Main quiz page
-![Main quiz responsiveness](assets/documentation/responsiveness/main-quiz-responsive.png)
+![Main quiz responsiveness](documentation/responsiveness/main-quiz-responsive.png)
 
 - Quiz end page
-![Quiz end responsiveness](assets/documentation/responsiveness/quiz-complete-responsive.png)
+![Quiz end responsiveness](documentation/responsiveness/quiz-complete-responsive.png)
 
 - Summary table
-![Summary table responsiveness](assets/documentation/responsiveness/summary-table-responsive.png)
+![Summary table responsiveness](documentation/responsiveness/summary-table-responsive.png)
 
 - Highscore page
-![High score page responsiveness](assets/documentation/responsiveness/highscores-responsive.png)
+![High score page responsiveness](documentation/responsiveness/highscores-responsive.png)
 
 [Back to Top](#german-idiom-quiz)
 
@@ -409,14 +409,14 @@ Lighthouse tests were performed using the built in lighthouse tool in Google Chr
 
 The lighthouse test results for desktop and mobile are shown below:
 
-![Lighthouse testing results](assets/documentation/testing/lighthouse-testing.png)
+![Lighthouse testing results](documentation/testing/lighthouse-testing.png)
 
 [Back to Top](#german-idiom-quiz)
 
 ## Accessibility testing
 An [Eightshapes contrast grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23FFFFFF%2C%20White%0D%0A%23000000%2C%20Black%0D%0A%23dd0000%0D%0A%23ffce00%0D%0A%238ca891%0D%0A%23e74a39%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp) was created to check the contrast between the colours used on the page. The red text on black background received a score of 4 which makes it only suitable for large text. This combination was only used for the nav bar "home" button which is large text. All othe colour combinations used on the site produced a result of at least 5.1 (pass, AA rating), indicating they are suitable and readable.
 
-![Eightshapes contrast grid](assets/documentation/testing/eight-shapes-grid.png) 
+![Eightshapes contrast grid](documentation/testing/eight-shapes-grid.png) 
 
 
 The [WAVE web accessibility evaluation tool](https://wave.webaim.org/report#/https://dragon-fire-fly.github.io/german-idiom-quiz/) was used to test accessibility.
@@ -424,7 +424,7 @@ The [WAVE web accessibility evaluation tool](https://wave.webaim.org/report#/htt
 The tool identified a lack of contrast of main title with background image when it was white, so this was changed to black. It also identified a missing form label for the username input, which was consequently added and some skipped heading levels throughout the site, which were amended.
 
 After fixing the suggested accessibility issues, the WAVE report was as follows, with 0 errors or alerts:
-![WAVE Report](assets/documentation/testing/WAVE-tool%20summary.png)
+![WAVE Report](documentation/testing/WAVE-tool%20summary.png)
 
 
 [Back to Top](#german-idiom-quiz)
@@ -447,31 +447,31 @@ The firefox rendering of the page styling is quite different to in Chrome. The b
 - Bug 1:  question counter and progress bar bug  
 A bug was created during the early phases of development due to the `getNextQuestion()` function being too large and meaning that on each iteration of the function, the event listener for the next button was being triggered one additional time (once for the first question, twice for the second question, etc.) causing the question counter and progress bar to increment by more than one each time. This bug was solved by taking the event listener for the next button outside of the `getNextQuestion()` function and creating a new `nextQuestion()` function.
 
-![Question counter and progress bar bug](assets/documentation/bugs/q-counter-progress-bug.png)  
+![Question counter and progress bar bug](documentation/bugs/q-counter-progress-bug.png)  
 Originally the code was within the `getNextQuestion()` function...  
-![Code for question counter and progress bar bug](assets/documentation/bugs/next-button-bug.png)
+![Code for question counter and progress bar bug](documentation/bugs/next-button-bug.png)
 ... but was moved outside to an event listener calling a new function `nextQuestion()`:
-![Question counter and progress bar bug fixed](assets/documentation/bugs/nextQuestion-fixed.png)
+![Question counter and progress bar bug fixed](documentation/bugs/nextQuestion-fixed.png)
 
 - Bug 2: `saveHighScore()` function being called twice  
 Each time the user entered a name to save their score, the scoreboard was saving each entry twice. The source of this bug was found using a debugger to see that the `saveHighScore()` function was being called twice - once from the JS file and once from the HTML file. The HTML call was removed and the bug was solved
 
-![Saving twice bug](assets/documentation/bugs/highscore-repeat-bug.png)
+![Saving twice bug](documentation/bugs/highscore-repeat-bug.png)
 
 
 - Bug 3: When creating the `scoring()` function, the current score was erroneously being stored to the local storage when the question counter was on the last question, rather than when the end button was clicked (after the user has answered the final question). This was leading to the score being out by one if the user answered the final question correctly. To fix this bug, the `localStorage.setItem()` call was simply moved inside the event listener statement for the end button, as shown below.
-![Question counter bug](assets/documentation/bugs/q-counter-bug.png)
+![Question counter bug](documentation/bugs/q-counter-bug.png)
 
 
 - Bug 4: Whilst styling the page, the background image was assigned to `main` which created some overflow-x property issues on the main page which were overcome by setting the `overflow-x` property to hidden. This has the downstream effect of creating an internal scroll bar when the summary table was displayed, as shown in the screenshot below.
 This bug was overcome by instead assigning the background properties to the `body` and removing the `overflow-x: hidden;` property which was no longer required. This fixed the internal scroll bar issue.
 
-![Internal scroll bug](assets/documentation/bugs/internal-scroll-bug.png)
+![Internal scroll bug](documentation/bugs/internal-scroll-bug.png)
 
 
 - Bug 5: When styling the table, CSS flex was used to improve positioning of the table element. `display: flex;` was added to the CSS for the table, however this caused the `hidden` class to be ignored and thus the table was always being shown, rather than only after the user clicks the 'review questions' button. This was fixed by moving the `display: flex;` property to its own `add-flex` class and only being added to the table if the user clicks the review button. 
 
-![Table not hidden correctly](assets/documentation/bugs/table-not-hidden-bug.png)
+![Table not hidden correctly](documentation/bugs/table-not-hidden-bug.png)
 
 [Back to Top](#german-idiom-quiz)
 
@@ -492,9 +492,9 @@ Under "Source", select "Branch: main" and click save
 After a few miunutes, the site should be successfully deployed and the link may be found on the same page or under "Environments" on the right hand side of the repository page.
 From here, the "View Deployment" button leads directly to the deployed site.
 
-![Github pages](assets/documentation/deployment/github-pages.png)  
-![Github environments](assets/documentation/deployment/github-environments.png)  
-![View deployment](assets/documentation/deployment/view-deployment.png)  
+![Github pages](documentation/deployment/github-pages.png)  
+![Github environments](documentation/deployment/github-environments.png)  
+![View deployment](documentation/deployment/view-deployment.png)  
 
 
 ## Forking someone else's repository
@@ -504,7 +504,7 @@ Locate the repository of the project you would like to copy
 In the top-right corner of the repository click on the "fork" button
 Navigate to your fork of the project and start coding!
 
-![Forking a page](assets/documentation/deployment/forking.png)  
+![Forking a page](documentation/deployment/forking.png)  
 
 ## Creating a local clone of a project
 Following these steps will allow you to clone a repository and open it in your local IDE, for example Visual Studio Code, Eclipse or NetBeans:
@@ -515,7 +515,7 @@ Ensuring that HTTPS is selected, select the copy button (as shown in the screens
 Open your local IDE and change the current working directory in GitBash to the desired location for the new repository
 In the command line, type 'git clone' and paste the URL obtained earlier from GitHub.
 
-![Local IDE clone](assets/documentation/deployment/https.png)  
+![Local IDE clone](documentation/deployment/https.png)  
 
 Alternatively, you can create a local copy of this repository, by typing the follow into your IDE terminal:
 - `git clone https://github.com/dragon-fire-fly/german-idiom-quiz.git`
